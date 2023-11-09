@@ -28,7 +28,7 @@
       
               <div class="text-end">
                 <a href="index.php"><button type="button" class="btn btn-outline-light me-2">Acceder</button></a>
-                <a href="index.php"><button type="button" class="btn btn-warning">Crear usuario</button></a>
+                <a href="datosPersonales.php"><button type="button" class="btn btn-warning">Crear usuario</button></a>
               </div>
             </div>
           </div>
