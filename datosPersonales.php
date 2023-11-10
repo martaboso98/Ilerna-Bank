@@ -39,20 +39,32 @@
     <section id="datosPersonales">
 
     <h1> Mis datos personales </h1>
-        <form action="insertarDatos.php" method="POST">
-            <label for="nombre">Nombre: </label>
+        <form action="insertarDatos.php" method="POST" >
+            <label for="dni" class="label">Introduce tu DNI:</label>
+                <input type="text" name="dni" id="dni" placeholder="DNI/NIE" required>
+
+            <label for="contrasenya" class="label">Contraseña:</label>
+                <input type="text" name="contrasenya" id="contrasenya" placeholder="Contraseña" required>
+
+            <label for="nombre" class="label">Nombre: </label>
                 <input type="text" name="nombre" id="nombre" required>
-            <label for="apellidos">Apellidos: </label>
+
+            <label for="apellidos" class="label">Apellidos: </label>
                 <input type="text" name="apellidos" id="apellidos" required>
-            <label for="tfno">Teléfono: </label>
+
+            <label for="tfno" class="label">Teléfono: </label>
                 <input type="tel" name="tfno" id="tfno" required>        
-            <label for="direccion">Dirección: </label>
+
+            <label for="direccion" class="label">Dirección: </label>
                 <input type="text" name="direccion" id="direccion" required> 
-            <label for="fecha">Fecha de nacimiento: </label>
-                <input type="date" name="fecha" id="fecha" required>        
-            <label for="correo">Correo: </label>
+
+            <label for="fecha" class="label">Fecha de nacimiento: </label>
+                <input type="date" name="fecha" id="fecha" required>      
+
+            <label for="correo" class="label">Correo: </label>
                 <input type="email" name="correo" id="correo" required>
-            <button type="submit">Enviar</button>
+                
+            <input type="submit" name="enviar" value="Enviar">
         </form>
     </section>
 

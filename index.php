@@ -42,13 +42,13 @@
         <form action="consulta1.php" method="POST">
             <div>
             <label for="dni" class="label">Introduce tu DNI:</label>
-            <input type="text" name="dni" id="dni" placeholder="DNI/NIE" required>
+              <input type="text" name="dni" id="dni" placeholder="DNI/NIE" required>
             <!-- Acceder con pasaporte también -->
             </div>
 
             <div>
             <label for="contrasenya" class="label">Contraseña:</label>
-            <input type="text" name="contrasenya" id="contrasenya" placeholder="Contraseña" required>
+              <input type="text" name="contrasenya" id="contrasenya" placeholder="Contraseña" required>
             <!-- He olvidado mi contraseña:
             Si no recuerdas tu contraseña de acceso, desde esta página puedes solicitarla.<label DNI>
             Este servicio solo será válido si previamente no has bloqueado tus claves de acceso. En ese caso, deberás ponerte en contacto con tu oficina o con los servicios de atención de tu entidad.-->

@@ -42,10 +42,6 @@
   <!-- Fin header -->
 
   <main>
-    <figure class="main_figure">
-      <img src="" alt="main img">
-    </figure>
-
     <button class="open_button" onclick="openForm()"><i class="bx bxs-chat"></i>Chat</button>
 
     <div class="chat_popup" id="myForm">
