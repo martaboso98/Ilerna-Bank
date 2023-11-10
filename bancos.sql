@@ -10,6 +10,7 @@ create table usuario (
     tfno int,
     direccion varchar (80),
     fecha date,
-    correo varchar (70),
+    correo varchar (70)
 );
 
+insert into usuario values (30696605, "Marta", "Borreguero", "123", 672, "avenida", 01/01/1998, "marta@hotmail.com");

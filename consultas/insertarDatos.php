@@ -19,12 +19,11 @@
     $consulta_existe = "SELECT dni FROM usuario WHERE dni = '$dni'";
     $resultado_existe = mysqli_query($conexion, $consulta_existe);
 
-
     if (mysqli_num_rows($resultado_existe) > 0){
         echo "<script>alert('El usuario ya existe en la base de datos. No se puede duplicar.')</script>";
     } else {
-        $insertar = "INSERT INTO usuario VALUES ('$dni', '$contrasenya','$nombre', '$apellidos', '$tfno', '$direccion', '$fecha', '$correo')";
+        $insertar = "INSERT INTO usuario VALUES ('$dni' ,'$nombre', '$apellidos', '$contrasenya', '$tfno', '$direccion', '$fecha', '$correo')";
         $resultado = mysqli_query($conexion, $insertar) or die ( "Algo ha ido mal en la consulta a la base de datos");
+        header("location: ../banco.php");
     }
 
-    include "banco.php";
