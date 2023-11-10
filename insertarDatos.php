@@ -5,6 +5,8 @@
     /*Recoger datos del formulario y mandarlos a la base de datos*/
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $dni = $_POST["dni"];
+        $contrasenya = $_POST["contrasenya"];
         $nombre = $_POST["nombre"];
         $apellidos = $_POST["apellidos"];
         $tfno = $_POST["tfno"];
@@ -13,7 +15,16 @@
         $correo = $_POST["correo"];
     }
 
-    $insertar = "INSERT INTO usuario (nombre, apellidos, tfno, direccion, fecha, correo) VALUES ('$nombre', '$apellidos', '$tfno', '$direccion', '$fecha', '$correo')";
-    $resultado = mysqli_query($conexion, $insertar) or die ( "Algo ha ido mal en la consulta a la base de datos");
+    //Comprueba si el usuario ya existe en la base de datos
+    $consulta_existe = "SELECT dni FROM usuario WHERE dni = '$dni'";
+    $resultado_existe = mysqli_query($conexion, $consulta_existe);
+
+
+    if (mysqli_num_rows($resultado_existe) > 0){
+        echo "<script>alert('El usuario ya existe en la base de datos. No se puede duplicar.')</script>";
+    } else {
+        $insertar = "INSERT INTO usuario VALUES ('$dni', '$contrasenya','$nombre', '$apellidos', '$tfno', '$direccion', '$fecha', '$correo')";
+        $resultado = mysqli_query($conexion, $insertar) or die ( "Algo ha ido mal en la consulta a la base de datos");
+    }
 
     include "banco.php";

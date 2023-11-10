@@ -11,6 +11,5 @@ create table usuario (
     direccion varchar (80),
     fecha date,
     correo varchar (70),
-    prestamo boolean default false
 );
 

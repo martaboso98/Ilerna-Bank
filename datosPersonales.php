@@ -41,10 +41,10 @@
     <h1> Mis datos personales </h1>
         <form action="insertarDatos.php" method="POST" >
             <label for="dni" class="label">Introduce tu DNI:</label>
-                <input type="text" name="dni" id="dni" placeholder="DNI/NIE" required>
+                <input type="text" name="dni" id="dni" required>
 
             <label for="contrasenya" class="label">Contraseña:</label>
-                <input type="text" name="contrasenya" id="contrasenya" placeholder="Contraseña" required>
+                <input type="text" name="contrasenya" id="contrasenya" required>
 
             <label for="nombre" class="label">Nombre: </label>
                 <input type="text" name="nombre" id="nombre" required>
@@ -63,7 +63,7 @@
 
             <label for="correo" class="label">Correo: </label>
                 <input type="email" name="correo" id="correo" required>
-                
+
             <input type="submit" name="enviar" value="Enviar">
         </form>
     </section>
