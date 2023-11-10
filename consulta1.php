@@ -13,14 +13,15 @@
     }
             
     //Comprueba si el usuario ya existe en la base de datos
-    $consulta_existe = "SELECT dni FROM usuario WHERE dni = '$dni'";
+    $consulta_existe = "SELECT dni, contrasenya FROM usuario WHERE dni = '$dni' AND contrasenya = '$contrasenya'";
     $resultado_existe = mysqli_query($conexion, $consulta_existe);
 
     if (mysqli_num_rows($resultado_existe) > 0){
-        echo "<script>alert('El usuario ya existe en la base de datos. No se puede duplicar.')</script>";
+        include "banco.php";
+        die();
     } else {
-        $consulta = "INSERT INTO usuario (dni, contrasenya) VALUES ('$dni', '$contrasenya')";
-        $resultado1 = mysqli_query($conexion, $consulta) or die ( "Algo ha ido mal en la consulta a la base de datos");
+        echo ("fallo");
+        include "index.php";
+        die();
     }
 
-    include "banco.php";
