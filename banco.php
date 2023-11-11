@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -38,9 +38,19 @@
       
     <!-- Fin header -->
 
-    <section>
-    <h3>Hola, <?php include_once("consultas/consultaNombre.php"); ?></h3>
-    <h3>IBAN: <?php include_once("consultas/IBAN.php"); ?></h3>
+    <section id="movimientos">
+      <h3>Hola, <?php include_once("consultas/consultaNombre.php"); ?></h3>
+      <h3>IBAN: <?php include_once("consultas/IBAN.php"); ?></h3>
+      <h3>Saldo Total: <?php include_once("consultas/saldo_total.php"); ?></h3>
+
+      <h1>Movimientos en cuenta</h1>
+
+      <?php include_once("consultas/mostrarMovimientos.php"); ?>
+
+      <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
+      <a href="moverDinero.php?accion=ingreso"><button type="button" class="btn btn-warning">Ingresar</button></a>
+      <a href="moverDinero.php?accion=retiro"><button type="button" class="btn btn-danger">Retirar</button></a>
+
     </section>
 
 </body>

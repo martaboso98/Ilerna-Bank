@@ -17,26 +17,21 @@ if ($fila = mysqli_fetch_assoc($resultadoNombre)) {
     }
 
     //Posición de una letra en el abecedario: Valor ASCII de la letra $letra - valor ASCII de la letra 'A' y suma 1 para que no empiece desde 0
-     function letra_a_posicion($letra) {
+    function letra_a_posicion($letra) {
         $letra = strtoupper($letra);
         return ord($letra) - ord('A') + 1;
     }
 
-    //Convertir cada letra del nombre a su posición en el abecedario
-    $nombre_posicionado = '';
+    //Convertir cada letra del nombre a su posición en el abecedario y luego a binario
+    $nombre_binario = '';
     for ($i = 0; $i < strlen($nombre); $i++) {
         $letra_actual = $nombre[$i];
         $posicion_letra = letra_a_posicion($letra_actual);
-        $nombre_posicionado .= $posicion_letra;
+        $binario_letra = decbin($posicion_letra);
+        $nombre_binario .= $binario_letra;
     }
 
-    function letra_a_binario($letra) {
-        $letra = strtoupper($letra);
-        $posicion = ord($letra) - ord('A') + 1;
-        return decbin($posicion);
-    }
-
-    echo decbin($posicion);
+    echo $nombre_binario;
 
 } 
 

@@ -13,4 +13,30 @@ create table usuario (
     correo varchar (70)
 );
 
-insert into usuario values (30696605, "Marta", "Borreguero", "123", 672, "avenida", 01/01/1998, "marta@hotmail.com");
+create table movimientos (
+	id_movimiento int auto_increment primary key, 
+    id_cliente int,
+    saldo_total float,
+    importe float, 
+    fecha date,
+    concepto varchar (80),
+	foreign key (id_cliente) references usuario (dni)
+);
+
+create table prestamos (
+	id_prestamos int auto_increment primary key,
+	id_cliente int,
+	fecha_prestamo date,
+    cantidad_prestado float,
+    interes float,
+    plazo int,
+    cuota_mensual float,
+    saldo_pendiente float,
+	foreign key (id_cliente) references usuario (dni)
+);
+
+insert into usuario values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", 01/01/1998, "marta@hotmail.com");
+
+insert into movimientos values (1, 30696605, 25.25, 30, "2023-11-11", "Mercadona");
+
+insert into prestamos values (1, 30696605, "2023-12-12", 3000, 0.2, 20, 100, 800);
