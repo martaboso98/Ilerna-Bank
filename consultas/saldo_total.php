@@ -5,7 +5,7 @@
     /* Nombre */
     $dni = $_SESSION['dni'];
 
-    $consultaSaldoTotal = "SELECT saldo_total FROM movimientos WHERE id_cliente = '$dni'";
+    $consultaSaldoTotal = "SELECT saldo_total FROM movimientos WHERE id_cliente = '$dni' ORDER BY fecha DESC LIMIT 1";
     $resultadoSaldoTotal = mysqli_query($conexion, $consultaSaldoTotal) or die("Algo ha ido mal en la consulta a la base de datos");
 
     $fila = mysqli_fetch_assoc($resultadoSaldoTotal);
