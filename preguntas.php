@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banco</title>
-  <link rel="stylesheet" type="text/css" href="css/style2.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style2.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
@@ -17,7 +17,7 @@
 
   <!-- Header -->
 
-  <header class="p-3 text-bg-dark">
+  <header class="p-3 text-bg-dark sticky-top">
           <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
               <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -147,7 +147,7 @@
       </div>
     </div>
 
-    <script src="app.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
   </section>
 </body>
 
