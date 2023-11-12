@@ -16,7 +16,7 @@ create table usuario (
 create table movimientos (
 	id_movimiento int auto_increment primary key, 
     id_cliente int,
-    saldo_total float,
+    saldo_total float default 0,
     importe float, 
     fecha date,
     concepto varchar (80),
@@ -35,7 +35,7 @@ create table prestamos (
 	foreign key (id_cliente) references usuario (dni)
 );
 
-insert into usuario values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", 01/01/1998, "marta@hotmail.com");
+insert into usuario values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com");
 
 insert into movimientos values (1, 30696605, 25.25, 30, "2023-11-11", "Mercadona");
 

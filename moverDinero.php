@@ -48,9 +48,9 @@
                                 <?php include_once("consultas/consultaNombre.php"); ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown08">
-                                <li><a class="dropdown-item" href="#">Área personal</a></li>
+                                <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
                                 <li><a class="dropdown-item" href="#">Contacto</a></li>
-                                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                                <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -105,7 +105,7 @@
                 <input type="text" name="concepto" id="concepto" required>
 
                 <!-- Para llamar a la acción del botón de ingresar y retirar -->
-                <input type="hidden" name="accion" value="<?php echo $_GET['accion']; ?>">
+                <input type="hidden" name="accion" value="<?php echo isset($_GET['accion']) ? $_GET['accion'] : ''; ?>">
 
                 <input type="submit" name="enviar" value="Enviar">
             </form>

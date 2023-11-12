@@ -24,6 +24,9 @@
     } else {
         $insertar = "INSERT INTO usuario VALUES ('$dni' ,'$nombre', '$apellidos', '$contrasenya', '$tfno', '$direccion', '$fecha', '$correo')";
         $resultado = mysqli_query($conexion, $insertar) or die ( "Algo ha ido mal en la consulta a la base de datos");
+        //Una vez insertado el usuario, se creará en la tabla de movimientos una fila default para cuando se muestre la tabla movimientos esté a 0 todo y no de error
+        $insertar2 = "INSERT INTO movimientos (id_cliente, saldo_total, importe, fecha, concepto) VALUES ('$dni', 0, 0, NOW(), 'Nuevo Usuario')";
+        $resultado2 = mysqli_query($conexion, $insertar2) or die ( "Algo ha ido mal en la consulta a la base de datos");
         header("location: ../banco.php");
     }
 

@@ -90,25 +90,22 @@
 
   <!-- Fin header -->
 
-  <section id="movimientos">
-    <h3>Hola,
-      <?php include("consultas/consultaNombre.php"); ?>
-    </h3>
-    <h3>IBAN:
-      <?php include_once("consultas/IBAN.php"); ?>
-    </h3>
-    <h3>Saldo Total:
-      <?php include("consultas/saldo_total.php"); ?>
-    </h3>
+  <section id="areapersonal">
+    <h1>Mis datos personales</h1>
+    <?php include("consultas/consultaAreaPersonal.php"); ?>
+    <p>¿Deseas cambiar tu contraseña?</p>
+    <form action="consultas/cambiarContrasenya.php" method="POST">
+      <label for="contrasenya" class="label">Introduce tu contraseña actual:</label>
+      <input type="text" name="contrasenya" id="contrasenya" required>
 
-    <h1>Movimientos en cuenta</h1>
+      <label for="nuevaContrasenya" class="label">Introduce tu nueva contraseña:</label>
+      <input type="text" name="nuevaContrasenya" id="nuevaContrasenya" required>
 
-    <?php include_once("consultas/mostrarMovimientos.php"); ?>
+      <label for="nuevaContrasenyaComprobar" class="label">Repite tu nueva contraseña:</label>
+      <input type="text" name="nuevaContrasenyaComprobar" id="nuevaContrasenyaComprobar" required>
 
-    <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
-    <a href="moverDinero.php?accion=ingreso"><button type="button" class="btn btn-warning">Ingresar</button></a>
-    <a href="moverDinero.php?accion=retiro"><button type="button" class="btn btn-danger">Retirar</button></a>
-
+      <input type="submit" name="enviar" value="Enviar">
+    </form>
   </section>
 
 </body>
