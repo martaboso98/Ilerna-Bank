@@ -82,7 +82,7 @@
                                 aria-disabled="true">Retirar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-dark" href="#" tabindex="-1"
+                            <a class="nav-link active text-dark" href="prestamos.php" tabindex="-1"
                                 aria-disabled="true">Préstamos</a>
                         </li>
                     </ul>

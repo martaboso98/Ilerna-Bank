@@ -18,5 +18,6 @@ if ($dni) {
         echo $fila['nombre'];
     }
 } else {
+    header("location: invitado.php");
     echo "Invitado";
 }

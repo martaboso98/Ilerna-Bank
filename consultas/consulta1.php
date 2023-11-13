@@ -21,7 +21,6 @@
         header("Location: ../banco.php");
         die();
     } else {
-        echo ("fallo");
         header("Location: ../index.php");
         die();
     }

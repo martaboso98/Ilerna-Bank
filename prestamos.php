@@ -90,24 +90,33 @@
 
   <!-- Fin header -->
 
-  <section id="areapersonal">
-    <h1>Mis datos personales</h1>
-    <?php include("consultas/consultaAreaPersonal.php"); ?>
-    <p>¿Deseas cambiar tu contraseña?</p>
-    <form action="consultas/cambiarContrasenya.php" method="POST">
-      <label for="contrasenya" class="label">Introduce tu contraseña actual:</label>
-      <input type="text" name="contrasenya" id="contrasenya" required>
+    <section id="datos_acceso">
+        <p class="negrita">Para pedir un préstamo debes cumplir los siguientes requisitos:</p>
+        <ul>
+            <li>+ 18 años</li>
+            <li>Tener un saldo mayor a 1000 €</li>
+        </ul>
+        
+        <form action="consultas/hacerPrestamo.php" method="POST">
+            <div>
+            <label for="cantidad_prestada" class="label">Cantidad: </label>
+              <input type="float" name="cantidad_prestada" id="cantidad_prestada" required>
+            </div>
 
-      <label for="nuevaContrasenya" class="label">Introduce tu nueva contraseña:</label>
-      <input type="text" name="nuevaContrasenya" id="nuevaContrasenya" required>
+            <div>
+            <label for="motivo" class="label">Motivo:</label>
+              <input type="text" name="motivo" id="motivo" required>
+            </div>
 
-      <label for="nuevaContrasenyaComprobar" class="label">Repite tu nueva contraseña:</label>
-      <input type="text" name="nuevaContrasenyaComprobar" id="nuevaContrasenyaComprobar" required>
+            <div>
+            <label for="plazo" class="label">Plazo:</label>
+              <input type="text" name="plazo" id="plazo" placeholder="Meses" required>
+            </div>
 
-      <input type="submit" name="enviar" value="Enviar">
-    </form>
-  </section>
+            <input type="submit" name="enviar" value="Enviar">
+        </form>
+        
 
+    </section>
 </body>
-
 </html>

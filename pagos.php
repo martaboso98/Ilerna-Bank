@@ -91,21 +91,8 @@
   <!-- Fin header -->
 
   <section id="areapersonal">
-    <h1>Mis datos personales</h1>
-    <?php include("consultas/consultaAreaPersonal.php"); ?>
-    <p>¿Deseas cambiar tu contraseña?</p>
-    <form action="consultas/cambiarContrasenya.php" method="POST">
-      <label for="contrasenya" class="label">Introduce tu contraseña actual:</label>
-      <input type="text" name="contrasenya" id="contrasenya" required>
-
-      <label for="nuevaContrasenya" class="label">Introduce tu nueva contraseña:</label>
-      <input type="text" name="nuevaContrasenya" id="nuevaContrasenya" required>
-
-      <label for="nuevaContrasenyaComprobar" class="label">Repite tu nueva contraseña:</label>
-      <input type="text" name="nuevaContrasenyaComprobar" id="nuevaContrasenyaComprobar" required>
-
-      <input type="submit" name="enviar" value="Enviar">
-    </form>
+    <h1>Mi préstamo</h1>
+    <?php include("consultas/calcularPagos.php"); ?>
   </section>
 
 </body>
