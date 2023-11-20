@@ -39,7 +39,7 @@
     <section id="datosPersonales">
 
     <h1> Mis datos personales </h1>
-        <form action="consultas/insertarDatos.php" method="POST" >
+        <form action="consultas/insertarDatos.php" method="POST" enctype="multipart/form-data">
             <label for="dni" class="label">Introduce tu DNI:</label>
                 <input type="text" name="dni" id="dni" required>
 
@@ -65,6 +65,7 @@
                 <input type="email" name="correo" id="correo" required>
 
             <input type="file" id="imagen" name="imagen" accept="image/*" required>   
+            <small class="form-text text-muted">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
 
             <input type="submit" name="enviar" value="Enviar">
         </form>

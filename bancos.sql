@@ -11,7 +11,7 @@ create table usuario (
     direccion varchar (80),
     fecha date,
     correo varchar (70),
-    imagen varchar (250) default 'usuario.jpg'
+    imagen longblob
 );
 
 create table movimientos (
@@ -45,7 +45,7 @@ create table pagos (
 	foreign key (id_prestamos) references prestamos (id_prestamos)
 );
 
-insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com");
+insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.jpg");
 
 insert into movimientos values (1, 30696605, 1005, 30, "2023-11-11", "Mercadona");
 
