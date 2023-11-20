@@ -64,6 +64,8 @@
             <label for="correo" class="label">Correo: </label>
                 <input type="email" name="correo" id="correo" required>
 
+            <input type="file" id="imagen" name="imagen" accept="image/*" required>   
+
             <input type="submit" name="enviar" value="Enviar">
         </form>
     </section>

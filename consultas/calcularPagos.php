@@ -9,29 +9,17 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $dni = isset($_SESSION['dni']) ? $_SESSION['dni'] : null;
 
-$cantidadMinimaParaPrestamo = 1000;
-$interes = 8.14;
+//Cantidad Prestada
+$consultaCantidad = "SELECT cantidad_prestada FROM prestamos WHERE id_cliente = '$dni'";
+$resultadoCantidad = mysqli_query($conexion, $consultaCantidad) or die("Algo ha ido mal en la consulta a la base de datos");
+$filaCantidad = mysqli_fetch_assoc($resultadoCantidad);
+$cantidadPrestamo = $filaCantidad["cantidad_prestada"];
 
-//Saldo Total
-$consultarSaldo = "SELECT saldo_total FROM movimientos WHERE id_cliente='$dni' ORDER BY fecha DESC LIMIT 1";
-$resultadoSaldo = mysqli_query($conexion, $consultarSaldo);
-$saldoAnterior = 0;
-if ($resultadoSaldo && mysqli_num_rows($resultadoSaldo) > 0) {
-    $filaSaldo = mysqli_fetch_assoc($resultadoSaldo);
-    $saldoAnterior = $filaSaldo["saldo_total"];
-}
-$importe = 0;
-$concepto = "";
-$accion = "";
-$importe = isset($_SESSION['importe']) ? $_SESSION['importe'] : null;
-$concepto = isset($_SESSION['concepto']) ? $_SESSION['concepto'] : null;
-$saldoTotal = $saldoAnterior + $importe;
-
-//Fecha Nacimiento
-$consultaFechaNacimiento = "SELECT fecha FROM usuario WHERE dni = '$dni'";
-$resultadoFechaNacimiento = mysqli_query($conexion, $consultaFechaNacimiento) or die("Algo ha ido mal en la consulta a la base de datos");
-$filaFechaNacimiento = mysqli_fetch_assoc($resultadoFechaNacimiento);
-$FechaNacimiento = $filaFechaNacimiento["fecha"];
+//Plazo
+$consultaPlazo = "SELECT plazo FROM prestamos WHERE id_cliente = '$dni'";
+$resultadoPlazo = mysqli_query($conexion, $consultaPlazo) or die("Algo ha ido mal en la consulta a la base de datos");
+$filaPlazo = mysqli_fetch_assoc($resultadoPlazo);
+$plazo = $filaPlazo["plazo"];
 
 //ID préstamo
 $consultaIDPrestamos = "SELECT id_prestamos FROM prestamos WHERE id_cliente = '$dni'";
@@ -39,57 +27,42 @@ $resultadoIDPrestamos = mysqli_query($conexion, $consultaIDPrestamos) or die("Al
 $filaIDPrestamos = mysqli_fetch_assoc($resultadoIDPrestamos);
 $IDPrestamos = $filaIDPrestamos["id_prestamos"];
 
-function obtenerEdad($FechaNacimiento)
-{
-    $nacimiento = new DateTime($FechaNacimiento);
-    $ahora = new DateTime(date("Y-m-d"));
-    $diferencia = $ahora->diff($nacimiento);
-    return $diferencia->format("%y");
+//Interés Mensual
+$interes = 8.14;
+$interesMensual = ($interes / 100) / 12;
+
+if ($plazo != 0) {
+    $cuotaMensual = ($cantidadPrestamo * $interesMensual) / (1 - pow(1 + $interesMensual, -$plazo));
+} else {
+    echo "Error: El plazo no puede ser cero.";
 }
 
-$edad = obtenerEdad($FechaNacimiento);
+//Cuota Mensual
+$capitalMensual = ($cantidadPrestamo * $interesMensual) / (1 - pow(1 + $interesMensual, -$plazo));
+$cantidadADevolver = $capitalMensual * $plazo;
 
-//Si se cumplen los dos requisitos te deja hacer el préstamo sino no
-if ($saldoTotal >= $cantidadMinimaParaPrestamo && $edad >= 18) {
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $cantidadPrestamo = $_POST["cantidad_prestada"];
-        $motivo = $_POST["motivo"];
-        $plazo = $_POST["plazo"]; //meses
-    }
+//Fecha finalización a partir del plazo
+$fechaInicio = new DateTime();
+$fechaFinalizacion = clone $fechaInicio;
+$fechaFinalizacion->add(new DateInterval("P{$plazo}M")); //Plazo en meses
+$fechaPago = clone $fechaInicio; //Para no cambiar la original
+$fechaInicioString = $fechaInicio->format('Y-m-d');
+$fechaFinalizacionString = $fechaFinalizacion->format('Y-m-d');
 
-    //Interés Mensual
-    $interesMensual = ($interes / 100) / 12;
+$saldoPendiente = 0;
+$totalPagado = 0;
 
-    //Cuota Mensual
-    $cuotaMensual = ($cantidadPrestamo * $interesMensual) / (1 - pow(1 + $interesMensual, -$plazo));
-
-    //Fecha finalización a partir del plazo
-    $fechaInicio = new DateTime();
-    $fechaFinalizacion = clone $fechaInicio;
-    $fechaFinalizacion->add(new DateInterval("P{$plazo}M")); // Plazo en meses
-    $fechaPago = clone $fechaInicio; //Para no cambiar la original
-
-    //Representación fecha
-    $fechaInicioString = $fechaInicio->format('Y-m-d');
-    $fechaFinalizacionString = $fechaFinalizacion->format('Y-m-d');
-
-    $motivo = strtoupper($motivo);
-    $saldoPendiente = 0;
-
-    $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, plazo, interes, interes_mensual, motivo) VALUES ('$dni', '$fechaFinalizacionString', '$cantidadPrestamo', '$plazo', '$interes', '$interesMensual', '$motivo')";
-    $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
-
-    // Obtener el id_prestamos recién insertado
-    $IDPrestamos = mysqli_insert_id($conexion);
-
+// Verificar si ya existen pagos para el préstamo para que no se vuelva a mostrar la tabla repetida al refrescar la pagina
+$consultaPagos = "SELECT * FROM pagos WHERE id_prestamos='$IDPrestamos'";
+$resultadoPagos = mysqli_query($conexion, $consultaPagos) or die("Algo ha ido mal en la consulta a la base de datos");
+if (mysqli_num_rows($resultadoPagos) === 0) {
     for ($mes = 1; $mes <= $plazo; $mes++) {
         $interesMensual = $cantidadPrestamo * $interesMensual;
-        $capitalMensual = $cuotaMensual - $interesMensual;
 
-        //Saldo pendiente
-        $saldoPendiente = $saldoPendiente - $capitalMensual;
         //Total pagado
-        $totalPagado = $cantidadPrestamo - $saldoPendiente;
+        $totalPagado = $totalPagado + $capitalMensual;
+        //Saldo pendiente
+        $saldoPendiente = $cantidadADevolver - $totalPagado;
 
         //Fecha de cada pago
         $fechaPago->add(new DateInterval("P1M")); //Sumar un mes a la fecha del pago actual
@@ -98,9 +71,31 @@ if ($saldoTotal >= $cantidadMinimaParaPrestamo && $edad >= 18) {
         $insertarPrestamo = "INSERT INTO pagos (id_prestamos, fecha_pago, capital_mensual, saldo_pendiente, total_pagado) VALUES ('$IDPrestamos', '$fechaPagoString', '$capitalMensual', '$saldoPendiente', '$totalPagado')";
         $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
     }
-
-    echo "Préstamo solicitado con éxito.";
-
-} else {
-    echo "No tienes suficiente saldo para realizar un préstamo.";
 }
+
+echo "Préstamo solicitado con éxito.";
+
+// Obtener los pagos relacionados con el préstamo
+$consultaPagos = "SELECT * FROM pagos WHERE id_prestamos='$IDPrestamos'";
+$resultadoPagos = mysqli_query($conexion, $consultaPagos) or die("Algo ha ido mal en la consulta a la base de datos");
+
+echo "<table border='1'>
+        <tr>
+            <th>Fecha de Pago</th>
+            <th>Capital Mensual</th>
+            <th>Saldo Pendiente</th>
+            <th>Total Pagado</th>
+        </tr>";
+
+while ($filaPago = mysqli_fetch_assoc($resultadoPagos)) {
+    echo "<tr>
+            <td>{$filaPago['fecha_pago']}</td>
+            <td>{$filaPago['capital_mensual']}</td>
+            <td>{$filaPago['saldo_pendiente']}</td>
+            <td>{$filaPago['total_pagado']}</td>
+            </tr>";
+}
+
+echo "</table>";
+
+

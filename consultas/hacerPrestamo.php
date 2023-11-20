@@ -73,7 +73,7 @@ if ($saldoTotal >= $cantidadMinimaParaPrestamo && $edad >= 18) {
     $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, plazo, interes, motivo) VALUES ('$dni', '$fechaFinalizacionString', '$cantidadPrestamo', '$plazo', '$interes', '$motivo')";
     $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
 
-    header ("location: pagos.php");
+    header("location: ../pagos.php");
 
 } else {
     echo "No tienes suficiente saldo para realizar un préstamo.";

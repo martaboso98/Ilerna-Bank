@@ -10,7 +10,8 @@ create table usuario (
     tfno int,
     direccion varchar (80),
     fecha date,
-    correo varchar (70)
+    correo varchar (70),
+    imagen varchar (250) default 'usuario.jpg'
 );
 
 create table movimientos (
@@ -30,7 +31,6 @@ create table prestamos (
     cantidad_prestada float,
     plazo int,
     interes float,
-    interes_mensual float,
     motivo varchar (200),
 	foreign key (id_cliente) references usuario (dni)
 );
@@ -45,7 +45,7 @@ create table pagos (
 	foreign key (id_prestamos) references prestamos (id_prestamos)
 );
 
-insert into usuario values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com");
+insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com");
 
 insert into movimientos values (1, 30696605, 1005, 30, "2023-11-11", "Mercadona");
 
