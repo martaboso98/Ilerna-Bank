@@ -38,15 +38,17 @@ while ($fila = mysqli_fetch_assoc($resultadoDatos)) {
     echo "<td>" . ($fila['dni']) . "</td>";
     echo "<td>" . ($fila['direccion']) . "</td>";
     echo "<td>" . ($fila['fecha']) . "</td>";
-    echo "<td colspan='3'>" . ($fila['correo']) . "</td>";
+    echo "<td>" . ($fila['correo']) . "</td>";
     echo "</tr>";
 
     //Mostrar la imagen
     echo "<tr>";
-    echo "<td><img src='" . $fila['imagen'] . "' height='160' width='213' /></td>";
-    echo "<td>" . ($fila['imagen']) . "</td>";
+    echo "<td><img src='images/" . $fila['imagen'] . "' height='160' width='213' /></td>";
     echo "</tr>";
 
 }
 
 echo "</table>";
+
+
+

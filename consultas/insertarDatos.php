@@ -13,17 +13,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $direccion = $_POST["direccion"];
     $fecha = $_POST["fecha"];
     $correo = $_POST["correo"];
+    $imagen = $_POST["imagen"];
 
     $nombre_imagen = $_FILES["imagen"]["name"];
-    $carpeta_destino = $_SERVER["DOCUMENT_ROOT"] . "../images";
+    $carpeta_destino = $_SERVER["DOCUMENT_ROOT"] . "/Ilerna-Bank/images/";
     move_uploaded_file($_FILES["imagen"]["tmp_name"], $carpeta_destino . $nombre_imagen);
+
 }
 
-// Comprueba si el usuario ya existe en la base de datos
+//Comprueba si el usuario ya existe en la base de datos
 $consulta_existe = "SELECT dni FROM usuario WHERE dni = '$dni'";
 $resultado_existe = mysqli_query($conexion, $consulta_existe);
 
-// Corrige el nombre de la variable $_FILES
+//Corrige el nombre de la variable $_FILES
 if (mysqli_num_rows($resultado_existe) > 0) {
     echo "<script>alert('El usuario ya existe en la base de datos. No se puede duplicar.')</script>";
 } else {

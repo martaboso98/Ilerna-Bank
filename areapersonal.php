@@ -94,7 +94,7 @@
     <h1>Mis datos personales</h1>
     <?php include("consultas/consultaAreaPersonal.php"); ?>
     <p>¿Deseas cambiar tu contraseña?</p>
-    <form action="consultas/cambiarContrasenya.php" method="POST">
+    <form action="consultas/cambiarContrasenya.php" method="POST" >
       <label for="contrasenya" class="label">Introduce tu contraseña actual:</label>
       <input type="text" name="contrasenya" id="contrasenya" required>
 
