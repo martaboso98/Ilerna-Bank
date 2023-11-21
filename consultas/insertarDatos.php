@@ -32,9 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 $consulta_existe = "SELECT dni FROM usuario WHERE dni = '$dni'";
 $resultado_existe = mysqli_query($conexion, $consulta_existe);
 
-//Corrige el nombre de la variable $_FILES
 if (mysqli_num_rows($resultado_existe) > 0) {
-    echo "<script>alert('El usuario ya existe en la base de datos. No se puede duplicar.')</script>";
+    echo "El usuario ya existe.";
 } else {
     $fila = mysqli_fetch_assoc($resultado_existe);
     $nombre_original = $fila['nombre'];

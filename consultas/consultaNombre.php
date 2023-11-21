@@ -15,9 +15,9 @@ if ($dni) {
     
     // Verifica si se obtuvieron resultados
     if ($fila = mysqli_fetch_assoc($resultadoNombre)) {
-        echo $fila['nombre'];
+        echo (strtoupper($fila['nombre']));
     }
 } else {
-    header("location: invitado.php");
+    header("location: ../banco.php");
     echo "Invitado";
 }

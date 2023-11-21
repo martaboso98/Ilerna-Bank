@@ -91,8 +91,8 @@
   <!-- Fin header -->
 
   <section id="movimientos">
-    <h3>Hola,
-      <?php include("consultas/consultaNombre.php"); ?>
+    <h3>Hola 
+      <?php include("consultas/consultaNombre.php"); ?>, hoy es <?php include("consultas/consultaDiaSemana.php"); ?>
     </h3>
     <h3>IBAN:
       <?php include_once("consultas/consultaIban.php"); ?>
