@@ -24,7 +24,7 @@ if ($fila = mysqli_fetch_assoc($resultadoNombre)) {
 
     //Convertir cada letra del nombre a su posición en el abecedario y luego a binario
     $nombre_binario = '';
-    for ($i = 0; $i < strlen($nombre); $i++) {
+    for ($i = 0; $i < 4; $i++) {
         $letra_actual = $nombre[$i];
         $posicion_letra = letra_a_posicion($letra_actual);
         $binario_letra = decbin($posicion_letra);
