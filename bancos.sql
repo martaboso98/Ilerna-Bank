@@ -4,14 +4,19 @@ USE bancos;
 
 create table usuario (
 	dni int primary key,
-    nombre varchar (40),
-    apellidos varchar (80),
-    contrasenya varchar (25),
-    tfno int,
-    direccion varchar (80),
-    fecha date,
-    correo varchar (70),
-    imagen longblob
+    nombre varchar (40) default "-",
+    apellidos varchar (80) default "-",
+    contrasenya varchar (25) default "-",
+    tfno int default null,
+    direccion varchar (80) default "-",
+    fecha date default null,
+    correo varchar (70) default "-",
+    imagen longblob,
+    iban varchar(50) default "-",
+    codigo_postal int default null,
+    ciudad varchar (50) default "-",
+    provincia varchar (50) default "-",
+    pais varchar (50) default "-"
 );
 
 create table movimientos (
@@ -45,7 +50,7 @@ create table pagos (
 	foreign key (id_prestamos) references prestamos (id_prestamos)
 );
 
-insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.jpg");
+-- insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.jpg");
 
-insert into movimientos values (1, 30696605, 1005, 30, "2023-11-11", "Mercadona");
+-- insert into movimientos values (1, 30696605, 1005, 30, "2023-11-11", "Mercadona");
 

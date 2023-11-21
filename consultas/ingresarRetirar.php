@@ -24,6 +24,7 @@ if ($resultadoSaldo && mysqli_num_rows($resultadoSaldo) > 0) {
 $importe = 0;
 $concepto = "";
 $accion = "";
+$fecha = date('Y-m-d');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $importe = $_POST["importe"];
@@ -37,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $saldoTotal = $saldoAnterior + $importe;
 }
 
-$fecha = date('Y-m-d');
 
 $insertar = "INSERT INTO movimientos (id_cliente, importe, concepto, fecha, saldo_total) VALUES ('$dni', '$importe' ,'$concepto', '$fecha', '$saldoTotal')";
 $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");

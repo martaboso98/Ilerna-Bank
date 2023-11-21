@@ -40,7 +40,7 @@
 
     <h1> Mis datos personales </h1>
         <form action="consultas/insertarDatos.php" method="POST" enctype="multipart/form-data">
-            <label for="dni" class="label">Introduce tu DNI:</label>
+            <label for="dni" class="label">DNI:</label>
                 <input type="text" name="dni" id="dni" required>
 
             <label for="contrasenya" class="label">Contraseña:</label>
@@ -50,21 +50,15 @@
                 <input type="text" name="nombre" id="nombre" required>
 
             <label for="apellidos" class="label">Apellidos: </label>
-                <input type="text" name="apellidos" id="apellidos" required>
+                <input type="text" name="apellidos" id="apellidos" required>   
 
-            <label for="tfno" class="label">Teléfono: </label>
-                <input type="tel" name="tfno" id="tfno" required>        
-
-            <label for="direccion" class="label">Dirección: </label>
-                <input type="text" name="direccion" id="direccion" required> 
-
-            <label for="fecha" class="label">Fecha de nacimiento: </label>
-                <input type="date" name="fecha" id="fecha" required>      
+            <label for="pais" class="label">País: </label>
+                <input type="text" name="pais" id="pais" required> 
 
             <label for="correo" class="label">Correo: </label>
                 <input type="email" name="correo" id="correo" required>
 
-            <input type="file" id="imagen" name="imagen" accept="image/*" required>   
+            <input type="file" id="imagen" name="imagen" accept="image/*">   
             <small class="form-text text-muted">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
 
             <input type="submit" name="enviar" value="Enviar">

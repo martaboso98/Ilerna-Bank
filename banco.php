@@ -95,7 +95,7 @@
       <?php include("consultas/consultaNombre.php"); ?>
     </h3>
     <h3>IBAN:
-      <?php include_once("consultas/IBAN.php"); ?>
+      <?php include_once("consultas/consultaIban.php"); ?>
     </h3>
     <h3>Saldo Total:
       <?php include("consultas/saldo_total.php"); ?>

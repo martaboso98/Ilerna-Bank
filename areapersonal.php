@@ -93,8 +93,37 @@
   <section id="areapersonal">
     <h1>Mis datos personales</h1>
     <?php include("consultas/consultaAreaPersonal.php"); ?>
-    <p>¿Deseas cambiar tu contraseña?</p>
-    <form action="consultas/cambiarContrasenya.php" method="POST" >
+
+    <!-- <form action="consultas.php" method="POST">
+
+      <label for="dni" class="label">DNI:</label>
+        <input type="text" name="dni" id="dni" value="<?php echo $fila_usuario['dni']; ?>" readonly>
+
+      <label for="nombre" class="label">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" value="<?php echo $fila_usuario['nombre']; ?>" required>
+
+      <label for="apellidos" class="label">Apellidos:</label>
+        <input type="text" name="apellidos" id="apellidos" value="<?php echo $fila_usuario['apellidos']; ?>" required>
+      
+      <label for="fecha" class="label">Fecha de nacimiento:</label>
+        <input type="date" name="fecha" id="fecha" value="<?php echo $fila_usuario['fecha']; ?>" required>
+
+      <label for="direccion" class="label">Dirección:</label>
+        <input type="text" name="direccion" id="direccion" value="<?php echo $fila_usuario['direccion']; ?>" required>
+      
+      <label for="codigo_postal" class="label">Código Postal:</label>
+        <input type="int" name="codigo_postal" id="codigo_postal" value="<?php echo $fila_usuario['codigo_postal']; ?>" required>
+
+      <label for="ciudad" class="label">Ciudad:</label>
+        <input type="text" name="ciudad" id="ciudad" value="<?php echo $fila_usuario['ciudad']; ?>" required>
+
+      <label for="provincia" class="label">Provincia:</label>
+        <input type="text" name="provincia" id="provincia" value="<?php echo $fila_usuario['provincia']; ?>" required>
+
+      <label for="pais" class="label">País:</label>
+        <input type="text" name="pais" id="pais" value="<?php echo $fila_usuario['pais']; ?>" required>
+
+      <p>¿Deseas cambiar tu contraseña?</p>
       <label for="contrasenya" class="label">Introduce tu contraseña actual:</label>
       <input type="text" name="contrasenya" id="contrasenya" required>
 
@@ -105,7 +134,7 @@
       <input type="text" name="nuevaContrasenyaComprobar" id="nuevaContrasenyaComprobar" required>
 
       <input type="submit" name="enviar" value="Enviar">
-    </form>
+    </form> -->
   </section>
 
 </body>
