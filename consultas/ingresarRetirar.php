@@ -20,7 +20,7 @@ if ($resultadoSaldo && mysqli_num_rows($resultadoSaldo) > 0) {
     $saldoAnterior = $filaSaldo["saldo_total"];
 }
 
-// Inicializar variables
+//Inicializar variables
 $importe = 0;
 $concepto = "";
 $accion = "";
