@@ -87,16 +87,53 @@
     </nav>
 
   </header>
+    <form action="consultas/insertarOtrosDatos.php" method="POST">
 
-  <!-- Fin header -->
+    <p>¿Deseas cambiar tus datos?</p>
+      <label for="nombre" class="label">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" >
 
-  <section id="areapersonal">
-    <h1>Mis datos personales</h1>
-    <?php include("consultas/consultaAreaPersonal.php"); ?>
+      <label for="apellidos" class="label">Apellidos:</label>
+        <input type="text" name="apellidos" id="apellidos" >
+      
+      <label for="fecha" class="label">Fecha de nacimiento:</label>
+        <input type="date" name="fecha" id="fecha" >
 
-    <a href="cambiar_datos.php"><button type="submit" class="btn btn-warning">Cambiar datos</button></a>
-  </section>
+      <label for="direccion" class="label">Dirección:</label>
+        <input type="text" name="direccion" id="direccion" >
+      
+      <label for="codigo_postal" class="label">Código Postal:</label>
+        <input type="int" name="codigo_postal" id="codigo_postal" >
 
+      <label for="ciudad" class="label">Ciudad:</label>
+        <input type="text" name="ciudad" id="ciudad" >
+
+      <label for="provincia" class="label">Provincia:</label>
+        <input type="text" name="provincia" id="provincia" >
+
+      <label for="pais" class="label">País:</label>
+        <input type="text" name="pais" id="pais" >
+
+      <input type="file" id="imagen" name="imagen" accept="image/*">   
+        <small class="form-text text-muted">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
+
+      <input type="submit" name="enviar" value="Enviar">
+    </form>  
+    
+    <form action="consultas/cambiarContrasenya.php" method="POST">
+      <p>¿Deseas cambiar tu contraseña?</p>
+      <label for="contrasenya" class="label">Introduce tu contraseña actual:</label>
+      <input type="text" name="contrasenya" id="contrasenya" required>
+
+      <label for="nuevaContrasenya" class="label">Introduce tu nueva contraseña:</label>
+      <input type="text" name="nuevaContrasenya" id="nuevaContrasenya" required>
+
+      <label for="nuevaContrasenyaComprobar" class="label">Repite tu nueva contraseña:</label>
+      <input type="text" name="nuevaContrasenyaComprobar" id="nuevaContrasenyaComprobar" required>
+
+      <input type="submit" name="enviar" value="Enviar">
+    </form> 
+    
 </body>
 
 </html>

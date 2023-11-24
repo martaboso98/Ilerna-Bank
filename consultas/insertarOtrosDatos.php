@@ -2,59 +2,104 @@
 
 include_once("conexion.php");
 
+//Verificar si se ha iniciado sesión
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+$dni = isset($_SESSION['dni']) ? $_SESSION['dni'] : null;
+
+
 // Recoger datos del formulario y mandarlos a la base de datos
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $dni = $_POST["dni"];
-    $nombre = $_POST["nombre"];
-    $apellidos = $_POST["apellidos"];
-    $fecha = $_POST["fecha"];
-    $direccion = $_POST["direccion"];
-    $codigo_postal = $_POST["codigo_postal"];
-    $ciudad = $_POST["ciudad"];
-    $provincia = $_POST["provincia"];
-    $pais = $_POST["pais"];
-    $contrasenya = $_POST["contrasenya"];
-    $tfno = $_POST["tfno"];
-    $correo = $_POST["correo"];
-    $imagen = $_POST["imagen"];
+    $nombre = isset($_POST["nombre"]) ? trim($_POST["nombre"]) : '';
+    $apellidos = isset($_POST["apellidos"]) ? trim($_POST["apellidos"]) : '';
+    $direccion = isset($_POST["direccion"]) ? trim($_POST["direccion"]) : '';
+    $codigo_postal = isset($_POST["codigo_postal"]) ? trim($_POST["codigo_postal"]) : '';
+    $ciudad = isset($_POST["ciudad"]) ? trim($_POST["ciudad"]) : '';
+    $provincia = isset($_POST["provincia"]) ? trim($_POST["provincia"]) : '';
+    $pais = isset($_POST["pais"]) ? trim($_POST["pais"]) : '';
+    $fecha = isset($_POST["fecha"]) ? trim($_POST["fecha"]) : '';
+    $tfno = isset($_POST["tfno"]) ? trim($_POST["tfno"]) : '';
+    $correo = isset($_POST["correo"]) ? trim($_POST["correo"]) : '';
+    $imagen = isset($_POST["imagen"]) ? trim($_POST["imagen"]) : '';
 
-    $nombre_imagen = $_FILES["imagen"]["name"];
-    $carpeta_destino = $_SERVER["DOCUMENT_ROOT"] . "/Ilerna-Bank/images/";
-    move_uploaded_file($_FILES["imagen"]["tmp_name"], $carpeta_destino . $nombre_imagen);
+    $nombre_imagen = isset($_FILES["imagen"]["name"]) ? $_FILES["imagen"]["name"] : '';
+    if ($nombre_imagen !== '') {
+        $carpeta_destino = $_SERVER["DOCUMENT_ROOT"] . "/Ilerna-Bank/images/";
+        move_uploaded_file($_FILES["imagen"]["tmp_name"], $carpeta_destino . $nombre_imagen);
+    }
 
 }
 
-// Verificar si el usuario ha cambiado algo en el formulario
+//Verificar si el usuario ha cambiado algo en el formulario
 $consulta_usuario = "SELECT * FROM usuario WHERE dni = '$dni'";
-echo $consulta_usuario;
 $resultado_usuario = mysqli_query($conexion, $consulta_usuario);
-
-if (!$resultado_usuario) {
-    die("Error en la consulta SQL: " . mysqli_error($conexion));
-}
 
 if (mysqli_num_rows($resultado_usuario) > 0) {
     $fila_usuario = mysqli_fetch_assoc($resultado_usuario);
 
-    if (
-        $fila_usuario["nombre"] !== $nombre ||
-        $fila_usuario["apellidos"] !== $apellidos ||
-        $fila_usuario["fecha"] !== $fecha ||
-        $fila_usuario["direccion"] !== $direccion ||
-        $fila_usuario["codigo_postal"] !== $codigo_postal ||
-        $fila_usuario["ciudad"] !== $ciudad ||
-        $fila_usuario["provincia"] !== $provincia ||
-        $fila_usuario["pais"] !== $pais ||
-        $fila_usuario["contrasenya"] !== $contrasenya ||
-        $fila_usuario["tfno"] !== $tfno ||
-        $fila_usuario["correo"] !== $correo
-    ) {
-        // Al menos un campo ha cambiado, realizar la actualización
-        $actualizar = "UPDATE usuario SET nombre='$nombre', apellidos='$apellidos', fecha='$fecha', direccion='$direccion', codigo_postal='$codigo_postal', ciudad='$ciudad', provincia='$provincia', pais='$pais', contrasenya='$contrasenya', tfno='$tfno', correo='$correo' WHERE dni='$dni'";
+    //Construir la consulta de actualización solo con los campos proporcionados
+    $actualizar = "UPDATE usuario SET ";
+    $actualizaciones = [];
+
+    if ($nombre !== '' && $fila_usuario["nombre"] !== $nombre) {
+        $actualizaciones[] = "nombre='$nombre'";
+    }
+
+    if ($apellidos !== '' && $fila_usuario["apellidos"] !== $apellidos) {
+        $actualizaciones[] = "apellidos='$apellidos'";
+    }
+
+    if ($tfno !== '' && $fila_usuario["tfno"] !== $tfno) {
+        $actualizaciones[] = "tfno='$tfno'";
+    }
+
+    if ($direccion !== '' && $fila_usuario["direccion"] !== $direccion) {
+        $actualizaciones[] = "direccion='$direccion'";
+    }
+
+    if ($fecha !== '' && $fila_usuario["fecha"] !== $fecha) {
+        $actualizaciones[] = "fecha='$fecha'";
+    }
+
+    if ($correo !== '' && $fila_usuario["correo"] !== $correo) {
+        $actualizaciones[] = "correo='$correo'";
+    }
+
+    if ($imagen !== '' && $fila_usuario["imagen"] !== $imagen) {
+        $actualizaciones[] = "imagen='$imagen'";
+    }
+
+    if ($codigo_postal !== '' && $fila_usuario["codigo_postal"] !== $codigo_postal) {
+        $actualizaciones[] = "apellidos='$codigo_postal'";
+    }
+
+    if ($ciudad !== '' && $fila_usuario["ciudad"] !== $ciudad) {
+        $actualizaciones[] = "ciudad='$ciudad'";
+    }
+
+    if ($provincia !== '' && $fila_usuario["provincia"] !== $provincia) {
+        $actualizaciones[] = "provincia='$provincia'";
+    }
+
+    if ($pais !== '' && $fila_usuario["pais"] !== $pais) {
+        $actualizaciones[] = "pais='$pais'";
+    }
+
+    //Comprobar si se necesita actualizar algún campo
+    if (!empty($actualizaciones)) {
+        $actualizar .= implode(", ", $actualizaciones);
+        $actualizar .= " WHERE dni='$dni'";
         $resultado_actualizar = mysqli_query($conexion, $actualizar) or die("Algo ha ido mal en la consulta de actualización");
     }
 
+    header ("location: ../areapersonal.php");
+
 } else {
-    $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenya', '$tfno', '$direccion', '$fecha', '$correo', '$nombre_imagen')";
+    $insertar = "INSERT INTO usuario (dni, nombre, apellidos, tfno, direccion, fecha, correo, imagen, codigo_postal, ciudad, provincia, pais) VALUES ('$dni', '$nombre', '$apellidos', '$tfno', '$direccion', '$fecha', '$correo', '$nombre_imagen', '$codigo_postal', '$ciudad', '$provincia', '$pais')";
     $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
+
+    header ("location: ../areapersonal.php");
+
 }
