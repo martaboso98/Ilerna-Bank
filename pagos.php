@@ -81,6 +81,19 @@
             <li class="nav-item">
               <a class="nav-link active text-dark" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
             </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownMoneda" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <span id="moneda-actual">Euros €</span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMoneda">
+                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Euros €')">Euros €</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Dólares $')">Dólares $</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Yenes ¥')">Yenes ¥</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Libras £')">Libras £</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Rublos ₽')">Rublos ₽</a></li>
+              </ul>
+          </li>
           </ul>
         </div>
       </div>

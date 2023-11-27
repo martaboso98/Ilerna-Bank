@@ -24,7 +24,7 @@ create table movimientos (
 	id_movimiento int auto_increment primary key, 
     id_cliente int not null,
     saldo_total varchar (100),
-    importe varchar (100), 
+    importe float, 
     fecha date,
     concepto varchar (80),
 	foreign key (id_cliente) references usuario (dni)

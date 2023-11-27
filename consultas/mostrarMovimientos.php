@@ -25,37 +25,41 @@ echo "</tr>";
 
 while ($fila = mysqli_fetch_assoc($resultadoMovimientos)) {
     // Convertir de hexadecimal a decimal
-    $importe_decimal = hexdec($fila['importe']);
     $saldo_decimal = hexdec($fila['saldo_total']);
 
     // Aplicar la conversión de moneda
     switch ($monedaUsuario) {
         case "euros":
-            //Sin conversión porque la moneda base es euros
+            $fila['importe'] *= 1;
+            $saldo_decimal *= 1;            
             break;
         case "dolares":
-            $importe_decimal *= 1.1;
+            $fila['importe'] *= 1.1;
             $saldo_decimal *= 1.1;
             break;
         case "libras":
-            $importe_decimal *= 0.9;
+            $fila['importe'] *= 0.9;
             $saldo_decimal *= 0.9;
             break;
         case "yenes":
-            $importe_decimal /= 160;
+            $fila['importe'] /= 160;
             $saldo_decimal /= 160;
             break;
         case "rublos":
-            $importe_decimal /= 95;
+            $fila['importe'] /= 95;
             $saldo_decimal /= 95;
             break;
     }
 
+    // Aplicar formato de dos decimales
+    $importe_formateado = number_format($fila['importe'], 2);
+    $saldo_formateado = number_format($fila['saldo_total'], 2);
+
     echo "<tr>";
     echo "<td>" . $fila['fecha'] . "</td>";
     echo "<td>" . $fila['concepto'] . "</td>";
-    echo "<td>" . number_format($importe_decimal, 2) . " " . $monedaUsuario . "</td>";
-    echo "<td>" . number_format($saldo_decimal, 2) . " " . $monedaUsuario . "</td>";
+    echo "<td>" . $importe_formateado . " " . $monedaUsuario . "</td>";
+    echo "<td>" . $saldo_formateado . " " . $monedaUsuario . "</td>";
     echo "</tr>";
 }
 
