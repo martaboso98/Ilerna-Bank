@@ -16,14 +16,15 @@ create table usuario (
     codigo_postal int default null,
     ciudad varchar (50) default "-",
     provincia varchar (50) default "-",
-    pais varchar (50) default "-"
+    pais varchar (50) default "-",
+    moneda varchar (50)
 );
 
 create table movimientos (
 	id_movimiento int auto_increment primary key, 
     id_cliente int not null,
-    saldo_total float,
-    importe float, 
+    saldo_total varchar (100),
+    importe varchar (100), 
     fecha date,
     concepto varchar (80),
 	foreign key (id_cliente) references usuario (dni)
@@ -33,7 +34,7 @@ create table prestamos (
 	id_prestamos int auto_increment primary key,
 	id_cliente int not null,
 	fecha_prestamo date,
-    cantidad_prestada float,
+    cantidad_prestada varchar (100),
     plazo int,
     interes float,
     motivo varchar (200),
@@ -50,7 +51,7 @@ create table pagos (
 	foreign key (id_prestamos) references prestamos (id_prestamos)
 );
 
-insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.jpg");
+insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, moneda) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.jpg", "Yenes");
 
 insert into movimientos values (1, 30696605, 1005, 30, "2023-11-11", "Mercadona");
 

@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nombre = $_POST["nombre"];
     $apellidos = $_POST["apellidos"];
     $pais = $_POST["pais"];
+    $moneda = $_POST["moneda"];
     $correo = $_POST["correo"];
 
     //Verificar si se seleccionó una imagen
@@ -68,10 +69,10 @@ if (mysqli_num_rows($resultado_existe) > 0) {
         $ibanExistente = $filaIban['iban'];
         $nuevoIban = $ibanExistente . rand(0, 1);
 
-        $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, pais, correo, imagen, iban) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenya', '$pais', '$correo', '$nombre_imagen', '$nuevoIban')";
+        $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, pais, correo, imagen, iban, moneda) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenya', '$pais', '$correo', '$nombre_imagen', '$nuevoIban', '$moneda')";
         $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
     } else {
-        $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, iban) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenya', '$tfno', '$direccion', '$fecha', '$correo', '$nombre_imagen', '$nombre_binario')";
+        $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, iban, moneda) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenya', '$tfno', '$direccion', '$fecha', '$correo', '$nombre_imagen', '$nombre_binario', '$moneda')";
         $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
     }
 

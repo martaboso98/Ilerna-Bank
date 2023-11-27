@@ -19,6 +19,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="js/contrasenya.js" defer></script>
+
 </head>
 
 <body>
@@ -123,17 +125,21 @@
     <form action="consultas/cambiarContrasenya.php" method="POST">
       <p>¿Deseas cambiar tu contraseña?</p>
       <label for="contrasenya" class="label">Introduce tu contraseña actual:</label>
-      <input type="text" name="contrasenya" id="contrasenya" required>
+      <input type="password" name="contrasenya" id="contrasenya" required>
+      <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
 
       <label for="nuevaContrasenya" class="label">Introduce tu nueva contraseña:</label>
-      <input type="text" name="nuevaContrasenya" id="nuevaContrasenya" required>
+      <input type="password" name="nuevaContrasenya" id="nuevaContrasenya" required>
+      <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
 
       <label for="nuevaContrasenyaComprobar" class="label">Repite tu nueva contraseña:</label>
-      <input type="text" name="nuevaContrasenyaComprobar" id="nuevaContrasenyaComprobar" required>
+      <input type="password" name="nuevaContrasenyaComprobar" id="nuevaContrasenyaComprobar" required>
+      <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
 
       <input type="submit" name="enviar" value="Enviar">
     </form> 
     
+
 </body>
 
 </html>

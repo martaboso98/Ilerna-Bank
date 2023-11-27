@@ -8,7 +8,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
+    <script src="js/contrasenya.js" defer></script>
+  </head>
 <body>
   
   <!-- Header -->
@@ -44,7 +45,8 @@
                 <input type="text" name="dni" id="dni" required>
 
             <label for="contrasenya" class="label">Contraseña:</label>
-                <input type="text" name="contrasenya" id="contrasenya" required>
+                <input type="password" name="contrasenya" id="contrasenya" required>
+                <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
 
             <label for="nombre" class="label">Nombre: </label>
                 <input type="text" name="nombre" id="nombre" required>
@@ -57,6 +59,15 @@
 
             <label for="correo" class="label">Correo: </label>
                 <input type="email" name="correo" id="correo" required>
+
+            <label for="moneda" class="label">Tipo de Moneda:</label>
+              <select name="moneda" id="moneda" required>
+                  <option value="Euros">Euros</option>
+                  <option value="Dólares">Dólares</option>
+                  <option value="Yenes">Yenes</option>
+                  <option value="Libras">Libras</option>
+                  <option value="Rublos">Rublos</option>
+            </select>
 
             <input type="file" id="imagen" name="imagen" accept="image/*">   
             <small class="form-text text-muted">Seleccione una imagen (formatos: jpg, png, jpeg).</small>

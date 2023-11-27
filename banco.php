@@ -19,6 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
@@ -81,6 +82,20 @@
             <li class="nav-item">
               <a class="nav-link active text-dark" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownMoneda" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span id="moneda-actual">Euros €</span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMoneda">
+                    <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Euros')">Euros €</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Dólares')">Dólares $</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Yenes')">Yenes ¥</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Libras')">Libras £</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Rublos')">Rublos ₽</a></li>
+                </ul>
+            </li>
           </ul>
         </div>
       </div>
@@ -108,6 +123,8 @@
     <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
     <a href="moverDinero.php?accion=ingreso"><button type="button" class="btn btn-warning">Ingresar</button></a>
     <a href="moverDinero.php?accion=retiro"><button type="button" class="btn btn-danger">Retirar</button></a>
+
+    <script src="js/moneda.js"></script>
 
   </section>
 

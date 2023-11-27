@@ -17,8 +17,10 @@ $saldoAnterior = 0;
 
 if ($resultadoSaldo && mysqli_num_rows($resultadoSaldo) > 0) {
     $filaSaldo = mysqli_fetch_assoc($resultadoSaldo);
-    $saldoAnterior = $filaSaldo["saldo_total"];
+    // Convertir de hexadecimal a decimal
+    $saldoAnterior = hexdec($filaSaldo["saldo_total"]);
 }
+
 
 //Inicializar variables
 $importe = 0;
@@ -38,8 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $saldoTotal = $saldoAnterior + $importe;
 }
 
+//Convertir de decimal a hexadecimal
+$saldoTotal_hexadecimal = dechex($saldoTotal); 
+$importe_hexadecimal = dechex($importe); 
 
-$insertar = "INSERT INTO movimientos (id_cliente, importe, concepto, fecha, saldo_total) VALUES ('$dni', '$importe' ,'$concepto', '$fecha', '$saldoTotal')";
+$insertar = "INSERT INTO movimientos (id_cliente, importe, concepto, fecha, saldo_total) VALUES ('$dni', '$importe_hexadecimal' ,'$concepto', '$fecha', '$saldoTotal_hexadecimal')";
 $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
 header("location: ../banco.php");
 
