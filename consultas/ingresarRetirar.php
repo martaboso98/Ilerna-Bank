@@ -27,6 +27,7 @@ $importe = 0;
 $concepto = "";
 $accion = "";
 $fecha = date('Y-m-d');
+$hora = date('H:i:s');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $importe = $_POST["importe"];
@@ -43,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 //Convertir de decimal a hexadecimal
 $saldoTotal_hexadecimal = dechex($saldoTotal); 
 
-$insertar = "INSERT INTO movimientos (id_cliente, importe, concepto, fecha, saldo_total) VALUES ('$dni', '$importe' ,'$concepto', '$fecha', '$saldoTotal_hexadecimal')";
+$insertar = "INSERT INTO movimientos (id_cliente, importe, concepto, fecha, hora, saldo_total) VALUES ('$dni', '$importe' ,'$concepto', '$fecha', '$hora','$saldoTotal_hexadecimal')";
 $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
 header("location: ../banco.php");
 

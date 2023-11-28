@@ -12,12 +12,13 @@ if ($filaUsuario = mysqli_fetch_assoc($resultadoUsuario)) {
     $monedaUsuario = $filaUsuario['moneda'];
 }
 
-$consultaMovimientos = "SELECT fecha, concepto, importe FROM movimientos WHERE id_cliente = '$dni'";
+$consultaMovimientos = "SELECT fecha, hora, concepto, importe FROM movimientos WHERE id_cliente = '$dni'";
 $resultadoMovimientos = mysqli_query($conexion, $consultaMovimientos) or die("Algo ha ido mal en la consulta a la base de datos");
 
 echo "<table class='tablas'>";
 echo "<tr>";
 echo "<th>Fecha</th>";
+echo "<th>Hora</th>";
 echo "<th>Concepto</th>";
 echo "<th>Importe</th>";
 echo "<th>Saldo</th>";
@@ -54,6 +55,7 @@ while ($fila = mysqli_fetch_assoc($resultadoMovimientos)) {
 
     echo "<tr>";
     echo "<td>" . $fila['fecha'] . "</td>";
+    echo "<td>" . $fila['hora'] . "</td>";
     echo "<td>" . $fila['concepto'] . "</td>";
     echo "<td>" . $importe_formateado . " " . $monedaUsuario . "</td>";
     echo "<td>" . $saldo_formateado . " " . $monedaUsuario . "</td>";

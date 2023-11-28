@@ -26,6 +26,7 @@ create table movimientos (
     saldo_total varchar (100),
     importe float, 
     fecha date,
+	hora time default null,
     concepto varchar (80),
 	foreign key (id_cliente) references usuario (dni)
 );
