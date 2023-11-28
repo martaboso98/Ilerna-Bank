@@ -53,5 +53,4 @@ create table pagos (
 
 insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, moneda) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.jpg", "Yenes");
 
-insert into movimientos values (1, 30696605, 1005, 30, "2023-11-11", "Mercadona");
 

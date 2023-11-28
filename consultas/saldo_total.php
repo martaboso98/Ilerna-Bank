@@ -25,8 +25,12 @@ $saldoAnterior = 0;
 
 if ($resultadoSaldo && mysqli_num_rows($resultadoSaldo) > 0) {
     $filaSaldo = mysqli_fetch_assoc($resultadoSaldo);
-    // Convertir de hexadecimal a decimal
-    $saldoAnterior = hexdec($filaSaldo["saldo_total"]);
+
+    //Ver si no está vacío
+    if (isset($filaSaldo["saldo_total"])) {
+        // Convertir de hexadecimal a decimal
+        $saldoAnterior = hexdec($filaSaldo["saldo_total"]);
+    } 
 }
 
 // Inicializar variables
@@ -61,5 +65,7 @@ switch ($monedaUsuario) {
 }
 
 $saldoTotal = $saldoAnterior + $importe;
+$saldo_formateado = number_format($saldoTotal, 2);
+
 echo $saldoTotal . " " . $monedaUsuario;
 
