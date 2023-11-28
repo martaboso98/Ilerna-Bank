@@ -36,7 +36,7 @@ if ($resultadoSaldo && mysqli_num_rows($resultadoSaldo) > 0) {
 // Inicializar variables
 $importe = 0;
 $concepto = "";
-$accion = "";
+$accion = ""; 
 
 $importe = isset($_SESSION['importe']) ? $_SESSION['importe'] : null;
 $concepto = isset($_SESSION['concepto']) ? $_SESSION['concepto'] : null;
