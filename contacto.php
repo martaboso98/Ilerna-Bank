@@ -41,20 +41,29 @@
   <!-- Fin header -->
 
   <main>
-    <button class="open_button" onclick="openForm()"><i class="bx bxs-chat"></i>Chat</button>
+  
+  <form method="post" action="consultas/enviarMensaje.php">
+      <label for="remitente" class="label">Remitente:</label>
+        <select name="remitente" id="remitente" required>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
 
-    <div class="chat_popup" id="myForm">
-      <form action="#" class="form_container">
-        <h2>Chatea con nosotros</h2>
-        <label form="mgs"><b>Mensaje</b></label>
-        <textarea name="msg" placeholder="Escribe tu mensaje aquí..." required></textarea>
-        <button type="submit" class="btn">Enviar</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Cerrar</button>
-      </form>
-    </div>
-  </main>
+      <label for="destinatario" class="label">Destinatario:</label>
+        <select name="destinatario" id="destinatario" required>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
 
-  <script src="js/main.js"></script>
+      Mensaje: <textarea name="mensaje"></textarea>
+      <input type="submit" value="Enviar">
+  </form>
 
 </body>
 
