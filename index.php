@@ -44,7 +44,6 @@
             <div>
             <label for="dni" class="label">Introduce tu DNI:</label>
               <input type="text" name="dni" id="dni" placeholder="DNI/NIE" required>
-            <!-- Acceder con pasaporte también -->
             </div>
 
             <div>

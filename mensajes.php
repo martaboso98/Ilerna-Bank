@@ -91,26 +91,11 @@
         </nav>
 
     </header>
-
-    <!-- Fin header -->
-
-    <section id="movimientos">
-        <section id="datosPersonales">
-
-            <form action="consultas/ingresarRetirar.php" method="POST">
-                <label for="importe" class="label">Cantidad:</label>
-                <input type="float" name="importe" id="importe" required>
-
-                <label for="concepto" class="label">Concepto:</label>
-                <input type="text" name="concepto" id="concepto" required>
-
-                <!-- Para llamar a la acción del botón de ingresar y retirar -->
-                <input type="hidden" name="accion" value="<?php echo isset($_GET['accion']) ? $_GET['accion'] : ''; ?>">
-
-                <input type="submit" name="enviar" value="Enviar">
-            </form>
-            <a href="banco.php"><button type="button" class="btn btn-danger">Volver</button></a>
-        </section>
+<main>
+  
+  <form method="post" action="consultas/enviarMensaje.php">
+    <?php include("consultas/mensajeria.php"); ?>
+  </form>
 
 </body>
 

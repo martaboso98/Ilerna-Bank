@@ -43,26 +43,7 @@
   <main>
   
   <form method="post" action="consultas/enviarMensaje.php">
-      <label for="remitente" class="label">Remitente:</label>
-        <select name="remitente" id="remitente" required>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-        </select>
-
-      <label for="destinatario" class="label">Destinatario:</label>
-        <select name="destinatario" id="destinatario" required>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-        </select>
-
-      Mensaje: <textarea name="mensaje"></textarea>
-      <input type="submit" value="Enviar">
+    <?php include("consultas/contacto.php"); ?>
   </form>
 
 </body>

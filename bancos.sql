@@ -63,6 +63,14 @@ CREATE TABLE pagos (
         REFERENCES prestamos (id_prestamos)
 );
 
+CREATE TABLE mensajes (
+    id_mensaje INT AUTO_INCREMENT PRIMARY KEY,
+    remitente VARCHAR(50),
+    destinatario VARCHAR(50),
+    mensaje TEXT
+);
+
 insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, moneda) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.jpg", "Yenes");
 
 insert into roles (nombre_rol) values ("administrador");
+insert into usuario (dni, nombre, contrasenya) values (123, "administrador", "123");
