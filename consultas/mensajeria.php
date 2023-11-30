@@ -24,12 +24,12 @@ if ($dni) {
 }
 
 if ($resultadoUsuario && $resultadoAdmin) {
-    echo "<form method='post' action='enviarMensaje.php'>";
 
     mysqli_data_seek($resultadoUsuario, 0);
     echo "<label for='destinatario' class='label'>Destinatario:</label>";
     echo "<select name='destinatario' id='destinatario' required>";
-    echo "<option value=''></option>"; // Opción vacía
+    echo "<option value=''></option>"; //Línea vacía para que no aparezca directamente un nombre
+
     while ($fila = mysqli_fetch_assoc($resultadoUsuario)) {
         echo "<option value='" . $fila["dni"] . "'>" . $fila["nombre"] . "</option>";
     }
@@ -41,9 +41,8 @@ if ($resultadoUsuario && $resultadoAdmin) {
 
     echo "Mensaje: <textarea name='mensaje'></textarea>";
     echo "<input type='submit' value='Enviar'>";
-    echo "</form>";
 
 } else {
     echo "Error en la consulta: " . mysqli_error($conexion);
 }
-?>
+

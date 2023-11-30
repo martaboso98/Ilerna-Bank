@@ -36,9 +36,6 @@
                 <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
                     <ul class="navbar-nav">
                         <li class="nav-item mx-2">
-                            <a class="nav-link active" aria-current="page" href="contacto.php">CONTACTO</a>
-                        </li>
-                        <li class="nav-item mx-2">
                             <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
                         </li>
 
@@ -94,8 +91,11 @@
 <main>
   
   <form method="post" action="consultas/enviarMensaje.php">
+    <h3>Nuevo mensaje:</h3>
     <?php include("consultas/mensajeria.php"); ?>
   </form>
+
+  <?php include("consultas/mostrarMensaje.php"); ?>
 
 </body>
 
