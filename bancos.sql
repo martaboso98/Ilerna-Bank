@@ -2,56 +2,67 @@ DROP DATABASE IF EXISTS bancos;
 CREATE DATABASE bancos;
 USE bancos;
 
-create table usuario (
-	dni int primary key,
-    nombre varchar (40) default "-",
-    apellidos varchar (80) default "-",
-    contrasenya varchar (25) default "-",
-    tfno int default null,
-    direccion varchar (80) default "-",
-    fecha date default null,
-    correo varchar (70) default "-",
-    imagen longblob,
-    iban varchar(50) default "-",
-    codigo_postal int default null,
-    ciudad varchar (50) default "-",
-    provincia varchar (50) default "-",
-    pais varchar (50) default "-",
-    moneda varchar (50)
+CREATE TABLE roles (
+    id_rol INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_rol VARCHAR(50) NOT NULL
 );
 
-create table movimientos (
-	id_movimiento int auto_increment primary key, 
-    id_cliente int not null,
-    saldo_total varchar (100),
-    importe float, 
-    fecha date,
-	hora time default null,
-    concepto varchar (80),
-	foreign key (id_cliente) references usuario (dni)
+CREATE TABLE usuario (
+    dni INT PRIMARY KEY,
+    nombre VARCHAR(40) DEFAULT '-',
+    apellidos VARCHAR(80) DEFAULT '-',
+    contrasenya VARCHAR(25) DEFAULT '-',
+    tfno INT DEFAULT NULL,
+    direccion VARCHAR(80) DEFAULT '-',
+    fecha DATE DEFAULT NULL,
+    correo VARCHAR(70) DEFAULT '-',
+    imagen LONGBLOB,
+    iban VARCHAR(50) DEFAULT '-',
+    codigo_postal INT DEFAULT NULL,
+    ciudad VARCHAR(50) DEFAULT '-',
+    provincia VARCHAR(50) DEFAULT '-',
+    pais VARCHAR(50) DEFAULT '-',
+    moneda VARCHAR(50),
+    id_rol INT,
+    FOREIGN KEY (id_rol)
+        REFERENCES roles (id_rol)
 );
 
-create table prestamos (
-	id_prestamos int auto_increment primary key,
-	id_cliente int not null,
-	fecha_prestamo date,
-    cantidad_prestada varchar (100),
-    plazo int,
-    interes float,
-    motivo varchar (200),
-	foreign key (id_cliente) references usuario (dni)
+CREATE TABLE movimientos (
+    id_movimiento INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    saldo_total VARCHAR(100),
+    importe FLOAT,
+    fecha DATE,
+    hora TIME DEFAULT NULL,
+    concepto VARCHAR(80),
+    FOREIGN KEY (id_cliente)
+        REFERENCES usuario (dni)
 );
 
-create table pagos (
-	id_pagos int auto_increment primary key,
-    id_prestamos int not null,
-    fecha_pago date,
-    capital_mensual float,
-    saldo_pendiente float,
-    total_pagado float,
-	foreign key (id_prestamos) references prestamos (id_prestamos)
+CREATE TABLE prestamos (
+    id_prestamos INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    fecha_prestamo DATE,
+    cantidad_prestada VARCHAR(100),
+    plazo INT,
+    interes FLOAT,
+    motivo VARCHAR(200),
+    FOREIGN KEY (id_cliente)
+        REFERENCES usuario (dni)
+);
+
+CREATE TABLE pagos (
+    id_pagos INT AUTO_INCREMENT PRIMARY KEY,
+    id_prestamos INT NOT NULL,
+    fecha_pago DATE,
+    capital_mensual FLOAT,
+    saldo_pendiente FLOAT,
+    total_pagado FLOAT,
+    FOREIGN KEY (id_prestamos)
+        REFERENCES prestamos (id_prestamos)
 );
 
 insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, moneda) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.jpg", "Yenes");
 
-
+insert into roles (nombre_rol) values ("administrador");
