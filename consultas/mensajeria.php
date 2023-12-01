@@ -31,9 +31,12 @@ if ($resultadoUsuario && $resultadoAdmin) {
     echo "<option value=''></option>"; //Línea vacía para que no aparezca directamente un nombre
 
     while ($fila = mysqli_fetch_assoc($resultadoUsuario)) {
-        echo "<option value='" . $fila["dni"] . "'>" . $fila["nombre"] . "</option>";
+        //Verificar si el usuario actual es diferente al usuario de sesión
+        if ($fila["dni"] != $dni) {
+            echo "<option value='" . $fila["dni"] . "'>" . $fila["nombre"] . "</option>";
+        }
     }
-
+    
     while ($filaAdmin = mysqli_fetch_assoc($resultadoAdmin)) {
         echo "<option value='" . $filaAdmin["dni"] . "'>" . $filaAdmin["nombre"] . " (Admin)</option>";
     }

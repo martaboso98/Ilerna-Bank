@@ -17,36 +17,43 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
     $nombreUsuario = $filaNombre['nombre'];
     $idRolUsuario = $filaNombre['id_rol'];
 
-    $consultaMensaje = ($idRolUsuario == '1')
-        ? "SELECT * FROM mensajes"  // Consulta para administradores
-        : "SELECT * FROM mensajes WHERE remitente = '$dni'";  // Consulta para usuarios normales
+    // Obtener la lista de usuarios (excluyendo al usuario actual)
+    $consultaUsuarios = "SELECT dni, nombre FROM usuario WHERE dni != '$dni'";
+    $resultadoUsuarios = mysqli_query($conexion, $consultaUsuarios) or die("Algo ha ido mal en la consulta a la base de datos");
 
-    $resultadoMensaje = mysqli_query($conexion, $consultaMensaje) or die("Algo ha ido mal en la consulta a la base de datos");
+    // Mostrar lista de usuarios en un formulario
+    echo "<h2>¿Qué chat quieres mostrar?</h2>";
+    echo "<label for='destinatario' class='label'>Destinatario:</label>";
+    echo "<form method='post' action=''>"; // Cambiado el action a una cadena vacía
+    echo "<select name='destinatario' id='destinatario' required>";
+    echo "<option value=''></option>";
 
-    if (mysqli_num_rows($resultadoMensaje) > 0) {
-        while ($fila = mysqli_fetch_assoc($resultadoMensaje)) {
-            echo "<hr>";
-            echo "De: " . $nombreUsuario . "<br>";
-            echo "Para: " . $fila["destinatario"] . "<br>";
-            echo "Mensaje: " . $fila["mensaje"] . "<br>";
-            echo "Fecha: " . $fila["fecha_envio"] . "<br>";
+    while ($filaUsuario = mysqli_fetch_assoc($resultadoUsuarios)) {
+        echo "<option value='" . $filaUsuario["dni"] . "'>" . $filaUsuario["nombre"] . "</option>";
+    }
 
-            // Formulario para responder al mensaje
-            echo "<form method='post' action='enviarRespuesta.php'>";
-            echo "<input type='hidden' name='remitente' value='$dni'>";
-            echo "<input type='hidden' name='destinatario' value='" . $fila["remitente"] . "'>";
-            echo "<input type='hidden' name='mensaje_original' value='" . $fila["mensaje"] . "'>";
-            echo "<textarea name='mensaje_respuesta' placeholder='Responder al mensaje'></textarea>";
-            echo "<input type='submit' value='Responder'>";
-            echo "</form>";
+    echo "</select>";
+    echo "<input type='submit' value='Mostrar Mensajes'>";
+    echo "</form>";
 
-            echo "<hr>";
+    // Mostrar mensajes del destinatario seleccionado
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $destinatarioSeleccionado = $_POST['destinatario'];
+
+        $consultaMensajesDestinatario = "SELECT * FROM mensajes WHERE (remitente = '$dni' AND destinatario = '$destinatarioSeleccionado') OR (remitente = '$destinatarioSeleccionado' AND destinatario = '$dni')";
+        $resultadoMensajesDestinatario = mysqli_query($conexion, $consultaMensajesDestinatario) or die("Algo ha ido mal en la consulta a la base de datos");
+
+        if (mysqli_num_rows($resultadoMensajesDestinatario) > 0) {
+            echo "<ul>";
+            while ($fila = mysqli_fetch_assoc($resultadoMensajesDestinatario)) {
+                echo "<li>" . $fila["mensaje"] . " (" . $fila["fecha_envio"] . ")</li>";
+            }
+            echo "</ul>";
+
+        } else {
+            echo "No hay mensajes para mostrar.";
         }
-    } else {
-        echo "No hay mensajes.";
     }
 } else {
     echo "No se pudo obtener información del usuario.";
 }
-
-?>
