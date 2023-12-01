@@ -36,6 +36,8 @@
       
     <!-- Fin header -->
 
+    <img src="images/BANNER.gif" alt="Descripción opcional" width="2080">
+
     <section id="datos_acceso">
         <p class="negrita">Hola, introduce tus datos de acceso:</p>
         
