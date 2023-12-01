@@ -24,7 +24,7 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
     // Mostrar lista de usuarios en un formulario
     echo "<h2>¿Qué chat quieres mostrar?</h2>";
     echo "<label for='destinatario' class='label'>Destinatario:</label>";
-    echo "<form method='post' action=''>"; // Cambiado el action a una cadena vacía
+    echo "<form method='post' action=''>";
     echo "<select name='destinatario' id='destinatario' required>";
     echo "<option value=''></option>";
 
@@ -36,7 +36,7 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
     echo "<input type='submit' value='Mostrar Mensajes'>";
     echo "</form>";
 
-    // Mostrar mensajes del destinatario seleccionado
+    // Mostrar mensajes y formulario para responder
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $destinatarioSeleccionado = $_POST['destinatario'];
 
@@ -50,6 +50,13 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
             }
             echo "</ul>";
 
+            // Formulario para responder a los mensajes
+            echo "<h3>Responder al mensaje:</h3>";
+            echo "<form method='POST' action='consultas/enviarRespuesta.php'>"; // Puedes crear un nuevo archivo para procesar la respuesta
+            echo "<input type='hidden' name='destinatario' value='$destinatarioSeleccionado'>";
+            echo "<textarea name='mensaje' placeholder='Escribe tu respuesta...' required></textarea>";
+            echo "<input type='submit' value='Enviar Respuesta'>";
+            echo "</form>";
         } else {
             echo "No hay mensajes para mostrar.";
         }

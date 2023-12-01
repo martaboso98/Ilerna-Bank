@@ -48,12 +48,15 @@ if (mysqli_num_rows($resultado_existe) > 0) {
     function letra_a_posicion($letra)
     {
         $letra = strtoupper($letra);
+        $letra = iconv("UTF-8", "ISO-8859-1//TRANSLIT", $letra); //Convertir a caracteres sin acentos
         return ord($letra) - ord('A') + 1;
     }
 
+    $nombre_original = substr($nombre, 0, 4);
+
     //Convertir cada letra del nombre a su posición en el abecedario y luego a binario
     $nombre_binario = '';
-    for ($i = 0; $i < min(strlen($nombre_original), 4); $i++) {
+    for ($i = 0; $i < strlen($nombre_original); $i++) {
         $letra_actual = $nombre_original[$i];
         $posicion_letra = letra_a_posicion($letra_actual);
         $binario_letra = decbin($posicion_letra);
