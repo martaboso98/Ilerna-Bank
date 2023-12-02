@@ -1,17 +1,20 @@
 @import "components/_formulario.scss";
 @import "components/_preguntas.scss";
+@import "components/_tablas.scss";
 
 * {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Arial", sans-serif;
 }
 
 /*Para que la barra de scroll aparezca siempre y no mueva el header en las que aparecía*/
 body {
     overflow-y: scroll;
+    background-color: rgb(26, 26, 26) !important;
 }
 
 body::-webkit-scrollbar {
-    width: 16px; /* ajusta según sea necesario */
+    width: 16px;
+    /* ajusta según sea necesario */
 }
 
 /*Fin barra scroll*/
@@ -20,3 +23,27 @@ body::-webkit-scrollbar {
     font-weight: bold;
 }
 
+.contenedorMovimientos {
+    padding: 5%;
+    margin-top: 2%;
+}
+
+.ibanSaldo {
+    font-size: 20px;
+}
+
+#datosPersonales h1 {
+    color: white;
+}
+
+#datos_acceso p{
+    color: white; 
+}
+
+#movimientos h2, p {
+    color: white;
+}
+
+#movimientos h3 {
+    color: white;
+}

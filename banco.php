@@ -74,19 +74,6 @@
             <li class="nav-item">
               <a class="nav-link active text-dark" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownMoneda" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <span id="moneda-actual">Euros €</span>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMoneda">
-                <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Euros €')">Euros €</a></li>
-                <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Dólares $')">Dólares $</a></li>
-                <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Yenes ¥')">Yenes ¥</a></li>
-                <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Libras £')">Libras £</a></li>
-                <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Rublos ₽')">Rublos ₽</a></li>
-              </ul>
-            </li>
           </ul>
         </div>
       </div>
@@ -97,26 +84,31 @@
   <!-- Fin header -->
 
   <section id="movimientos">
-    <h3>Hola
-      <?php include("consultas/consultaNombre.php"); ?>, hoy es
-      <?php include("consultas/consultaDiaSemana.php"); ?>
-    </h3>
-    <h3>IBAN:
-      <?php include_once("consultas/consultaIban.php"); ?>
-    </h3>
-    <h3>Saldo Total:
-      <?php include("consultas/saldo_total.php"); ?>
-    </h3>
+    <div class="contenedorMovimientos">
 
-    <h1>Movimientos en cuenta</h1>
+      <h2>Hola
+        <?php include("consultas/consultaNombre.php"); ?>, hoy es
+        <?php include("consultas/consultaDiaSemana.php"); ?>
+      </h2>
 
-    <?php include_once("consultas/mostrarMovimientos.php"); ?>
+      <p class="ibanSaldo">IBAN:
+        <?php include_once("consultas/consultaIban.php"); ?>
+      </p>
 
-    <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
-    <a href="moverDinero.php?accion=ingreso"><button type="button" class="btn btn-warning">Ingresar</button></a>
-    <a href="moverDinero.php?accion=retiro"><button type="button" class="btn btn-danger">Retirar</button></a>
+      <p class="ibanSaldo">SALDO TOTAL: <br>
+        <?php include("consultas/saldo_total.php"); ?>
+      </p>
 
-    <script src="js/moneda.js"></script>
+      <h3>Movimientos en cuenta</h3>
+      <div class="movimientos">
+        <?php include_once("consultas/mostrarMovimientos.php"); ?>
+      </div>
+
+      <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
+      <a href="moverDinero.php?accion=ingreso"><button type="button" class="btn btn-warning">Ingresar</button></a>
+      <a href="moverDinero.php?accion=retiro"><button type="button" class="btn btn-danger">Retirar</button></a>
+
+    </div>
 
   </section>
 

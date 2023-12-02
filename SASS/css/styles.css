@@ -93,20 +93,86 @@ form input[type=submit] {
   font-size: 25px;
 }
 
+.acordeon-cuerpo {
+  color: white;
+}
+
+.movimientos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tablas {
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  color: #ffc107;
+}
+
+td {
+  color: white;
+}
+
+.tablas tr {
+  border-bottom: 1px solid #727272;
+}
+
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 /*Para que la barra de scroll aparezca siempre y no mueva el header en las que aparecía*/
 body {
   overflow-y: scroll;
+  background-color: rgb(26, 26, 26) !important;
 }
 
 body::-webkit-scrollbar {
-  width: 16px; /* ajusta según sea necesario */
+  width: 16px;
+  /* ajusta según sea necesario */
 }
 
 /*Fin barra scroll*/
 .negrita {
   font-weight: bold;
+}
+
+.contenedorMovimientos {
+  padding: 5%;
+  margin-top: 2%;
+}
+
+.ibanSaldo {
+  font-size: 20px;
+}
+
+#datosPersonales h1 {
+  color: white;
+}
+
+#datos_acceso p {
+  color: white;
+}
+
+#movimientos h2, p {
+  color: white;
+}
+
+#movimientos h3 {
+  color: white;
 }
