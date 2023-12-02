@@ -22,7 +22,7 @@
               </a>
       
               <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="index.php" class="nav-link px-2 text-white">INICIO</a></li>
+                <li><a href="banner.php" class="nav-link px-2 text-white">INICIO</a></li>
                 <li><a href="preguntas.php" class="nav-link px-2 text-white">PREGUNTAS FRECUENTES</a></li>
                 <li><a href="contacto.php" class="nav-link px-2 text-white">CONTACTO</a></li>
               </ul>

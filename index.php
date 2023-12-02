@@ -22,7 +22,7 @@
               </a>
       
               <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="index.php" class="nav-link px-2 text-white">INICIO</a></li>
+                <li><a href="banner.php" class="nav-link px-2 text-white">INICIO</a></li>
                 <li><a href="preguntas.php" class="nav-link px-2 text-white">PREGUNTAS FRECUENTES</a></li>
               </ul>
       
@@ -35,8 +35,6 @@
         </header>
       
     <!-- Fin header -->
-
-    <img src="images/BANNER.gif" alt="Descripción opcional" width="2080">
 
     <section id="datos_acceso">
         <p class="negrita">Hola, introduce tus datos de acceso:</p>
