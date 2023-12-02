@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="SASS/css/styles.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -27,12 +27,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
+                <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
                 <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
                     <ul class="navbar-nav">
                         <li class="nav-item mx-2">
@@ -88,14 +83,14 @@
         </nav>
 
     </header>
-<main>
-  
-  <form method="post" action="consultas/enviarMensaje.php">
-    <h3>Nuevo mensaje:</h3>
-    <?php include("consultas/mensajeria.php"); ?>
-  </form>
+    <main>
 
-  <?php include("consultas/mostrarMensaje.php"); ?>
+        <form method="post" action="consultas/enviarMensaje.php">
+            <h3>Nuevo mensaje:</h3>
+            <?php include("consultas/mensajeria.php"); ?>
+        </form>
+
+        <?php include("consultas/mostrarMensaje.php"); ?>
 
 </body>
 

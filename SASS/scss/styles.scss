@@ -1,0 +1,22 @@
+@import "components/_formulario.scss";
+@import "components/_preguntas.scss";
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*Para que la barra de scroll aparezca siempre y no mueva el header en las que aparecía*/
+body {
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+    width: 16px; /* ajusta según sea necesario */
+}
+
+/*Fin barra scroll*/
+
+.negrita {
+    font-weight: bold;
+}
+

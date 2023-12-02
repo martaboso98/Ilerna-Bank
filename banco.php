@@ -5,9 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banco</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="SASS/css/styles.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Agrega los scripts necesarios para Bootstrap al final del body -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -29,11 +28,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
-          aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+        <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
         <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item mx-2">
@@ -81,17 +76,17 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownMoneda" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <span id="moneda-actual">Euros €</span>
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <span id="moneda-actual">Euros €</span>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMoneda">
-                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Euros €')">Euros €</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Dólares $')">Dólares $</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Yenes ¥')">Yenes ¥</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Libras £')">Libras £</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Rublos ₽')">Rublos ₽</a></li>
+                <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Euros €')">Euros €</a></li>
+                <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Dólares $')">Dólares $</a></li>
+                <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Yenes ¥')">Yenes ¥</a></li>
+                <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Libras £')">Libras £</a></li>
+                <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Rublos ₽')">Rublos ₽</a></li>
               </ul>
-          </li>
+            </li>
           </ul>
         </div>
       </div>
@@ -102,8 +97,9 @@
   <!-- Fin header -->
 
   <section id="movimientos">
-    <h3>Hola 
-      <?php include("consultas/consultaNombre.php"); ?>, hoy es <?php include("consultas/consultaDiaSemana.php"); ?>
+    <h3>Hola
+      <?php include("consultas/consultaNombre.php"); ?>, hoy es
+      <?php include("consultas/consultaDiaSemana.php"); ?>
     </h3>
     <h3>IBAN:
       <?php include_once("consultas/consultaIban.php"); ?>
