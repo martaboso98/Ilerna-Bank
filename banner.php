@@ -17,7 +17,7 @@
 
   <!-- Header -->
 
-  <header class="p-3 text-bg-dark">
+  <header class="p-3">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <img src="images/logoBlanco.png" alt="Logo">
@@ -36,13 +36,12 @@
 
   <!-- Fin header -->
 
-<div class="container">
-  <div class="row justify-content-center align-items-center g-2">
-    <div class="banner col-12">
-      <img src="images/tarjeta.png" alt="banner">
-    </div>
+<div class="container-fluid negro">
+  <div class="text-center imagenBanner">
+    <img src="images/tarjeta.png" alt="banner" class="banner img-fluid white-shadow">
   </div>
 </div>
+
 
 </body>
 

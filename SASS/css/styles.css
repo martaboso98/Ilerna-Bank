@@ -139,7 +139,7 @@ td {
 /*Para que la barra de scroll aparezca siempre y no mueva el header en las que aparecía*/
 body {
   overflow-y: scroll;
-  background-color: rgb(26, 26, 26) !important;
+  background-color: #0e1215 !important;
 }
 
 body::-webkit-scrollbar {
@@ -175,4 +175,32 @@ body::-webkit-scrollbar {
 
 #movimientos h3 {
   color: white;
+}
+
+.banner {
+  width: 30vw;
+}
+
+.imagenBanner img {
+  -webkit-transition: all 0.9s ease;
+  transition: all 0.9s ease;
+}
+
+.imagenBanner:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.negro {
+  padding: 8%;
+  background-color: rgb(9, 9, 9);
+  background-image: url("../../images/fondo.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.white-shadow {
+  -webkit-box-shadow: 1px 1px 40px rgb(244, 244, 244);
+  box-shadow: 1px 1px 40px rgb(244, 244, 244);
+  border-radius: 2em !important;
 }
