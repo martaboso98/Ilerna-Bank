@@ -1,0 +1,26 @@
+.banner {
+    width: 30vw;
+}
+
+.imagenBanner img {
+    transition: all 0.9s ease;
+}
+
+.imagenBanner:hover img {
+    transform: scale(1.1);
+}
+
+.negro {
+    padding: 8%;
+    background-color: rgba(9, 9, 9);
+    background-image: url("../../images/fondo.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.white-shadow {
+    -webkit-box-shadow: 1px 1px 40px rgb(244, 244, 244);
+    -moz-box-shadow: 1px 1px 40px rgb(244, 244, 244);
+    box-shadow: 1px 1px 40px rgb(244, 244, 244);
+    border-radius: 2em !important;
+}

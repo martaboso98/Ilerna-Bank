@@ -35,8 +35,8 @@
               <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
             </li>
 
-            <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active" href="#" id="dropdown08" data-bs-toggle="dropdown"
+            <li class="nav-item dropdown btn-amarillo text-dark rounded px-1 mx-2">
+              <a class="nav-link dropdown-toggle active text-dark" href="#" id="dropdown08" data-bs-toggle="dropdown"
                 aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
               </a>
@@ -53,7 +53,7 @@
 
 
     <!-- Segundo encabezado -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning" aria-label="Tenth navbar example">
+    <nav class="navbar navbar-expand-lg navbar-dark btn-amarillo" aria-label="Tenth navbar example">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
           aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,10 +84,11 @@
   <!-- Fin header -->
 
   <section id="areapersonal">
-    <h1>Mis datos personales</h1>
-    <?php include("consultas/consultaAreaPersonal.php"); ?>
-
-    <a href="cambiar_datos.php"><button type="submit" class="btn btn-warning">Cambiar datos</button></a>
+    <h1 class="text-white text-center p-5">MIS DATOS PERSONALES</h1>
+    <div class="contenedorAreaPersonal">
+      <?php include("consultas/consultaAreaPersonal.php"); ?> <br>
+      <a href="cambiar_datos.php"><button type="submit" class="btn btn-amarillo">Cambiar datos</button></a>
+    </div>
   </section>
 
 </body>

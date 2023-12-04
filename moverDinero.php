@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </head>
 
 <body>
@@ -87,22 +88,30 @@
     <!-- Fin header -->
 
     <section id="movimientos">
-        <section id="datosPersonales">
 
-            <form action="consultas/ingresarRetirar.php" method="POST">
-                <label for="importe" class="label">Cantidad:</label>
-                <input type="float" name="importe" id="importe" required>
+    <div class="container px-5 my-5">
+        <h1 class="text-center p-2 blanco">INGRESAR</h1>
+        <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="consultas/ingresarRetirar.php" method="POST">
+            <div class="mb-3">
+                <label class="form-label text-white" for="importe">Cantidad</label>
+                <input class="form-control" id="importe" type="float" id="importe" data-sb-validations="required" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white" for="concepto">Concepto</label>
+                <input class="form-control" id="concepto" type="text" required>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-center p-2">
+                    <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+                </div>
+                <div class="col-md-6 text-center p-2">
+                    <a href="banco.php"><button type="button" class="btn btn-warning text-white btn-block">Volver</button></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
 
-                <label for="concepto" class="label">Concepto:</label>
-                <input type="text" name="concepto" id="concepto" required>
-
-                <!-- Para llamar a la acción del botón de ingresar y retirar -->
-                <input type="hidden" name="accion" value="<?php echo isset($_GET['accion']) ? $_GET['accion'] : ''; ?>">
-
-                <input type="submit" name="enviar" value="Enviar">
-            </form>
-            <a href="banco.php"><button type="button" class="btn btn-danger">Volver</button></a>
-        </section>
 
 </body>
 

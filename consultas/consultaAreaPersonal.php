@@ -20,6 +20,9 @@ echo "<th>Apellidos</th>";
 echo "</tr>";
 
 while ($fila = mysqli_fetch_assoc($resultadoDatos)) {
+
+    echo "<div class='centered-container'><img src='images/" . $fila['imagen'] . "' class='imagenUsuario'></div>";
+
     echo "<tr>";
     echo "<td>" . ($fila['nombre']) . "</td>";
     echo "<td>" . ($fila['apellidos']) . "</td>";
@@ -53,11 +56,6 @@ while ($fila = mysqli_fetch_assoc($resultadoDatos)) {
     echo "<td>" . ($fila['provincia']) . "</td>";
     echo "<td>" . ($fila['ciudad']) . "</td>";
     echo "<td>" . ($fila['pais']) . "</td>";
-    echo "</tr>";
-
-    //Mostrar la imagen
-    echo "<tr>";
-    echo "<td><img src='images/" . $fila['imagen'] . "' height='160' width='213' /></td>";
     echo "</tr>";
 
 }

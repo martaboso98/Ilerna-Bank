@@ -35,7 +35,7 @@
               <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
             </li>
 
-            <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
+            <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
               <a class="nav-link dropdown-toggle active" href="#" id="dropdown08" data-bs-toggle="dropdown"
                 aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
@@ -53,7 +53,7 @@
 
 
     <!-- Segundo encabezado -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning" aria-label="Tenth navbar example">
+    <nav class="navbar navbar-expand-lg navbar-dark btn-amarillo" aria-label="Tenth navbar example">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
           aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,17 +93,17 @@
     <form action="consultas/hacerPrestamo.php" method="POST">
       <div>
         <label for="cantidad_prestada" class="label">Cantidad: </label>
-        <input type="float" name="cantidad_prestada" id="cantidad_prestada" required>
+        <input type="float" name="cantidad_prestada" id="cantidad_prestada" class="caja" required>
       </div>
 
       <div>
         <label for="motivo" class="label">Motivo:</label>
-        <input type="text" name="motivo" id="motivo" required>
+        <input type="text" name="motivo" id="motivo" class="caja" required>
       </div>
 
       <div>
         <label for="plazo" class="label">Plazo:</label>
-        <input type="text" name="plazo" id="plazo" placeholder="Meses" required>
+        <input type="text" name="plazo" id="plazo" placeholder="Meses" class="caja" required>
       </div>
 
       <input type="submit" name="enviar" value="Enviar">
