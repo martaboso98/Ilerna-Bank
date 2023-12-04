@@ -49,18 +49,20 @@ while ($fila = mysqli_fetch_assoc($resultadoMovimientos)) {
     // Actualizar el saldo
     $saldoAnterior += $fila['importe'];
 
+    // Convertir la fecha al formato deseado (dd mmm)
+    $fecha_formateada = date('d M', strtotime($fila['fecha']));
+
     // Aplicar formato de dos decimales
     $importe_formateado = number_format($fila['importe'], 2);
     $saldo_formateado = number_format($saldoAnterior, 2);
 
     echo "<tr>";
-    echo "<td>" . $fila['fecha'] . "</td>";
+    echo "<td>" . $fecha_formateada . "</td>";
     echo "<td>" . $fila['hora'] . "</td>";
     echo "<td>" . $fila['concepto'] . "</td>";
-    echo "<td>" . $importe_formateado . " " . $monedaUsuario . "</td>";
+    echo "<td>" . $importe_formateado . "</td>";
     echo "<td>" . $saldo_formateado . " " . $monedaUsuario . "</td>";
     echo "</tr>";
-
 }
 
 echo "</table>";

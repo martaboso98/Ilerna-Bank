@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banco</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="SASS/css/styles.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Agrega los scripts necesarios para Bootstrap al final del body -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,16 +28,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
-          aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+        <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
         <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
           <ul class="navbar-nav">
-            <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="contacto.php">CONTACTO</a>
-            </li>
             <li class="nav-item mx-2">
               <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
             </li>
@@ -90,33 +83,34 @@
 
   <!-- Fin header -->
 
-    <section id="datos_acceso">
-        <p class="negrita">Para pedir un préstamo debes cumplir los siguientes requisitos:</p>
-        <ul>
-            <li>+ 18 años</li>
-            <li>Tener un saldo mayor a 1000 €</li>
-        </ul>
-        
-        <form action="consultas/hacerPrestamo.php" method="POST">
-            <div>
-            <label for="cantidad_prestada" class="label">Cantidad: </label>
-              <input type="float" name="cantidad_prestada" id="cantidad_prestada" required>
-            </div>
+  <section id="datos_acceso">
+    <p class="negrita">Para pedir un préstamo debes cumplir los siguientes requisitos:</p>
+    <ul>
+      <li>+ 18 años</li>
+      <li>Tener un saldo mayor a 1000 €</li>
+    </ul>
 
-            <div>
-            <label for="motivo" class="label">Motivo:</label>
-              <input type="text" name="motivo" id="motivo" required>
-            </div>
+    <form action="consultas/hacerPrestamo.php" method="POST">
+      <div>
+        <label for="cantidad_prestada" class="label">Cantidad: </label>
+        <input type="float" name="cantidad_prestada" id="cantidad_prestada" required>
+      </div>
 
-            <div>
-            <label for="plazo" class="label">Plazo:</label>
-              <input type="text" name="plazo" id="plazo" placeholder="Meses" required>
-            </div>
+      <div>
+        <label for="motivo" class="label">Motivo:</label>
+        <input type="text" name="motivo" id="motivo" required>
+      </div>
 
-            <input type="submit" name="enviar" value="Enviar">
-        </form>
-        
+      <div>
+        <label for="plazo" class="label">Plazo:</label>
+        <input type="text" name="plazo" id="plazo" placeholder="Meses" required>
+      </div>
 
-    </section>
+      <input type="submit" name="enviar" value="Enviar">
+    </form>
+
+
+  </section>
 </body>
+
 </html>
