@@ -36,7 +36,13 @@
 
   <!-- Fin header -->
 
-  <img src="images/BANNER.gif" alt="Descripción opcional" width="1920">
+<div class="container">
+  <div class="row justify-content-center align-items-center g-2">
+    <div class="banner col-12">
+      <img src="images/tarjeta.png" alt="banner">
+    </div>
+  </div>
+</div>
 
 </body>
 
