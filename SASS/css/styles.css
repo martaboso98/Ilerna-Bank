@@ -1,39 +1,10 @@
 @charset "UTF-8";
-#datos_acceso p {
-  padding-top: 3%;
-  text-align: center;
-}
-
 form {
-  width: 25%;
+  width: 25vw;
   padding: 2%;
-  margin: auto; /*Centrar*/
-  background-color: #ccc;
-  border-radius: 5px;
-}
-
-label {
-  width: 40%;
-  margin-right: 6%;
-}
-
-#dni, #contrasenya, #nombre, #apellidos, #tfno, #correo, #direccion, #fecha, #nuevaContrasenya, #nuevaContrasenyaComprobar, #cantidad_prestada, #plazo, #motivo {
-  padding: 1% 3%;
+  margin: auto;
   border: 1px solid #f6f6f6;
-  background-color: #f6f6f6;
-  margin-bottom: 1%;
-  border-radius: 5px;
-}
-
-form input[type=submit] {
-  width: 30%;
-  padding: 2% 5%;
-  margin-top: 3%;
-  border: 1px solid #000;
-  border-radius: 5px;
-  display: block;
-  color: #fff;
-  background-color: #000;
+  border-radius: 1em;
 }
 
 .acordeon {
@@ -87,10 +58,15 @@ form input[type=submit] {
   height: 150px;
 }
 
+.acordeon .contenedor.activa .etiqueta {
+  color: #ffc107;
+}
+
 /*Signo positivo a negativo una vez activado*/
 .acordeon .contenedor.activa .etiqueta::before {
   content: "-";
   font-size: 25px;
+  color: #ffc107;
 }
 
 .acordeon-cuerpo {
@@ -110,8 +86,7 @@ form input[type=submit] {
 }
 
 .tablas {
-  border-collapse: collapse;
-  width: 80%;
+  width: 100%;
 }
 
 th, td {
@@ -121,7 +96,7 @@ th, td {
 }
 
 th {
-  color: #ffc107;
+  color: #ffdd00;
 }
 
 td {
@@ -130,51 +105,6 @@ td {
 
 .tablas tr {
   border-bottom: 1px solid #727272;
-}
-
-* {
-  font-family: "Arial", sans-serif;
-}
-
-/*Para que la barra de scroll aparezca siempre y no mueva el header en las que aparecía*/
-body {
-  overflow-y: scroll;
-  background-color: #0e1215 !important;
-}
-
-body::-webkit-scrollbar {
-  width: 16px;
-  /* ajusta según sea necesario */
-}
-
-/*Fin barra scroll*/
-.negrita {
-  font-weight: bold;
-}
-
-.contenedorMovimientos {
-  padding: 5%;
-  margin-top: 2%;
-}
-
-.ibanSaldo {
-  font-size: 20px;
-}
-
-#datosPersonales h1 {
-  color: white;
-}
-
-#datos_acceso p {
-  color: white;
-}
-
-#movimientos h2, p {
-  color: white;
-}
-
-#movimientos h3 {
-  color: white;
 }
 
 .banner {
@@ -203,4 +133,94 @@ body::-webkit-scrollbar {
   -webkit-box-shadow: 1px 1px 40px rgb(244, 244, 244);
   box-shadow: 1px 1px 40px rgb(244, 244, 244);
   border-radius: 2em !important;
+}
+
+* {
+  font-family: "Arial", sans-serif;
+}
+
+/*Para que la barra de scroll aparezca siempre y no mueva el header en las que aparecía*/
+body {
+  overflow-y: scroll;
+  background-color: #0e1215 !important;
+}
+
+body::-webkit-scrollbar {
+  width: 16px;
+  /* ajusta según sea necesario */
+}
+
+/*Fin barra scroll*/
+.negrita {
+  font-weight: bold;
+}
+
+.contenedorMovimientos {
+  padding: 5%;
+  margin-top: 2%;
+}
+
+.iban {
+  font-size: 20px;
+}
+
+#datosPersonales h1 {
+  color: white;
+}
+
+#datos_acceso p {
+  color: white;
+}
+
+#movimientos h2, p {
+  color: white;
+}
+
+#movimientos h3 {
+  color: white;
+}
+
+.blanco {
+  color: white;
+}
+
+.btn-amarillo {
+  color: #fff;
+  background-color: #ffdd00 !important;
+  border-color: #ffdd00 !important;
+}
+
+/* Estilo para el hover del color amarillo */
+.btn-amarillo:hover {
+  color: #fff;
+  background-color: #ffe018 !important;
+  border-color: #ffe018 !important;
+}
+
+.imagenUsuario {
+  width: 12%;
+  height: auto;
+}
+
+.centered-container {
+  text-align: center;
+}
+
+.vertical-center-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.contenedorAreaPersonal {
+  margin-right: 5%;
+  margin-left: 5%;
+  padding: 1%;
 }

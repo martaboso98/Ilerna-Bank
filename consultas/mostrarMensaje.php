@@ -22,10 +22,10 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
     $resultadoUsuarios = mysqli_query($conexion, $consultaUsuarios) or die("Algo ha ido mal en la consulta a la base de datos");
 
     // Mostrar lista de usuarios en un formulario
-    echo "<h2>¿Qué chat quieres mostrar?</h2>";
-    echo "<label for='destinatario' class='label'>Destinatario:</label>";
+    echo "<h2 class='blanco'>¿Qué chat quieres mostrar?</h2>";
+    echo "<label for='destinatario' class='label blanco'>Destinatario:</label>";
     echo "<form method='post' action=''>";
-    echo "<select name='destinatario' id='destinatario' required>";
+    echo "<select name='destinatario' id='destinatario' class='caja' required>";
     echo "<option value=''></option>";
 
     while ($filaUsuario = mysqli_fetch_assoc($resultadoUsuarios)) {
@@ -54,7 +54,7 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
             echo "<h3>Responder al mensaje:</h3>";
             echo "<form method='POST' action='consultas/enviarRespuesta.php'>"; // Puedes crear un nuevo archivo para procesar la respuesta
             echo "<input type='hidden' name='destinatario' value='$destinatarioSeleccionado'>";
-            echo "<textarea name='mensaje' placeholder='Escribe tu respuesta...' required></textarea>";
+            echo "<textarea name='mensaje' placeholder='Escribe tu respuesta...' class='caja' required></textarea>";
             echo "<input type='submit' value='Enviar Respuesta'>";
             echo "</form>";
         } else {

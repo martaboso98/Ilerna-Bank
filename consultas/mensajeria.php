@@ -27,7 +27,7 @@ if ($resultadoUsuario && $resultadoAdmin) {
 
     mysqli_data_seek($resultadoUsuario, 0);
     echo "<label for='destinatario' class='label'>Destinatario:</label>";
-    echo "<select name='destinatario' id='destinatario' required>";
+    echo "<select name='destinatario' id='destinatario' class='caja' required>";
     echo "<option value=''></option>"; //Línea vacía para que no aparezca directamente un nombre
 
     while ($fila = mysqli_fetch_assoc($resultadoUsuario)) {
@@ -42,7 +42,7 @@ if ($resultadoUsuario && $resultadoAdmin) {
     }
     echo "</select>";
 
-    echo "Mensaje: <textarea name='mensaje'></textarea>";
+    echo "Mensaje: <textarea name='mensaje' class='caja'></textarea>";
     echo "<input type='submit' value='Enviar'>";
 
 } else {

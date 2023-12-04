@@ -5,8 +5,7 @@
 }
 
 .tablas {
-    border-collapse: collapse;
-    width: 80%;
+    width: 100%;
 }
 
 th, td {
@@ -16,7 +15,7 @@ th, td {
 }
 
 th {
-    color: #ffc107;
+    color: $color-amarillo;
 }
 
 td {
@@ -26,3 +25,4 @@ td {
 .tablas tr {
     border-bottom: 1px solid #727272;
 }
+

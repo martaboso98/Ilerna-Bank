@@ -1,6 +1,9 @@
+$color-amarillo: #ffdd00;
+
 @import "components/_formulario.scss";
 @import "components/_preguntas.scss";
 @import "components/_tablas.scss";
+@import "components/_banner.scss";
 
 * {
     font-family: "Arial", sans-serif;
@@ -28,7 +31,7 @@ body::-webkit-scrollbar {
     margin-top: 2%;
 }
 
-.ibanSaldo {
+.iban {
     font-size: 20px;
 }
 
@@ -48,32 +51,41 @@ body::-webkit-scrollbar {
     color: white;
 }
 
-.banner {
-    width: 30vw;
+.blanco {
+    color:white;
 }
 
-.imagenBanner img {
-    transition: all 0.9s ease;
+.btn-amarillo {
+    color: #fff;
+    background-color: $color-amarillo !important;
+    border-color: $color-amarillo !important;
 }
 
-.imagenBanner:hover img {
-    transform: scale(1.1);
+/* Estilo para el hover del color amarillo */
+.btn-amarillo:hover {
+    color: #fff;
+    background-color: #ffe018 !important;
+    border-color: #ffe018 !important;
 }
 
-.negro {
-    padding: 8%;
-    background-color: rgba(9, 9, 9);
-    background-image: url("../../images/fondo.png");
-    background-size: cover;
-    background-position: center;
+.imagenUsuario {
+    width: 12%;
+    height: auto;
 }
 
-.white-shadow {
-    -webkit-box-shadow: 1px 1px 40px rgb(244, 244, 244);
-    -moz-box-shadow: 1px 1px 40px rgb(244, 244, 244);
-    box-shadow: 1px 1px 40px rgb(244, 244, 244);
-    border-radius: 2em !important;
+.centered-container {
+    text-align: center;
 }
 
+.vertical-center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-
+.contenedorAreaPersonal {
+    margin-right: 5%;
+    margin-left: 5%;
+    padding: 1%;
+}

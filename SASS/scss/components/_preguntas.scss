@@ -47,10 +47,15 @@
     height: 150px;
 }
 
+.acordeon .contenedor.activa .etiqueta {
+    color: #ffc107; 
+}
+
 /*Signo positivo a negativo una vez activado*/
 .acordeon .contenedor.activa .etiqueta::before {
     content: '-';
     font-size: 25px;
+    color: #ffc107;
 }
 
 .acordeon-cuerpo {

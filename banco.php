@@ -82,35 +82,44 @@
   </header>
 
   <!-- Fin header -->
-
   <section id="movimientos">
-    <div class="contenedorMovimientos">
+  <div class="contenedorMovimientos">
 
-      <h2>Hola
-        <?php include("consultas/consultaNombre.php"); ?>, hoy es
-        <?php include("consultas/consultaDiaSemana.php"); ?>
-      </h2>
+    <h3>Hola
+      <?php include("consultas/consultaNombre.php"); ?>, hoy es
+      <?php include("consultas/consultaDiaSemana.php"); ?>
+    </h3>
 
-      <p class="ibanSaldo">IBAN:
-        <?php include_once("consultas/consultaIban.php"); ?>
-      </p>
-
-      <p class="ibanSaldo">SALDO TOTAL: <br>
-        <?php include("consultas/saldo_total.php"); ?>
-      </p>
-
-      <h3>Movimientos en cuenta</h3>
-      <div class="movimientos">
-        <?php include_once("consultas/mostrarMovimientos.php"); ?>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="iban">IBAN:
+          <?php include_once("consultas/consultaIban.php"); ?>
+        </p>
       </div>
 
-      <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
-      <a href="moverDinero.php?accion=ingreso"><button type="button" class="btn btn-warning">Ingresar</button></a>
-      <a href="moverDinero.php?accion=retiro"><button type="button" class="btn btn-danger">Retirar</button></a>
+      <div class="col-md-4">
+        <h1 class="blanco">SALDO TOTAL: <br>
+          <?php include("consultas/saldo_total.php"); ?>
+        </h1>
+      </div>
+
+      <div class="col-md-2">
+        <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
+        <a href="moverDinero.php?accion=ingreso"><button type="button" class="btn btn-warning">Ingresar</button></a>
+        <a href="moverDinero.php?accion=retiro"><button type="button" class="btn btn-danger">Retirar</button></a>
+      </div>
+
 
     </div>
 
-  </section>
+    <h3>Movimientos en cuenta</h3>
+      <div class="movimientos">
+        <?php include_once("consultas/mostrarMovimientos.php"); ?>
+      </div>
+    
+  </div>
+</section>
+
 
 </body>
 
