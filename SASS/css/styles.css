@@ -17,7 +17,7 @@ form {
 
 #datosPersonales form {
   width: 25vw;
-  padding: 3%;
+  padding: 5%;
   margin: auto;
   border: 1px solid #f6f6f6;
   border-radius: 1em;
@@ -33,10 +33,6 @@ form {
 }
 #logIn {
   padding: 5%;
-}
-
-.over {
-  overflow: auto;
 }
 
 .acordeon {
@@ -196,26 +192,6 @@ body::-webkit-scrollbar {
   font-size: 20px;
 }
 
-#datosPersonales h1 {
-  color: white;
-}
-
-#datos_acceso p {
-  color: white;
-}
-
-#movimientos h2, p {
-  color: white;
-}
-
-#movimientos h3 {
-  color: white;
-}
-
-.blanco {
-  color: white;
-}
-
 .btn-amarillo {
   color: #fbcd00;
   background-color: #fbcd00 !important;
@@ -248,4 +224,12 @@ body::-webkit-scrollbar {
   margin-right: 5%;
   margin-left: 5%;
   padding: 1%;
+}
+
+.quitarPunto {
+  list-style: none;
+}
+
+.amarillo {
+  color: #fbcd00;
 }

@@ -83,7 +83,7 @@
 
   <!-- Fin header -->
   <section id="movimientos">
-  <div class="contenedorMovimientos">
+  <div class="contenedorMovimientos text-white">
 
     <h3>Hola
       <?php include("consultas/consultaNombre.php"); ?>, hoy es

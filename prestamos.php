@@ -98,7 +98,7 @@
       </div>
 
       <div class="col-md-6">
-        <form id="contactForm" action="consultas/hacerPrestamo.php" method="POST">
+        <form action="consultas/hacerPrestamo.php" method="POST">
           <div class="mb-3">
               <label class="form-label text-white" for="cantidad_prestada">Cantidad</label>
               <input class="form-control" name="cantidad_prestada" id="cantidad_prestada" type="float" id="importe" data-sb-validations="required" />

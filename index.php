@@ -38,7 +38,7 @@
   <section id="logIn">
 
     <div class="container">
-      <p class="negrita text-center">Hola, introduce tus datos de acceso:</p>
+      <p class="negrita text-center text-white">Hola, introduce tus datos de acceso:</p>
       <form action="consultas/consulta1.php" method="POST">
         <div class="mb-3">
             <label class="form-label text-white" for="dni">Introduce tu DNI:</label>
@@ -56,7 +56,7 @@
           <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
         </div>
       </form> <br>
-      <p class="text-center">Estás en un entorno seguro con Boso Financial Services (BFS).</p>
+      <p class="text-center text-white">Estás en un entorno seguro con Boso Financial Services (BFS).</p>
     </div>
 </section>
 

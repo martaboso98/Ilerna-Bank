@@ -74,7 +74,7 @@
                 <option value="Rublos">Rublos</option>
               </select>          
           </div>
-          <div class="mb-3 over">
+          <div class="mb-3">
               <input type="file" id="imagen" name="imagen" class="text-white">   
               <small class="form-text text-white" >Seleccione una imagen (formatos: jpg, png, jpeg).</small>
           </div>

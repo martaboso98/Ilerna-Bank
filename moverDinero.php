@@ -19,6 +19,10 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="js/jquery.form.js" type="text/javascript"></script>
+    <script src="js/jquery.validate.js" type="text/javascript"></script>
+    <script type="text/javascript"></script>
 </head>
 
 <body>
@@ -85,8 +89,8 @@
 
     <section id="movimientos">
         <div class="container px-5 my-5">
-            <h1 class="text-center p-2 blanco">MOVIMIENTOS</h1>
-            <form action="consultas/ingresarRetirar.php" method="POST">
+            <h1 class="text-center p-2 text-white">MOVIMIENTOS</h1>
+            <form action="consultas/ingresarRetirar.php" method="POST" id="cantidadConcepto">
                 <div class="mb-3">
                     <label class="form-label text-white" for="importe">Cantidad</label>
                     <input class="form-control" id="importe" name="importe" type="float" required>
@@ -97,6 +101,8 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 text-center p-2">
+                        <!-- Para llamar a la acción del botón de ingresar y retirar -->
+                        <input type="hidden" name="accion" value="<?php echo isset($_GET['accion']) ? $_GET['accion'] : ''; ?>">  
                         <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
                     </div>
                     <div class="col-md-6 text-center p-2">
@@ -107,6 +113,7 @@
         </div>
     </section>
 
+    <script src="js/validacion.js" type="text/javascript"></script>
 
 </body>
 

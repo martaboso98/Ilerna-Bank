@@ -35,26 +35,6 @@ body::-webkit-scrollbar {
     font-size: 20px;
 }
 
-#datosPersonales h1 {
-    color: white;
-}
-
-#datos_acceso p{
-    color: white; 
-}
-
-#movimientos h2, p {
-    color: white;
-}
-
-#movimientos h3 {
-    color: white;
-}
-
-.blanco {
-    color:white;
-}
-
 .btn-amarillo {
     color: $color-amarillo;
     background-color: $color-amarillo !important;
@@ -81,4 +61,12 @@ body::-webkit-scrollbar {
     margin-right: 5%;
     margin-left: 5%;
     padding: 1%;
+}
+
+.quitarPunto {
+    list-style: none;
+}
+
+.amarillo {
+    color: $color-amarillo;
 }
