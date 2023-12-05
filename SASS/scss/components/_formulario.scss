@@ -1,8 +1,40 @@
 form {
 	width:25vw;
-	padding:2%;
+	padding:3%;
 	margin:auto; 
 	border:1px solid #f6f6f6;
 	border-radius:1em;
 }
 
+#logIn form {
+	width:25vw;
+	padding:3%;
+	margin:auto; 
+	border:1px solid #f6f6f6;
+	border-radius:1em;
+}
+
+#datosPersonales form {
+	width:25vw;
+	padding:3%;
+	margin:auto; 
+	border:1px solid #f6f6f6;
+	border-radius:1em;
+}
+
+@media (max-width: 980px){
+	#datosPersonales form {
+		width:70vw;
+	}
+	#logIn form {
+		width:70vw;
+	}
+}
+
+#logIn {
+	padding:5%;
+}
+
+.over {
+	overflow: auto;
+}

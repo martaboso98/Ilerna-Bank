@@ -36,7 +36,7 @@
             </li>
 
             <li class="nav-item dropdown btn-amarillo text-dark rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active text-dark" href="#" id="dropdown08" data-bs-toggle="dropdown"
+              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08" data-bs-toggle="dropdown"
                 aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
               </a>
@@ -63,16 +63,16 @@
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver movimientos</a>
+              <a class="nav-link active text-white" aria-current="page" href="banco.php">Ver movimientos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
+              <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
+              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
+              <a class="nav-link active text-white" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
             </li>
           </ul>
         </div>
@@ -87,7 +87,7 @@
     <h1 class="text-white text-center p-5">MIS DATOS PERSONALES</h1>
     <div class="contenedorAreaPersonal">
       <?php include("consultas/consultaAreaPersonal.php"); ?> <br>
-      <a href="cambiar_datos.php"><button type="submit" class="btn btn-amarillo">Cambiar datos</button></a>
+      <a href="cambiar_datos.php"><button type="submit" class="btn btn-amarillo text-white">Cambiar datos</button></a>
     </div>
   </section>
 

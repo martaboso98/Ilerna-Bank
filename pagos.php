@@ -43,7 +43,7 @@
             </li>
 
             <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active" href="#" id="dropdown08" data-bs-toggle="dropdown"
+              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08" data-bs-toggle="dropdown"
                 aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
               </a>
@@ -60,7 +60,7 @@
 
 
     <!-- Segundo encabezado -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning" aria-label="Tenth navbar example">
+    <nav class="navbar navbar-expand-lg navbar-dark btn-amarillo" aria-label="Tenth navbar example">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
           aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,30 +70,17 @@
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver movimientos</a>
+              <a class="nav-link active text-white" aria-current="page" href="banco.php">Ver movimientos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
+              <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
+              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
+              <a class="nav-link active text-white" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownMoneda" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <span id="moneda-actual">Euros €</span>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMoneda">
-                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Euros €')">Euros €</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Dólares $')">Dólares $</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Yenes ¥')">Yenes ¥</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Libras £')">Libras £</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="seleccionarMoneda('Rublos ₽')">Rublos ₽</a></li>
-              </ul>
-          </li>
           </ul>
         </div>
       </div>

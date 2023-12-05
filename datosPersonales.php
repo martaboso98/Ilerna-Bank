@@ -36,42 +36,54 @@
   <!-- Fin header -->
 
   <section id="datosPersonales">
-
-    <h1> Mis datos personales </h1>
-    <form action="consultas/insertarDatos.php" method="POST" enctype="multipart/form-data">
-      <label for="dni" class="label">DNI:</label>
-      <input type="text" name="dni" id="dni" required>
-
-      <label for="contrasenya" class="label">Contraseña:</label>
-      <input type="password" name="contrasenya" id="contrasenya" required>
-      <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
-
-      <label for="nombre" class="label">Nombre: </label>
-      <input type="text" name="nombre" id="nombre" required>
-
-      <label for="apellidos" class="label">Apellidos: </label>
-      <input type="text" name="apellidos" id="apellidos" required>
-
-      <label for="pais" class="label">País: </label>
-      <input type="text" name="pais" id="pais" required>
-
-      <label for="correo" class="label">Correo: </label>
-      <input type="email" name="correo" id="correo" required>
-
-      <label for="moneda" class="label">Tipo de Moneda:</label>
-      <select name="moneda" id="moneda" required>
-        <option value="Euros">Euros</option>
-        <option value="Dólares">Dólares</option>
-        <option value="Yenes">Yenes</option>
-        <option value="Libras">Libras</option>
-        <option value="Rublos">Rublos</option>
-      </select>
-
-      <input type="file" id="imagen" name="imagen" accept="image/*">
-      <small class="form-text text-muted">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
-
-      <input type="submit" name="enviar" value="Enviar">
-    </form>
+    <div class="container px-5 my-5"> 
+      <h1 class="text-center"> Mis datos personales </h1>
+      <div class="row">
+        <form action="consultas/insertarDatos.php" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+              <label class="form-label text-white" for="dni">DNI</label>
+              <input class="form-control" name="dni" id="dni" type="text" required>
+          </div>
+          <div class="mb-3 text-white">
+              <label class="form-label text-white" for="contrasenya">Contraseña</label>
+              <input class="form-control" name="contrasenya" id="contrasenya" type="password" required>
+              <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
+          </div>
+          <div class="mb-3">
+              <label class="form-label text-white" for="nombre">Nombre</label>
+              <input class="form-control" name="nombre" id="nombre" type="text" required>
+          </div>
+          <div class="mb-3">
+              <label class="form-label text-white" for="apellidos">Apellidos</label>
+              <input class="form-control" name="apellidos" id="apellidos" type="text" required>
+          </div>
+          <div class="mb-3">
+              <label class="form-label text-white" for="pais">País</label>
+              <input class="form-control" name="pais" id="pais" type="text" required>
+          </div>
+          <div class="mb-3">
+              <label class="form-label text-white" for="correo">Correo</label>
+              <input class="form-control" name="correo" id="correo" type="email" required>
+          </div>
+          <div class="mb-3">
+              <select name="moneda" id="moneda" required>
+                <option value="Euros">Euros</option>
+                <option value="Dólares">Dólares</option>
+                <option value="Yenes">Yenes</option>
+                <option value="Libras">Libras</option>
+                <option value="Rublos">Rublos</option>
+              </select>          
+          </div>
+          <div class="mb-3 over">
+              <input type="file" id="imagen" name="imagen" class="text-white">   
+              <small class="form-text text-white" >Seleccione una imagen (formatos: jpg, png, jpeg).</small>
+          </div>
+          <div class="mb-3">
+              <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-white btn-block">
+          </div>
+        </form>
+      </div>
+    </div>
   </section>
 
 </body>

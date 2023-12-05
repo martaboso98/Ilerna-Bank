@@ -1,10 +1,42 @@
 @charset "UTF-8";
 form {
   width: 25vw;
-  padding: 2%;
+  padding: 3%;
   margin: auto;
   border: 1px solid #f6f6f6;
   border-radius: 1em;
+}
+
+#logIn form {
+  width: 25vw;
+  padding: 3%;
+  margin: auto;
+  border: 1px solid #f6f6f6;
+  border-radius: 1em;
+}
+
+#datosPersonales form {
+  width: 25vw;
+  padding: 3%;
+  margin: auto;
+  border: 1px solid #f6f6f6;
+  border-radius: 1em;
+}
+
+@media (max-width: 980px) {
+  #datosPersonales form {
+    width: 70vw;
+  }
+  #logIn form {
+    width: 70vw;
+  }
+}
+#logIn {
+  padding: 5%;
+}
+
+.over {
+  overflow: auto;
 }
 
 .acordeon {
@@ -96,7 +128,7 @@ th, td {
 }
 
 th {
-  color: #ffdd00;
+  color: #fbcd00;
 }
 
 td {
@@ -185,16 +217,9 @@ body::-webkit-scrollbar {
 }
 
 .btn-amarillo {
-  color: #fff;
-  background-color: #ffdd00 !important;
-  border-color: #ffdd00 !important;
-}
-
-/* Estilo para el hover del color amarillo */
-.btn-amarillo:hover {
-  color: #fff;
-  background-color: #ffe018 !important;
-  border-color: #ffe018 !important;
+  color: #fbcd00;
+  background-color: #fbcd00 !important;
+  border-color: #fbcd00 !important;
 }
 
 .imagenUsuario {
