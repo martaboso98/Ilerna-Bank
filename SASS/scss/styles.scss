@@ -1,4 +1,4 @@
-$color-amarillo: #ffdd00;
+$color-amarillo: #fbcd00;
 
 @import "components/_formulario.scss";
 @import "components/_preguntas.scss";
@@ -35,37 +35,10 @@ body::-webkit-scrollbar {
     font-size: 20px;
 }
 
-#datosPersonales h1 {
-    color: white;
-}
-
-#datos_acceso p{
-    color: white; 
-}
-
-#movimientos h2, p {
-    color: white;
-}
-
-#movimientos h3 {
-    color: white;
-}
-
-.blanco {
-    color:white;
-}
-
 .btn-amarillo {
-    color: #fff;
+    color: $color-amarillo;
     background-color: $color-amarillo !important;
     border-color: $color-amarillo !important;
-}
-
-/* Estilo para el hover del color amarillo */
-.btn-amarillo:hover {
-    color: #fff;
-    background-color: #ffe018 !important;
-    border-color: #ffe018 !important;
 }
 
 .imagenUsuario {
@@ -88,4 +61,12 @@ body::-webkit-scrollbar {
     margin-right: 5%;
     margin-left: 5%;
     padding: 1%;
+}
+
+.quitarPunto {
+    list-style: none;
+}
+
+.amarillo {
+    color: $color-amarillo;
 }

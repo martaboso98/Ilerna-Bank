@@ -45,7 +45,7 @@
             </li>
 
             <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active" href="#" id="dropdown08" data-bs-toggle="dropdown"
+              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08" data-bs-toggle="dropdown"
                 aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
               </a>
@@ -62,7 +62,7 @@
 
 
     <!-- Segundo encabezado -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning" aria-label="Tenth navbar example">
+    <nav class="navbar navbar-expand-lg navbar-dark btn-amarillo" aria-label="Tenth navbar example">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
           aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,16 +72,16 @@
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver movimientos</a>
+              <a class="nav-link active text-white" aria-current="page" href="banco.php">Ver movimientos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
+              <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
+              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
+              <a class="nav-link active text-white" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
             </li>
           </ul>
         </div>
@@ -89,56 +89,80 @@
     </nav>
 
   </header>
-    <form action="consultas/insertarOtrosDatos.php" method="POST">
 
-    <p>¿Deseas cambiar tus datos?</p>
-      <label for="nombre" class="label">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" class="caja">
+  <div class="container px-5 my-5"> 
+    <div class="row">
+      <div class="col-md-6">
+          <form action="consultas/insertarOtrosDatos.php" method="POST">
+            <p>¿Deseas cambiar tus datos?</p>
+            <div class="mb-3">
+                <label class="form-label text-white" for="nombre">Nombre</label>
+                <input class="form-control" name="nombre" id="nombre" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white" for="apellidos">Apellidos</label>
+                <input class="form-control" name="apellidos" id="apellidos" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white" for="fecha">Fecha de nacimiento</label>
+                <input class="form-control" name="fecha" id="fecha" type="date">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white" for="codigo_postal">Dirección</label>
+                <input class="form-control" name="codigo_postal" id="codigo_postal" type="int">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white" for="direccion">Dirección</label>
+                <input class="form-control" name="direccion" id="direccion" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white" for="ciudad">Ciudad</label>
+                <input class="form-control" name="ciudad" id="ciudad" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white" for="provincia">Provincia</label>
+                <input class="form-control" name="provincia" id="provincia" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white" for="pais">País</label>
+                <input class="form-control" name="pais" id="pais" type="text">
+            </div>
+            <div class="mb-3">
+              <input type="file" id="imagen" name="imagen" class="text-white">   
+              <small class="form-text text-gray">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
+            </div>
+            <div class="mb-3">
+                <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+            </div>
+          </form>
+        </div>
 
-      <label for="apellidos" class="label">Apellidos:</label>
-        <input type="text" name="apellidos" id="apellidos" class="caja">
-      
-      <label for="fecha" class="label">Fecha de nacimiento:</label>
-        <input type="date" name="fecha" id="fecha" class="caja">
+        <div class="col-md-6">
+          <form action="consultas/cambiarContrasenya.php" method="POST">
+          <p>¿Deseas cambiar tu contraseña?</p>
+            <div class="mb-3 text-white">
+                <label class="form-label" for="contrasenya">Introduce tu contraseña actual:</label>
+                <input class="form-control" name="contrasenya" id="contrasenya" type="password" id="password" required>
+                <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
+            </div>
+            <div class="mb-3 text-white">
+                <label class="form-label" for="nuevaContrasenya">Introduce tu contraseña nueva:</label>
+                <input class="form-control" id="nuevaContrasenya" name="nuevaContrasenya" type="password" required>
+                <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
+            </div>
+            <div class="mb-3 text-white">
+                <label class="form-label" for="nuevaContrasenyaComprobar">Repite tu contraseña nueva:</label>
+                <input class="form-control" id="nuevaContrasenyaComprobar" name="nuevaContrasenyaComprobar" type="password" required>
+                <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
+            </div>
+            <div class="mb-3">
+                <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+            </div>
+          </form> 
+      </div>
 
-      <label for="direccion" class="label">Dirección:</label>
-        <input type="text" name="direccion" id="direccion" class="caja">
-      
-      <label for="codigo_postal" class="label">Código Postal:</label>
-        <input type="int" name="codigo_postal" id="codigo_postal" class="caja">
-
-      <label for="ciudad" class="label">Ciudad:</label>
-        <input type="text" name="ciudad" id="ciudad" class="caja">
-
-      <label for="provincia" class="label">Provincia:</label>
-        <input type="text" name="provincia" id="provincia" class="caja">
-
-      <label for="pais" class="label">País:</label>
-        <input type="text" name="pais" id="pais" class="caja">
-
-      <input type="file" id="imagen" name="imagen" accept="image/*">   
-        <small class="form-text text-muted">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
-
-      <input type="submit" name="enviar" value="Enviar">
-    </form>  
-    
-    <form action="consultas/cambiarContrasenya.php" method="POST">
-      <p>¿Deseas cambiar tu contraseña?</p>
-      <label for="contrasenya" class="label">Introduce tu contraseña actual:</label>
-      <input type="password" name="contrasenya" id="contrasenya" class="caja" required>
-      <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
-
-      <label for="nuevaContrasenya" class="label">Introduce tu nueva contraseña:</label>
-      <input type="password" name="nuevaContrasenya" id="nuevaContrasenya" class="caja" required>
-      <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
-
-      <label for="nuevaContrasenyaComprobar" class="label">Repite tu nueva contraseña:</label>
-      <input type="password" name="nuevaContrasenyaComprobar" id="nuevaContrasenyaComprobar" class="caja" required>
-      <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
-
-      <input type="submit" name="enviar" value="Enviar">
-    </form> 
-    
+    </div>
+  </div>
 
 </body>
 

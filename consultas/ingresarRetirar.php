@@ -38,11 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $importe = $esRetiro ? -$importe : $importe;
 
     //Calcular nuevo saldo
-    $saldoTotal = $saldoAnterior + $importe;
+    $importe = $esRetiro ? -floatval($importe) : floatval($importe);
 }
 
 //Convertir de decimal a hexadecimal
-$saldoTotal_hexadecimal = dechex($saldoTotal); 
+$saldoTotal_hexadecimal = dechex($saldoTotal);
 
 $insertar = "INSERT INTO movimientos (id_cliente, importe, concepto, fecha, hora, saldo_total) VALUES ('$dni', '$importe' ,'$concepto', '$fecha', '$hora','$saldoTotal_hexadecimal')";
 $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");

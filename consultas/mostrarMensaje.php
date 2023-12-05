@@ -22,19 +22,21 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
     $resultadoUsuarios = mysqli_query($conexion, $consultaUsuarios) or die("Algo ha ido mal en la consulta a la base de datos");
 
     // Mostrar lista de usuarios en un formulario
-    echo "<h2 class='blanco'>¿Qué chat quieres mostrar?</h2>";
-    echo "<label for='destinatario' class='label blanco'>Destinatario:</label>";
     echo "<form method='post' action=''>";
-    echo "<select name='destinatario' id='destinatario' class='caja' required>";
-    echo "<option value=''></option>";
+        echo "<h2 class='text-white text-center'>¿Qué chat quieres mostrar?</h2>";
+        echo "<label for='destinatario' class='form-label text-white'>Destinatario:</label>";
+        echo "<select name='destinatario' class='form-select' id='destinatario' required>";
+        echo "<option value=''></option>";
 
-    while ($filaUsuario = mysqli_fetch_assoc($resultadoUsuarios)) {
-        echo "<option value='" . $filaUsuario["dni"] . "'>" . $filaUsuario["nombre"] . "</option>";
-    }
+        while ($filaUsuario = mysqli_fetch_assoc($resultadoUsuarios)) {
+            echo "<option value='" . $filaUsuario["dni"] . "'>" . $filaUsuario["nombre"] . "</option>";
+        }
 
-    echo "</select>";
-    echo "<input type='submit' value='Mostrar Mensajes'>";
-    echo "</form>";
+        echo "</select>";
+        echo "<br>";
+        echo "<input type='submit' class='btn btn-amarillo text-white' value='Mostrar Mensajes'>";
+    echo "</form>";    
+
 
     // Mostrar mensajes y formulario para responder
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -44,21 +46,23 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
         $resultadoMensajesDestinatario = mysqli_query($conexion, $consultaMensajesDestinatario) or die("Algo ha ido mal en la consulta a la base de datos");
 
         if (mysqli_num_rows($resultadoMensajesDestinatario) > 0) {
-            echo "<ul>";
-            while ($fila = mysqli_fetch_assoc($resultadoMensajesDestinatario)) {
-                echo "<li>" . $fila["mensaje"] . " (" . $fila["fecha_envio"] . ")</li>";
-            }
-            echo "</ul>";
+            
+            echo "<ul class='text-white text-center quitarPunto'>";
+                while ($fila = mysqli_fetch_assoc($resultadoMensajesDestinatario)) {
+                    echo "<li>" . $fila["mensaje"] . " (" . $fila["fecha_envio"] . ")</li>";
+                }
+                echo "</ul>";
 
-            // Formulario para responder a los mensajes
-            echo "<h3>Responder al mensaje:</h3>";
-            echo "<form method='POST' action='consultas/enviarRespuesta.php'>"; // Puedes crear un nuevo archivo para procesar la respuesta
-            echo "<input type='hidden' name='destinatario' value='$destinatarioSeleccionado'>";
-            echo "<textarea name='mensaje' placeholder='Escribe tu respuesta...' class='caja' required></textarea>";
-            echo "<input type='submit' value='Enviar Respuesta'>";
-            echo "</form>";
+                // Formulario para responder a los mensajes
+                echo "<form method='POST' action='consultas/enviarRespuesta.php'>"; // Puedes crear un nuevo archivo para procesar la respuesta
+                    echo "<h3 class='text-white'>Responder al mensaje:</h3>";
+                    echo "<input type='hidden' name='destinatario' value='$destinatarioSeleccionado'>";
+                    echo "<textarea name='mensaje' placeholder='Escribe tu respuesta...' class='form-control' required></textarea>";
+                    echo "<br>";
+                    echo "<input type='submit' class='btn btn-amarillo text-white' value='Enviar respuesta'>";
+                    echo "</form>";
         } else {
-            echo "No hay mensajes para mostrar.";
+            echo "<p class='text-white'>No hay mensajes para mostrar.</p>";
         }
     }
 } else {

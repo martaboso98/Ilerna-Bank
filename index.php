@@ -35,31 +35,31 @@
   </header>
 
   <!-- Fin header -->
+  <section id="logIn">
 
-  <section id="datos_acceso">
-    <p class="negrita">Hola, introduce tus datos de acceso:</p>
-
-    <form action="consultas/consulta1.php" method="POST">
-      <div>
-        <label for="dni" class="label">Introduce tu DNI:</label>
-        <input type="text" name="dni" id="dni" placeholder="DNI/NIE" required>
-      </div>
-
-      <div>
-        <label for="contrasenya" class="label">Contraseña:</label>
-        <input type="password" name="contrasenya" id="contrasenya" placeholder="Contraseña" required>
-        <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
-        <!-- He olvidado mi contraseña:
+    <div class="container">
+      <p class="negrita text-center text-white">Hola, introduce tus datos de acceso:</p>
+      <form action="consultas/consulta1.php" method="POST">
+        <div class="mb-3">
+            <label class="form-label text-white" for="dni">Introduce tu DNI:</label>
+            <input class="form-control" id="dni" name="dni" type="text" placeholder="DNI sin letra" required>
+        </div>
+        <div class="mb-3 text-white">
+            <label class="form-label" for="contrasenya">Contraseña</label>
+            <input class="form-control" id="contrasenya" name="contrasenya" type="password" required>
+            <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
+            <!-- He olvidado mi contraseña:
             Si no recuerdas tu contraseña de acceso, desde esta página puedes solicitarla.<label DNI>
             Este servicio solo será válido si previamente no has bloqueado tus claves de acceso. En ese caso, deberás ponerte en contacto con tu oficina o con los servicios de atención de tu entidad.-->
-      </div>
+        </div>
+        <div class="mb-3">
+          <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+        </div>
+      </form> <br>
+      <p class="text-center text-white">Estás en un entorno seguro con Boso Financial Services (BFS).</p>
+    </div>
+</section>
 
-      <input type="submit" name="enviar" value="Enviar">
-    </form>
-
-    <p>Estás en un entorno seguro con Boso Financial Services (BFS).</p>
-
-  </section>
 </body>
 
 </html>

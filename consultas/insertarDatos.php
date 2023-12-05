@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     } else {
         //Si no se selecciona ninguna imagen, asignar una imagen por defecto
-        $nombre_imagen = "usuario.jpg";
+        $nombre_imagen = "usuario.png";
     }
 }
 

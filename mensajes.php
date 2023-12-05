@@ -35,7 +35,7 @@
                         </li>
 
                         <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
-                            <a class="nav-link dropdown-toggle active" href="#" id="dropdown08"
+                            <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08"
                                 data-bs-toggle="dropdown" aria-expanded="false">Hola,
                                 <?php include_once("consultas/consultaNombre.php"); ?>
                             </a>
@@ -52,46 +52,43 @@
 
 
         <!-- Segundo encabezado -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-warning" aria-label="Tenth navbar example">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <nav class="navbar navbar-expand-lg navbar-dark btn-amarillo" aria-label="Tenth navbar example">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
+          aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver
-                                movimientos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1"
-                                aria-disabled="true">Retirar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-dark" href="prestamos.php" tabindex="-1"
-                                aria-disabled="true">Préstamos</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="banco.php">Ver movimientos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     </header>
     <main>
 
-        <form method="post" action="consultas/enviarMensaje.php">
-            <h3>Nuevo mensaje:</h3>
+  <section id="datos_acceso">
+    <div div class="container px-5 my-5">
+      <form method="post" action="consultas/enviarMensaje.php">
+        <h3 class="text-white text-center">Nuevo mensaje:</h3>
             <?php include("consultas/mensajeria.php"); ?>
         </form>
-
-        <?php include("consultas/mostrarMensaje.php"); ?>
-
+      <?php include("consultas/mostrarMensaje.php"); ?>
+    </div>
+  </section>
+            
 </body>
-
 </html>
