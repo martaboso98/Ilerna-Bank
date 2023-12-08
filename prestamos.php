@@ -89,7 +89,7 @@
 
     <div class="row">
       <div class="col-md-6">
-        <p class="negrita">Para pedir un préstamo debes cumplir los siguientes requisitos:</p>
+        <p class="negrita text-white">Para pedir un préstamo debes cumplir los siguientes requisitos:</p>
         <ul class="text-white">
           <li>Ser mayor de edad (+ 18).</li>
           <li>Tener al menos el 15% de la cantidad que se quiere pedir en el saldo de la cuenta.</li>
@@ -109,10 +109,10 @@
           </div>
           <div class="row">
               <div class="col-md-6 text-center p-2">
-                  <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+                  <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-white btn-block">
               </div>
               <div class="col-md-6 text-center p-2">
-                  <a href="banco.php"><button type="button" class="btn btn-warning text-white btn-block">Volver</button></a>
+                  <a href="banco.php"><button type="button" class="btn btn-amarillo text-white btn-block">Volver</button></a>
               </div>
           </div>
         </form>
