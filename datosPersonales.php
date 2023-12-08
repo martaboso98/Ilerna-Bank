@@ -37,7 +37,7 @@
 
   <section id="datosPersonales">
     <div class="container px-5 my-5"> 
-      <h1 class="text-center"> Mis datos personales </h1>
+      <h1 class="text-center text-white"> Mis datos personales </h1>
       <div class="row">
         <form action="consultas/insertarDatos.php" method="POST" enctype="multipart/form-data">
           <div class="mb-3">

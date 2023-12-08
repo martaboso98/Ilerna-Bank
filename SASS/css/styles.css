@@ -1,26 +1,18 @@
 @charset "UTF-8";
 form {
   width: 25vw;
-  padding: 3%;
   margin: auto;
   border: 1px solid #f6f6f6;
   border-radius: 1em;
-}
-
-#logIn form {
-  width: 25vw;
   padding: 3%;
-  margin: auto;
-  border: 1px solid #f6f6f6;
-  border-radius: 1em;
 }
 
 #datosPersonales form {
   width: 25vw;
-  padding: 5%;
   margin: auto;
   border: 1px solid #f6f6f6;
   border-radius: 1em;
+  padding: 5%;
 }
 
 @media (max-width: 980px) {
@@ -39,20 +31,18 @@ form {
   width: 40%;
   margin: 40px auto;
   padding: 45px 45px;
+  color: #f6f6f6;
 }
-
 .acordeon .contenedor {
   position: relative;
   margin: 10px 10px;
 }
-
 .acordeon .etiqueta {
   position: relative;
   padding: 10px 0;
   font-size: 25px;
   cursor: pointer;
 }
-
 .acordeon .etiqueta::before {
   content: "+";
   position: absolute;
@@ -62,8 +52,6 @@ form {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
-
-/*Oculta el contenido*/
 .acordeon .contenido {
   position: relative;
   height: 0;
@@ -74,8 +62,6 @@ form {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-
-/*Línea horizontal*/
 .acordeon hr {
   width: 100;
   margin-left: 0;
@@ -87,18 +73,14 @@ form {
 }
 
 .acordeon .contenedor.activa .etiqueta {
-  color: #ffc107;
+  color: #ffd416;
 }
 
 /*Signo positivo a negativo una vez activado*/
 .acordeon .contenedor.activa .etiqueta::before {
   content: "-";
   font-size: 25px;
-  color: #ffc107;
-}
-
-.acordeon-cuerpo {
-  color: white;
+  color: #ffd416;
 }
 
 .movimientos {
@@ -116,6 +98,9 @@ form {
 .tablas {
   width: 100%;
 }
+.tablas tr {
+  border-bottom: 1px solid #727272;
+}
 
 th, td {
   border: 1px solid #ddd;
@@ -128,11 +113,7 @@ th {
 }
 
 td {
-  color: white;
-}
-
-.tablas tr {
-  border-bottom: 1px solid #727272;
+  color: #f6f6f6;
 }
 
 .banner {
@@ -143,8 +124,7 @@ td {
   -webkit-transition: all 0.9s ease;
   transition: all 0.9s ease;
 }
-
-.imagenBanner:hover img {
+.imagenBanner img:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
@@ -226,10 +206,13 @@ body::-webkit-scrollbar {
   padding: 1%;
 }
 
-.quitarPunto {
-  list-style: none;
-}
-
 .amarillo {
   color: #fbcd00;
+}
+
+.listaMensaje {
+  list-style: none;
+  font-size: 16px;
+  color: white;
+  text-align: center;
 }

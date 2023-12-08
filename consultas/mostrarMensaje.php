@@ -47,7 +47,7 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
 
         if (mysqli_num_rows($resultadoMensajesDestinatario) > 0) {
             
-            echo "<ul class='text-white text-center quitarPunto'>";
+            echo "<ul class='listaMensaje'>";
                 while ($fila = mysqli_fetch_assoc($resultadoMensajesDestinatario)) {
                     echo "<li>" . $fila["mensaje"] . " (" . $fila["fecha_envio"] . ")</li>";
                 }

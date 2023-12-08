@@ -1,4 +1,8 @@
 $color-amarillo: #fbcd00;
+$color-blanco: #f6f6f6;
+$negrita: bold;
+$fuente: "Arial", sans-serif;
+$total100: 100%;
 
 @import "components/_formulario.scss";
 @import "components/_preguntas.scss";
@@ -6,7 +10,7 @@ $color-amarillo: #fbcd00;
 @import "components/_banner.scss";
 
 * {
-    font-family: "Arial", sans-serif;
+    font-family: $fuente;
 }
 
 /*Para que la barra de scroll aparezca siempre y no mueva el header en las que aparecía*/
@@ -23,7 +27,7 @@ body::-webkit-scrollbar {
 /*Fin barra scroll*/
 
 .negrita {
-    font-weight: bold;
+    font-weight: $negrita;
 }
 
 .contenedorMovimientos {
@@ -32,7 +36,7 @@ body::-webkit-scrollbar {
 }
 
 .iban {
-    font-size: 20px;
+    font-size: 14px + 6px;
 }
 
 .btn-amarillo {
@@ -42,7 +46,7 @@ body::-webkit-scrollbar {
 }
 
 .imagenUsuario {
-    width: 12%;
+    width: 100% - 88%;
     height: auto;
 }
 
@@ -63,10 +67,17 @@ body::-webkit-scrollbar {
     padding: 1%;
 }
 
-.quitarPunto {
-    list-style: none;
-}
-
 .amarillo {
     color: $color-amarillo;
+}
+
+@mixin lista {
+    list-style: none;
+    font-size: 16px;
+    color:white;
+}
+
+.listaMensaje {
+    @include lista;
+    text-align: center;
 }

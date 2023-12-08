@@ -1,15 +1,19 @@
+$white-shadow-color: rgb(244, 244, 244);
+
 .banner {
-    width: 30vw;
+    width:100vw - 70vw;
 }
 
-.imagenBanner img {
-    transition: all 0.9s ease;
+.imagenBanner {
+    img {
+      transition: all 0.9s ease;
+  
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 }
-
-.imagenBanner:hover img {
-    transform: scale(1.1);
-}
-
+  
 .negro {
     padding: 8%;
     background-color: rgba(9, 9, 9);
@@ -18,9 +22,13 @@
     background-position: center;
 }
 
-.white-shadow {
-    -webkit-box-shadow: 1px 1px 40px rgb(244, 244, 244);
-    -moz-box-shadow: 1px 1px 40px rgb(244, 244, 244);
-    box-shadow: 1px 1px 40px rgb(244, 244, 244);
+@mixin white-shadow($color: $white-shadow-color) {
+    -webkit-box-shadow: 1px 1px 40px $color;
+    -moz-box-shadow: 1px 1px 40px $color;
+    box-shadow: 1px 1px 40px $color;
     border-radius: 2em !important;
+}
+
+.white-shadow {
+    @include white-shadow;
 }

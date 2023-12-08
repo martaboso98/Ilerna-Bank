@@ -5,7 +5,12 @@
 }
 
 .tablas {
-    width: 100%;
+    width: $total100;
+
+    tr {
+        border-bottom: 1px solid #727272;
+    }
+
 }
 
 th, td {
@@ -19,10 +24,6 @@ th {
 }
 
 td {
-    color: white;
-}
-
-.tablas tr {
-    border-bottom: 1px solid #727272;
+    color: $color-blanco;
 }
 
