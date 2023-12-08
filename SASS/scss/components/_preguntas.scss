@@ -1,46 +1,52 @@
+@function lighten-color($color, $amount) {
+    @return lighten($color, $amount);
+}
+
 .acordeon {
-    width: 40%;
+    width: 100% - 60%;
     margin: 40px auto;
     padding: 45px 45px;
-}
+    color:$color-blanco;
 
-.acordeon .contenedor {
-    position: relative;
-    margin: 10px 10px;
-}
+    .contenedor {
+        position: relative;
+        margin: 10px 10px;
+    }
 
-.acordeon .etiqueta {
-    position: relative;
-    padding: 10px 0;
-    font-size: 25px;
-    cursor: pointer;
-}
+    .etiqueta {
+        position: relative;
+        padding: 10px 0;
+        font-size: 25px;
+        cursor: pointer;
 
-.acordeon .etiqueta::before {
-    content: '+';
-    position: absolute;
-    top: 50%;
-    right: -5px;
-    font-size: 25px;
-    transform: translateY(-50%);
-}
+        &::before {
+            content: '+';
+            position: absolute;
+            top: 50%;
+            right: -5px;
+            font-size: 25px;
+            transform: translateY(-50%);
+        }
+    }
 
-/*Oculta el contenido*/
-.acordeon .contenido {
-    position: relative;
-    height: 0;
-    font-size: 20px;
-    text-align: justify;
-    width: 680px;
-    overflow: hidden;
-    transition: 0.5s;
-}
+    //Ocultar contenido
+    .contenido {
+        position: relative;
+        height: 0;
+        font-size: 20px;
+        text-align: justify;
+        width: 680px;
+        overflow: hidden;
+        transition: 0.5s;
+    }
 
-/*Línea horizontal*/
-.acordeon hr {
-    width: 100;
-    margin-left: 0;
-    border: 1px solid grey;
+    //Línea
+    hr {
+        width: 100;
+        margin-left: 0;
+        border: 1px solid grey;
+    }
+
 }
 
 .acordeon .contenedor.activa .contenido {
@@ -48,16 +54,12 @@
 }
 
 .acordeon .contenedor.activa .etiqueta {
-    color: #ffc107; 
+    color: lighten-color($color-amarillo, 5%);
 }
 
 /*Signo positivo a negativo una vez activado*/
 .acordeon .contenedor.activa .etiqueta::before {
     content: '-';
-    font-size: 25px;
-    color: #ffc107;
-}
-
-.acordeon-cuerpo {
-    color: white;
+    font-size: 14px + 11px;
+    color: lighten-color($color-amarillo, 5%);
 }
