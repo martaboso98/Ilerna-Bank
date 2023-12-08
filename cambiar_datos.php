@@ -90,79 +90,82 @@
 
   </header>
 
-  <div class="container px-5 my-5"> 
-    <div class="row">
-      <div class="col-md-6">
-          <form action="consultas/insertarOtrosDatos.php" method="POST">
-            <p>¿Deseas cambiar tus datos?</p>
-            <div class="mb-3">
-                <label class="form-label text-white" for="nombre">Nombre</label>
-                <input class="form-control" name="nombre" id="nombre" type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label text-white" for="apellidos">Apellidos</label>
-                <input class="form-control" name="apellidos" id="apellidos" type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label text-white" for="fecha">Fecha de nacimiento</label>
-                <input class="form-control" name="fecha" id="fecha" type="date">
-            </div>
-            <div class="mb-3">
-                <label class="form-label text-white" for="codigo_postal">Dirección</label>
-                <input class="form-control" name="codigo_postal" id="codigo_postal" type="int">
-            </div>
-            <div class="mb-3">
-                <label class="form-label text-white" for="direccion">Dirección</label>
-                <input class="form-control" name="direccion" id="direccion" type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label text-white" for="ciudad">Ciudad</label>
-                <input class="form-control" name="ciudad" id="ciudad" type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label text-white" for="provincia">Provincia</label>
-                <input class="form-control" name="provincia" id="provincia" type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label text-white" for="pais">País</label>
-                <input class="form-control" name="pais" id="pais" type="text">
-            </div>
-            <div class="mb-3">
-              <input type="file" id="imagen" name="imagen" class="text-white">   
-              <small class="form-text text-gray">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
-            </div>
-            <div class="mb-3">
-                <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
-            </div>
-          </form>
+  <section id="cambiarDatos">
+
+    <div class="container px-5 my-5"> 
+      <div class="row">
+        <div class="col-md-6">
+            <form action="consultas/insertarOtrosDatos.php" method="POST">
+              <p class="text-white">¿Deseas cambiar tus datos?</p>
+              <div class="mb-3">
+                  <label class="form-label text-white" for="nombre">Nombre</label>
+                  <input class="form-control" name="nombre" id="nombre" type="text">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label text-white" for="apellidos">Apellidos</label>
+                  <input class="form-control" name="apellidos" id="apellidos" type="text">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label text-white" for="fecha">Fecha de nacimiento</label>
+                  <input class="form-control" name="fecha" id="fecha" type="date">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label text-white" for="codigo_postal">Dirección</label>
+                  <input class="form-control" name="codigo_postal" id="codigo_postal" type="int">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label text-white" for="direccion">Dirección</label>
+                  <input class="form-control" name="direccion" id="direccion" type="text">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label text-white" for="ciudad">Ciudad</label>
+                  <input class="form-control" name="ciudad" id="ciudad" type="text">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label text-white" for="provincia">Provincia</label>
+                  <input class="form-control" name="provincia" id="provincia" type="text">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label text-white" for="pais">País</label>
+                  <input class="form-control" name="pais" id="pais" type="text">
+              </div>
+              <div class="mb-3">
+                <input type="file" id="imagen" name="imagen" class="text-white">   
+                <small class="form-text text-gray">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
+              </div>
+              <div class="mb-3">
+                  <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+              </div>
+            </form>
+          </div>
+
+          <div class="col-md-6">
+            <form action="consultas/cambiarContrasenya.php" method="POST">
+            <p class="text-white">¿Deseas cambiar tu contraseña?</p>
+              <div class="mb-3 text-white">
+                  <label class="form-label" for="contrasenya">Introduce tu contraseña actual:</label>
+                  <input class="form-control" name="contrasenya" id="contrasenya" type="password" id="password" required>
+                  <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
+              </div>
+              <div class="mb-3 text-white">
+                  <label class="form-label" for="nuevaContrasenya">Introduce tu contraseña nueva:</label>
+                  <input class="form-control" id="nuevaContrasenya" name="nuevaContrasenya" type="password" required>
+                  <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
+              </div>
+              <div class="mb-3 text-white">
+                  <label class="form-label" for="nuevaContrasenyaComprobar">Repite tu contraseña nueva:</label>
+                  <input class="form-control" id="nuevaContrasenyaComprobar" name="nuevaContrasenyaComprobar" type="password" required>
+                  <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
+              </div>
+              <div class="mb-3">
+                  <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+              </div>
+            </form> 
         </div>
 
-        <div class="col-md-6">
-          <form action="consultas/cambiarContrasenya.php" method="POST">
-          <p>¿Deseas cambiar tu contraseña?</p>
-            <div class="mb-3 text-white">
-                <label class="form-label" for="contrasenya">Introduce tu contraseña actual:</label>
-                <input class="form-control" name="contrasenya" id="contrasenya" type="password" id="password" required>
-                <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
-            </div>
-            <div class="mb-3 text-white">
-                <label class="form-label" for="nuevaContrasenya">Introduce tu contraseña nueva:</label>
-                <input class="form-control" id="nuevaContrasenya" name="nuevaContrasenya" type="password" required>
-                <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
-            </div>
-            <div class="mb-3 text-white">
-                <label class="form-label" for="nuevaContrasenyaComprobar">Repite tu contraseña nueva:</label>
-                <input class="form-control" id="nuevaContrasenyaComprobar" name="nuevaContrasenyaComprobar" type="password" required>
-                <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
-            </div>
-            <div class="mb-3">
-                <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
-            </div>
-          </form> 
       </div>
-
     </div>
-  </div>
+</section>
 
 </body>
 
