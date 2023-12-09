@@ -45,7 +45,7 @@ CREATE TABLE prestamos (
     id_cliente INT NOT NULL,
     fecha_prestamo DATE,
     cantidad_prestada VARCHAR(100),
-    plazo INT,
+    plazo INT default 22,
     interes FLOAT,
     motivo VARCHAR(200),
     estado ENUM ("pendiente", "aprobado", "rechazado") DEFAULT "pendiente",
@@ -72,7 +72,7 @@ CREATE TABLE mensajes (
     mensaje TEXT
 );
 
-insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, moneda, id_rol) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.png", "Yenes");
+insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, moneda) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.png", "Yenes");
 insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, moneda) values (30696606, "Miguel", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.png", "Yenes");
 
 insert into roles (nombre_rol) values ("administrador");

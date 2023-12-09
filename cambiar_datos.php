@@ -30,27 +30,21 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
-          aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+        <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
         <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
           <ul class="navbar-nav">
-            <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="contacto.php">CONTACTO</a>
-            </li>
             <li class="nav-item mx-2">
               <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
             </li>
 
-            <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08" data-bs-toggle="dropdown"
-                aria-expanded="false">Hola,
+            <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
+              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08"
+                data-bs-toggle="dropdown" aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdown08">
                 <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
+                <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
                 <li><a class="dropdown-item" href="mensajes.php">Contacto</a></li>
                 <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
               </ul>
@@ -78,10 +72,12 @@
               <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
+              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1"
+                aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
+              <a class="nav-link active text-white" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
+                préstamos</a>
             </li>
           </ul>
         </div>
@@ -90,82 +86,85 @@
 
   </header>
 
+  <!-- Fin header -->
+
   <section id="cambiarDatos">
 
-    <div class="container px-5 my-5"> 
+    <div class="container px-5 my-5">
       <div class="row">
         <div class="col-md-6">
-            <form action="consultas/insertarOtrosDatos.php" method="POST">
-              <p class="text-white">¿Deseas cambiar tus datos?</p>
-              <div class="mb-3">
-                  <label class="form-label text-white" for="nombre">Nombre</label>
-                  <input class="form-control" name="nombre" id="nombre" type="text">
-              </div>
-              <div class="mb-3">
-                  <label class="form-label text-white" for="apellidos">Apellidos</label>
-                  <input class="form-control" name="apellidos" id="apellidos" type="text">
-              </div>
-              <div class="mb-3">
-                  <label class="form-label text-white" for="fecha">Fecha de nacimiento</label>
-                  <input class="form-control" name="fecha" id="fecha" type="date">
-              </div>
-              <div class="mb-3">
-                  <label class="form-label text-white" for="codigo_postal">Dirección</label>
-                  <input class="form-control" name="codigo_postal" id="codigo_postal" type="int">
-              </div>
-              <div class="mb-3">
-                  <label class="form-label text-white" for="direccion">Dirección</label>
-                  <input class="form-control" name="direccion" id="direccion" type="text">
-              </div>
-              <div class="mb-3">
-                  <label class="form-label text-white" for="ciudad">Ciudad</label>
-                  <input class="form-control" name="ciudad" id="ciudad" type="text">
-              </div>
-              <div class="mb-3">
-                  <label class="form-label text-white" for="provincia">Provincia</label>
-                  <input class="form-control" name="provincia" id="provincia" type="text">
-              </div>
-              <div class="mb-3">
-                  <label class="form-label text-white" for="pais">País</label>
-                  <input class="form-control" name="pais" id="pais" type="text">
-              </div>
-              <div class="mb-3">
-                <input type="file" id="imagen" name="imagen" class="text-white">   
-                <small class="form-text text-gray">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
-              </div>
-              <div class="mb-3">
-                  <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
-              </div>
-            </form>
-          </div>
+          <form action="consultas/insertarOtrosDatos.php" method="POST">
+            <p class="text-white">¿Deseas cambiar tus datos?</p>
+            <div class="mb-3">
+              <label class="form-label text-white" for="nombre">Nombre</label>
+              <input class="form-control" name="nombre" id="nombre" type="text">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white" for="apellidos">Apellidos</label>
+              <input class="form-control" name="apellidos" id="apellidos" type="text">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white" for="fecha">Fecha de nacimiento</label>
+              <input class="form-control" name="fecha" id="fecha" type="date">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white" for="codigo_postal">Dirección</label>
+              <input class="form-control" name="codigo_postal" id="codigo_postal" type="int">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white" for="direccion">Dirección</label>
+              <input class="form-control" name="direccion" id="direccion" type="text">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white" for="ciudad">Ciudad</label>
+              <input class="form-control" name="ciudad" id="ciudad" type="text">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white" for="provincia">Provincia</label>
+              <input class="form-control" name="provincia" id="provincia" type="text">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white" for="pais">País</label>
+              <input class="form-control" name="pais" id="pais" type="text">
+            </div>
+            <div class="mb-3">
+              <input type="file" id="imagen" name="imagen" class="text-white">
+              <small class="form-text text-gray">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
+            </div>
+            <div class="mb-3">
+              <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+            </div>
+          </form>
+        </div>
 
-          <div class="col-md-6">
-            <form action="consultas/cambiarContrasenya.php" method="POST">
+        <div class="col-md-6">
+          <form action="consultas/cambiarContrasenya.php" method="POST">
             <p class="text-white">¿Deseas cambiar tu contraseña?</p>
-              <div class="mb-3 text-white">
-                  <label class="form-label" for="contrasenya">Introduce tu contraseña actual:</label>
-                  <input class="form-control" name="contrasenya" id="contrasenya" type="password" id="password" required>
-                  <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
-              </div>
-              <div class="mb-3 text-white">
-                  <label class="form-label" for="nuevaContrasenya">Introduce tu contraseña nueva:</label>
-                  <input class="form-control" id="nuevaContrasenya" name="nuevaContrasenya" type="password" required>
-                  <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
-              </div>
-              <div class="mb-3 text-white">
-                  <label class="form-label" for="nuevaContrasenyaComprobar">Repite tu contraseña nueva:</label>
-                  <input class="form-control" id="nuevaContrasenyaComprobar" name="nuevaContrasenyaComprobar" type="password" required>
-                  <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
-              </div>
-              <div class="mb-3">
-                  <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
-              </div>
-            </form> 
+            <div class="mb-3 text-white">
+              <label class="form-label" for="contrasenya">Introduce tu contraseña actual:</label>
+              <input class="form-control" name="contrasenya" id="contrasenya" type="password" id="password" required>
+              <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
+            </div>
+            <div class="mb-3 text-white">
+              <label class="form-label" for="nuevaContrasenya">Introduce tu contraseña nueva:</label>
+              <input class="form-control" id="nuevaContrasenya" name="nuevaContrasenya" type="password" required>
+              <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
+            </div>
+            <div class="mb-3 text-white">
+              <label class="form-label" for="nuevaContrasenyaComprobar">Repite tu contraseña nueva:</label>
+              <input class="form-control" id="nuevaContrasenyaComprobar" name="nuevaContrasenyaComprobar"
+                type="password" required>
+              <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
+            </div>
+            <div class="mb-3">
+              <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+            </div>
+          </form>
         </div>
 
       </div>
     </div>
-</section>
+  </section>
 
 </body>
 

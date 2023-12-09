@@ -35,13 +35,14 @@
               <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
             </li>
 
-            <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08" data-bs-toggle="dropdown"
-                aria-expanded="false">Hola,
+            <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
+              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08"
+                data-bs-toggle="dropdown" aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdown08">
                 <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
+                <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
                 <li><a class="dropdown-item" href="mensajes.php">Contacto</a></li>
                 <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
               </ul>
@@ -69,10 +70,12 @@
               <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
+              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1"
+                aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
+              <a class="nav-link active text-white" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
+                préstamos</a>
             </li>
           </ul>
         </div>
@@ -82,43 +85,46 @@
   </header>
 
   <!-- Fin header -->
+
   <section id="movimientos">
-  <div class="contenedorMovimientos text-white">
+    <div class="contenedorMovimientos text-white">
 
-    <h3>Hola
-      <?php include("consultas/consultaNombre.php"); ?>, hoy es
-      <?php include("consultas/consultaDiaSemana.php"); ?>
-    </h3>
+      <h3>Hola
+        <?php include("consultas/consultaNombre.php"); ?>, hoy es
+        <?php include("consultas/consultaDiaSemana.php"); ?>
+      </h3>
 
-    <div class="row">
-      <div class="col-md-6">
-        <p class="iban">IBAN:
-          <?php include_once("consultas/consultaIban.php"); ?>
-        </p>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="iban">IBAN:
+            <?php include_once("consultas/consultaIban.php"); ?>
+          </p>
+        </div>
+
+        <div class="col-md-4">
+          <h1 class="blanco">SALDO TOTAL: <br>
+            <?php include("consultas/saldo_total.php"); ?>
+          </h1>
+        </div>
+
+        <div class="col-md-2">
+          <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
+          <a href="moverDinero.php?accion=ingreso"><button type="button"
+              class="btn btn-amarillo text-white px-4">Ingresar</button></a>
+          <a href="moverDinero.php?accion=retiro" class="p-3"><button type="button"
+              class="btn btn-danger px-4">Retirar</button></a>
+        </div>
+
+
       </div>
 
-      <div class="col-md-4">
-        <h1 class="blanco">SALDO TOTAL: <br>
-          <?php include("consultas/saldo_total.php"); ?>
-        </h1>
-      </div>
-
-      <div class="col-md-2">
-        <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
-        <a href="moverDinero.php?accion=ingreso"><button type="button" class="btn btn-amarillo text-white px-4">Ingresar</button></a>
-        <a href="moverDinero.php?accion=retiro" class="p-3"><button type="button" class="btn btn-danger px-4">Retirar</button></a>
-      </div>
-
-
-    </div>
-
-    <h3>Movimientos en cuenta</h3>
+      <h3>Movimientos en cuenta</h3>
       <div class="movimientos">
         <?php include_once("consultas/mostrarMovimientos.php"); ?>
       </div>
-    
-  </div>
-</section>
+
+    </div>
+  </section>
 
 
 </body>

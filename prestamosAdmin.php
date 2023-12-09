@@ -82,7 +82,10 @@
     <!-- Fin header -->
 
     <section id="prestamosAdmin">
-
+        <div div class="container px-5 my-5">
+            <h1 class="text-center p-2 text-white">PRÉSTAMOS</h1>
+            <?php include("consultas/consultaPrestamos.php"); ?>
+        </div>
     </section>
 
 

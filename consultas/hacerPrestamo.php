@@ -53,29 +53,13 @@ if ($saldoTotal >= $porcentaje15 && $edad >= 18) {
         $motivo = $_POST["motivo"];
     }
 
-    /*Interés Mensual
-    $interesMensual = ($interes / 100) / 12;
-
-    //Cuota Mensual
-    $cuotaMensual = ($cantidadPrestamo * $interesMensual) / (1 - pow(1 + $interesMensual, -$plazo));
-
-    //Fecha finalización a partir del plazo
-    $fechaInicio = new DateTime();
-    $fechaFinalizacion = clone $fechaInicio;
-    $fechaFinalizacion->add(new DateInterval("P{$plazo}M")); // Plazo en meses
-    $fechaPago = clone $fechaInicio; //Para no cambiar la original
-
-    //Representación fecha
-    $fechaInicioString = $fechaInicio->format('Y-m-d');
-    $fechaFinalizacionString = $fechaFinalizacion->format('Y-m-d');*/
-
     $motivo = strtoupper($motivo);
     $saldoPendiente = 0;
 
     $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, interes, motivo) VALUES ('$dni', '$fechaFinalizacionString', '$cantidadPrestamo', '$interes', '$motivo')";
     $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
 
-    header("location: ../pagos.php");
+    header("location: ../misPrestamos.php");
 
 } else {
     echo "No tienes suficiente saldo para realizar un préstamo.";

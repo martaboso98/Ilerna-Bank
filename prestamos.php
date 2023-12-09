@@ -36,12 +36,13 @@
             </li>
 
             <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08" data-bs-toggle="dropdown"
-                aria-expanded="false">Hola,
+              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08"
+                data-bs-toggle="dropdown" aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdown08">
                 <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
+                <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
                 <li><a class="dropdown-item" href="mensajes.php">Contacto</a></li>
                 <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
               </ul>
@@ -69,10 +70,12 @@
               <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
+              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1"
+                aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
+              <a class="nav-link active text-white" href="misPrestamos.php" tabindex="-1"
+                aria-disabled="true">Mis préstamos</a>
             </li>
           </ul>
         </div>
@@ -83,43 +86,45 @@
 
   <!-- Fin header -->
 
-  <section id="datos_acceso">
-  <div class="container px-5 my-5">
-    <h1 class="text-white text-center p-5">PRÉSTAMOS</h1>
+  <section id="pedirPrestamo">
+    <div class="container px-5 my-5">
+      <h1 class="text-white text-center p-5">NUEVO PRÉSTAMO</h1>
 
-    <div class="row">
-      <div class="col-md-6">
-        <p class="negrita text-white">Para pedir un préstamo debes cumplir los siguientes requisitos:</p>
-        <ul class="text-white">
-          <li>Ser mayor de edad (+ 18).</li>
-          <li>Tener al menos el 15% de la cantidad que se quiere pedir en el saldo de la cuenta.</li>
-          <li>No tener un préstamo pendiente de aprobar/rechazar.</li>
-        </ul>
-      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="negrita text-white">Para pedir un préstamo debes cumplir los siguientes requisitos:</p>
+          <ul class="text-white">
+            <li>Ser mayor de edad (+ 18).</li>
+            <li>Tener al menos el 15% de la cantidad que se quiere pedir en el saldo de la cuenta.</li>
+            <li>No tener un préstamo pendiente de aprobar/rechazar.</li>
+          </ul>
+        </div>
 
-      <div class="col-md-6">
-        <form action="consultas/hacerPrestamo.php" method="POST">
-          <div class="mb-3">
+        <div class="col-md-6">
+          <form action="consultas/hacerPrestamo.php" method="POST">
+            <div class="mb-3">
               <label class="form-label text-white" for="cantidad_prestada">Cantidad</label>
-              <input class="form-control" name="cantidad_prestada" id="cantidad_prestada" type="float" id="importe" data-sb-validations="required" />
-          </div>
-          <div class="mb-3">
+              <input class="form-control" name="cantidad_prestada" id="cantidad_prestada" type="float" id="importe"
+                data-sb-validations="required" />
+            </div>
+            <div class="mb-3">
               <label class="form-label text-white" for="motivo">Motivo</label>
               <input class="form-control" id="motivo" name="motivo" type="text" required>
-          </div>
-          <div class="row">
+            </div>
+            <div class="row">
               <div class="col-md-6 text-center p-2">
-                  <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-white btn-block">
+                <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-white btn-block">
               </div>
               <div class="col-md-6 text-center p-2">
-                  <a href="banco.php"><button type="button" class="btn btn-amarillo text-white btn-block">Volver</button></a>
+                <a href="banco.php"><button type="button"
+                    class="btn btn-amarillo text-white btn-block">Volver</button></a>
               </div>
-          </div>
-        </form>
-        
+            </div>
+          </form>
+
+        </div>
       </div>
     </div>
-  </div>
   </section>
 
 </body>

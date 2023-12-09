@@ -35,13 +35,14 @@
               <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
             </li>
 
-            <li class="nav-item dropdown btn-amarillo text-dark rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08" data-bs-toggle="dropdown"
-                aria-expanded="false">Hola,
+            <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
+              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08"
+                data-bs-toggle="dropdown" aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdown08">
                 <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
+                <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
                 <li><a class="dropdown-item" href="mensajes.php">Contacto</a></li>
                 <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
               </ul>
@@ -69,10 +70,12 @@
               <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
+              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1"
+                aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
+              <a class="nav-link active text-white" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
+                préstamos</a>
             </li>
           </ul>
         </div>

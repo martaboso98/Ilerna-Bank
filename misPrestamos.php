@@ -28,27 +28,21 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
-          aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+        <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
         <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
           <ul class="navbar-nav">
-            <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="contacto.php">CONTACTO</a>
-            </li>
             <li class="nav-item mx-2">
               <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
             </li>
 
-            <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08" data-bs-toggle="dropdown"
-                aria-expanded="false">Hola,
+            <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
+              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08"
+                data-bs-toggle="dropdown" aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdown08">
                 <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
+                <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
                 <li><a class="dropdown-item" href="mensajes.php">Contacto</a></li>
                 <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
               </ul>
@@ -76,10 +70,12 @@
               <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1" aria-disabled="true">Retirar</a>
+              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1"
+                aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="prestamos.php" tabindex="-1" aria-disabled="true">Préstamos</a>
+              <a class="nav-link active text-white" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
+                préstamos</a>
             </li>
           </ul>
         </div>
@@ -90,9 +86,10 @@
 
   <!-- Fin header -->
 
-  <section id="areapersonal">
-    <h1 class="text-white">Mis préstamos</h1>
-    <?php include("consultas/calcularPagos.php"); ?>
+  <section id="misPrestamos">
+    <div class="container px-5 my-5">
+      <h1 class="text-white text-center p-5">MIS PRÉSTAMOS</h1>
+      <?php include("consultas/calcularPagos.php"); ?>
   </section>
 
 </body>
