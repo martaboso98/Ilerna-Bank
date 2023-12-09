@@ -67,6 +67,8 @@ if (mysqli_num_rows($resultado_existe) > 0) {
     $consultaIban = "SELECT iban FROM usuario WHERE iban = '$nombre_binario'";
     $resultadoIban = mysqli_query($conexion, $consultaIban) or die("Algo ha ido mal en la consulta a la base de datos");
 
+    //$contrasenyaCifrada = password_hash($contrasenya, PASSWORD_DEFAULT);
+
     if ($filaIban = mysqli_fetch_assoc($resultadoIban)) {
         //Si ya existe, añadir un 1 o un 0 al final
         $ibanExistente = $filaIban['iban'];
@@ -83,6 +85,6 @@ if (mysqli_num_rows($resultado_existe) > 0) {
     $insertar2 = "INSERT INTO movimientos (id_cliente, saldo_total, importe, fecha, concepto) VALUES ('$dni', 0, 0, NOW(), 'Nuevo Usuario')";
     $resultado2 = mysqli_query($conexion, $insertar2) or die("Algo ha ido mal en la consulta a la base de datos");
 
-    header("location: ../banco.php");
+    header("location: ../index.php");
 }
 

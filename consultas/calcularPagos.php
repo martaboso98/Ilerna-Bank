@@ -34,7 +34,7 @@ $interesMensual = ($interes / 100) / 12;
 if ($plazo != 0) {
     $cuotaMensual = ($cantidadPrestamo * $interesMensual) / (1 - pow(1 + $interesMensual, -$plazo));
 } else {
-    echo "Error: El plazo no puede ser cero.";
+    echo "<p class='text-white'>Error: El plazo no puede ser cero.</p>";
 }
 
 //Cuota Mensual
@@ -79,7 +79,7 @@ echo "Préstamo solicitado con éxito.";
 $consultaPagos = "SELECT * FROM pagos WHERE id_prestamos='$IDPrestamos'";
 $resultadoPagos = mysqli_query($conexion, $consultaPagos) or die("Algo ha ido mal en la consulta a la base de datos");
 
-echo "<table border='1'>
+echo "<table class='text-white'>
         <tr>
             <th>Fecha de Pago</th>
             <th>Capital Mensual</th>

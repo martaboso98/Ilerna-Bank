@@ -18,8 +18,21 @@
     $resultado_existe = mysqli_query($conexion, $consulta_existe);
 
     if (mysqli_num_rows($resultado_existe) > 0){
-        header("Location: ../banco.php");
-        die();
+        $fila = mysqli_fetch_assoc($resultado_existe);
+
+        //Para la contraseña cifrada
+        /*if (password_verify($contrasenya, $fila['contrasenya'])){
+            header("Location: ../banco.php");
+            die();
+        }*/
+
+        //Para el administrador
+        if ($dni == "123"){
+            header("Location: ../cuentasAdmin.php");
+        } else {
+            header("Location: ../banco.php");
+        }
+        
     } else {
         header("Location: ../index.php");
         die();

@@ -91,7 +91,7 @@
   <!-- Fin header -->
 
   <section id="areapersonal">
-    <h1>Mis préstamos</h1>
+    <h1 class="text-white">Mis préstamos</h1>
     <?php include("consultas/calcularPagos.php"); ?>
   </section>
 

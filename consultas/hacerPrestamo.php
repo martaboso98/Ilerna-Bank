@@ -9,7 +9,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $dni = isset($_SESSION['dni']) ? $_SESSION['dni'] : null;
 
-$cantidadMinimaParaPrestamo = 1000;
+$porcentajeMinimoSaldo = 0.15; //15%
 $interes = 8.14;
 
 //Saldo Total
@@ -26,6 +26,9 @@ $accion = "";
 $importe = isset($_SESSION['importe']) ? $_SESSION['importe'] : null;
 $concepto = isset($_SESSION['concepto']) ? $_SESSION['concepto'] : null;
 $saldoTotal = $saldoAnterior + $importe;
+
+//15% del dinero que se quiere pedir
+$porcentaje15 = $cantidadPrestamo * $porcentajeMinimoSaldo;
 
 //Fecha Nacimiento
 $consultaFechaNacimiento = "SELECT fecha FROM usuario WHERE dni = '$dni'";
@@ -44,14 +47,13 @@ function obtenerEdad($FechaNacimiento)
 $edad = obtenerEdad($FechaNacimiento);
 
 //Si se cumplen los dos requisitos te deja hacer el préstamo sino no
-if ($saldoTotal >= $cantidadMinimaParaPrestamo && $edad >= 18) {
+if ($saldoTotal >= $porcentaje15 && $edad >= 18) {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $cantidadPrestamo = $_POST["cantidad_prestada"];
         $motivo = $_POST["motivo"];
-        $plazo = $_POST["plazo"]; //meses
     }
 
-    //Interés Mensual
+    /*Interés Mensual
     $interesMensual = ($interes / 100) / 12;
 
     //Cuota Mensual
@@ -65,12 +67,12 @@ if ($saldoTotal >= $cantidadMinimaParaPrestamo && $edad >= 18) {
 
     //Representación fecha
     $fechaInicioString = $fechaInicio->format('Y-m-d');
-    $fechaFinalizacionString = $fechaFinalizacion->format('Y-m-d');
+    $fechaFinalizacionString = $fechaFinalizacion->format('Y-m-d');*/
 
     $motivo = strtoupper($motivo);
     $saldoPendiente = 0;
 
-    $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, plazo, interes, motivo) VALUES ('$dni', '$fechaFinalizacionString', '$cantidadPrestamo', '$plazo', '$interes', '$motivo')";
+    $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, interes, motivo) VALUES ('$dni', '$fechaFinalizacionString', '$cantidadPrestamo', '$interes', '$motivo')";
     $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
 
     header("location: ../pagos.php");
