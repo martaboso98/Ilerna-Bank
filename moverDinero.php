@@ -27,6 +27,11 @@
 
 <body>
 
+    <?php
+    session_start();
+    ?>
+
+
     <!-- Header -->
     <header>
 
@@ -73,13 +78,6 @@
                                 movimientos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1"
-                                aria-disabled="true">Retirar</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link active text-dark" href="misPrestamos.php" tabindex="-1"
                                 aria-disabled="true">Mis préstamos</a>
                         </li>
@@ -104,6 +102,14 @@
                     <label class="form-label text-white" for="concepto">Concepto</label>
                     <input class="form-control" id="concepto" name="concepto" type="text" required>
                 </div>
+                <?php
+                if (isset($_SESSION["error"])) {
+                    foreach ($_SESSION["error"] as $key => $value) {
+                        echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+                    }
+                    unset($_SESSION["error"]);
+                }
+                ?>
                 <div class="row">
                     <div class="col-md-6 text-center p-2">
                         <!-- Para llamar a la acción del botón de ingresar y retirar -->

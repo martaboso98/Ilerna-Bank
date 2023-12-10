@@ -22,6 +22,9 @@
 </head>
 
 <body>
+  <?php
+  session_start();
+  ?>
 
   <!-- Header -->
   <header>
@@ -67,15 +70,8 @@
               <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver movimientos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1"
-                aria-disabled="true">Retirar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active text-dark" href="misPrestamos.php" tabindex="-1"
-                aria-disabled="true">Mis préstamos</a>
+              <a class="nav-link active text-dark" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
+                préstamos</a>
             </li>
           </ul>
         </div>
@@ -98,7 +94,16 @@
             <li>Tener al menos el 15% de la cantidad que se quiere pedir en el saldo de la cuenta.</li>
             <li>No tener un préstamo pendiente de aprobar/rechazar.</li>
           </ul>
+          <?php
+          if (isset($_SESSION["error"])) {
+            foreach ($_SESSION["error"] as $key => $value) {
+              echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+            }
+            unset($_SESSION["error"]);
+          }
+          ?>
         </div>
+
 
         <div class="col-md-6">
           <form action="consultas/hacerPrestamo.php" method="POST">

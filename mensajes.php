@@ -66,13 +66,6 @@
               <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver movimientos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1"
-                aria-disabled="true">Retirar</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link active text-dark" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
                 préstamos</a>
             </li>

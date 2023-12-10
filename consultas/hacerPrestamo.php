@@ -7,6 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+$_SESSION["error"] = [];
 $dni = isset($_SESSION['dni']) ? $_SESSION['dni'] : null;
 
 $porcentajeMinimoSaldo = 0.15; //15%
@@ -81,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
         header("location: ../misPrestamos.php");
     } else {
-        echo "No tienes dinero o eres menor de edad o tienes algun prestamo pendiente";
+        array_push($_SESSION["error"], "Disculpe, no cumple alguno de los requisitos.");
+        header("Location: ../prestamos.php");
     }
 } 
