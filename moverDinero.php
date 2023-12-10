@@ -69,18 +69,18 @@
                 <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="banco.php">Ver
+                            <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver
                                 movimientos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
+                            <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1"
+                            <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1"
                                 aria-disabled="true">Retirar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="misPrestamos.php" tabindex="-1"
+                            <a class="nav-link active text-dark" href="misPrestamos.php" tabindex="-1"
                                 aria-disabled="true">Mis préstamos</a>
                         </li>
                     </ul>
@@ -109,11 +109,11 @@
                         <!-- Para llamar a la acción del botón de ingresar y retirar -->
                         <input type="hidden" name="accion"
                             value="<?php echo isset($_GET['accion']) ? $_GET['accion'] : ''; ?>">
-                        <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+                        <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-dark btn-block">
                     </div>
                     <div class="col-md-6 text-center p-2">
                         <a href="banco.php"><button type="button"
-                                class="btn btn-warning text-white btn-block">Volver</button></a>
+                                class="btn btn-warning text-dark btn-block">Volver</button></a>
                     </div>
                 </div>
             </form>

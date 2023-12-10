@@ -13,28 +13,47 @@ $porcentajeMinimoSaldo = 0.15; //15%
 $interes = 8.14;
 
 //Saldo Total
-$consultarSaldo = "SELECT saldo_total FROM movimientos WHERE id_cliente='$dni' ORDER BY fecha DESC LIMIT 1";
-$resultadoSaldo = mysqli_query($conexion, $consultarSaldo);
-$saldoAnterior = 0;
-if ($resultadoSaldo && mysqli_num_rows($resultadoSaldo) > 0) {
-    $filaSaldo = mysqli_fetch_assoc($resultadoSaldo);
-    $saldoAnterior = $filaSaldo["saldo_total"];
+$consultaUsuario = "SELECT moneda FROM usuario WHERE dni = '$dni'";
+$resultadoUsuario = mysqli_query($conexion, $consultaUsuario) or die("Error al obtener datos del usuario");
+if ($filaUsuario = mysqli_fetch_assoc($resultadoUsuario)) {
+    $monedaUsuario = $filaUsuario["moneda"];
 }
-$importe = 0;
-$concepto = "";
-$accion = "";
-$importe = isset($_SESSION['importe']) ? $_SESSION['importe'] : null;
-$concepto = isset($_SESSION['concepto']) ? $_SESSION['concepto'] : null;
-$saldoTotal = $saldoAnterior + $importe;
-
-//15% del dinero que se quiere pedir
-$porcentaje15 = $cantidadPrestamo * $porcentajeMinimoSaldo;
+$consultaMovimientos = "SELECT fecha, concepto, importe FROM movimientos WHERE id_cliente = '$dni'";
+$resultadoMovimientos = mysqli_query($conexion, $consultaMovimientos) or die("Algo ha ido mal en la consulta a la base de datos");
+$saldoAnterior = 0;
+while ($fila = mysqli_fetch_assoc($resultadoMovimientos)) {
+    switch ($monedaUsuario) {
+        case "euros":
+            $fila["importe"] *= 1;
+            break;
+        case "dolares":
+            $fila["importe"] *= 1.1;
+            break;
+        case "libras":
+            $fila["importe"] *= 0.9;
+            break;
+        case "yenes":
+            $fila["importe"] /= 160;
+            break;
+        case "rublos":
+            $fila["importe"] /= 95;
+            break;
+    }
+    // Actualizar el saldo
+    $saldoAnterior += $fila["importe"];
+    // Aplicar formato de dos decimales
+    $importe_formateado = number_format($fila["importe"], 2);
+}
+$saldo_formateado = number_format($saldoAnterior, 2);
 
 //Fecha Nacimiento
 $consultaFechaNacimiento = "SELECT fecha FROM usuario WHERE dni = '$dni'";
 $resultadoFechaNacimiento = mysqli_query($conexion, $consultaFechaNacimiento) or die("Algo ha ido mal en la consulta a la base de datos");
 $filaFechaNacimiento = mysqli_fetch_assoc($resultadoFechaNacimiento);
 $FechaNacimiento = $filaFechaNacimiento["fecha"];
+
+$consultaPrestamos = "SELECT * FROM prestamos WHERE estado = 'pendiente' AND id_cliente = '$dni'";
+$resultadoPrestamos = mysqli_query($conexion, $consultaPrestamos) or die("Error en la consulta de préstamos");
 
 function obtenerEdad($FechaNacimiento)
 {
@@ -47,20 +66,21 @@ function obtenerEdad($FechaNacimiento)
 $edad = obtenerEdad($FechaNacimiento);
 
 //Si se cumplen los dos requisitos te deja hacer el préstamo sino no
-if ($saldoTotal >= $porcentaje15 && $edad >= 18) {
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        $cantidadPrestamo = $_POST["cantidad_prestada"];
-        $motivo = $_POST["motivo"];
-    }
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $cantidadPrestamo = $_POST["cantidad_prestada"];
+    $motivo = $_POST["motivo"];
 
     $motivo = strtoupper($motivo);
     $saldoPendiente = 0;
 
-    $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, interes, motivo) VALUES ('$dni', '$fechaFinalizacionString', '$cantidadPrestamo', '$interes', '$motivo')";
-    $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
+    //15% del dinero que se quiere pedir
+    $porcentaje15 = $cantidadPrestamo * $porcentajeMinimoSaldo;
 
-    header("location: ../misPrestamos.php");
-
-} else {
-    echo "No tienes suficiente saldo para realizar un préstamo.";
-}
+    if ($saldo_formateado >= $porcentajeMinimoSaldo && $edad >= 18 && mysqli_num_rows($resultadoPrestamos) == 0) {
+        $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, interes, motivo) VALUES ('$dni', '$fechaFinalizacionString', '$cantidadPrestamo', '$interes', '$motivo')";
+        $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
+        header("location: ../misPrestamos.php");
+    } else {
+        echo "No tienes dinero o eres menor de edad o tienes algun prestamo pendiente";
+    }
+} 

@@ -66,17 +66,17 @@
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-white" aria-current="page" href="banco.php">Ver movimientos</a>
+              <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver movimientos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
+              <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1"
+              <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1"
                 aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
+              <a class="nav-link active text-dark" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
                 préstamos</a>
             </li>
           </ul>
@@ -132,7 +132,7 @@
               <small class="form-text text-gray">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
             </div>
             <div class="mb-3">
-              <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+              <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-dark btn-block">
             </div>
           </form>
         </div>
@@ -157,7 +157,7 @@
               <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
             </div>
             <div class="mb-3">
-              <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+              <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-dark btn-block">
             </div>
           </form>
         </div>

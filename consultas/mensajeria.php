@@ -47,7 +47,7 @@ if ($resultadoUsuario && $resultadoAdmin) {
     echo "<div class='mb-3 text-white'>";
     echo "Mensaje: <textarea name='mensaje' class='form-control'></textarea>";
     echo "<br>";
-    echo "<input type='submit' class='btn btn-amarillo text-white' value='Enviar'>";
+    echo "<input type='submit' class='btn btn-amarillo text-dark' value='Enviar'>";
     echo "</div>";
 
 } else {

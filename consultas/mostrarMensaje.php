@@ -34,7 +34,7 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
 
         echo "</select>";
         echo "<br>";
-        echo "<input type='submit' class='btn btn-amarillo text-white' value='Mostrar Mensajes'>";
+        echo "<input type='submit' class='btn btn-amarillo text-dark' value='Mostrar Mensajes'>";
     echo "</form>";    
 
 
@@ -59,7 +59,7 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
                     echo "<input type='hidden' name='destinatario' value='$destinatarioSeleccionado'>";
                     echo "<textarea name='mensaje' placeholder='Escribe tu respuesta...' class='form-control' required></textarea>";
                     echo "<br>";
-                    echo "<input type='submit' class='btn btn-amarillo text-white' value='Enviar respuesta'>";
+                    echo "<input type='submit' class='btn btn-amarillo text-dark' value='Enviar respuesta'>";
                     echo "</form>";
         } else {
             echo "<p class='text-white'>No hay mensajes para mostrar.</p>";

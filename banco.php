@@ -64,17 +64,17 @@
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-white" aria-current="page" href="banco.php">Ver movimientos</a>
+              <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver movimientos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
+              <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1"
+              <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1"
                 aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
+              <a class="nav-link active text-dark" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
                 préstamos</a>
             </li>
           </ul>
@@ -110,9 +110,9 @@
         <div class="col-md-2">
           <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
           <a href="moverDinero.php?accion=ingreso"><button type="button"
-              class="btn btn-amarillo text-white px-4">Ingresar</button></a>
+              class="btn btn-amarillo text-dark px-4">Ingresar</button></a>
           <a href="moverDinero.php?accion=retiro" class="p-3"><button type="button"
-              class="btn btn-danger px-4">Retirar</button></a>
+              class="btn btn-danger text- px-4">Retirar</button></a>
         </div>
 
 

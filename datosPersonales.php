@@ -79,7 +79,7 @@
               <small class="form-text text-white" >Seleccione una imagen (formatos: jpg, png, jpeg).</small>
           </div>
           <div class="mb-3">
-              <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-white btn-block">
+              <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-dark btn-block">
           </div>
         </form>
       </div>

@@ -48,4 +48,3 @@ while ($fila = mysqli_fetch_assoc($resultadoMovimientos)) {
 $saldo_formateado = number_format($saldoAnterior, 2);
 
 echo $saldo_formateado . " " . $monedaUsuario;
-?>

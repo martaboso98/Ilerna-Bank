@@ -64,17 +64,17 @@
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-white" aria-current="page" href="banco.php">Ver movimientos</a>
+              <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver movimientos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php">Ingresar</a>
+              <a class="nav-link active text-dark" href="moverDinero.php">Ingresar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="moverDinero.php" tabindex="-1"
+              <a class="nav-link active text-dark" href="moverDinero.php" tabindex="-1"
                 aria-disabled="true">Retirar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active text-white" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
+              <a class="nav-link active text-dark" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
                 préstamos</a>
             </li>
           </ul>
@@ -90,7 +90,7 @@
     <h1 class="text-white text-center p-5">MIS DATOS PERSONALES</h1>
     <div class="contenedorAreaPersonal">
       <?php include("consultas/consultaAreaPersonal.php"); ?> <br>
-      <a href="cambiar_datos.php"><button type="submit" class="btn btn-amarillo text-white">Cambiar datos</button></a>
+      <a href="cambiar_datos.php"><button type="submit" class="btn btn-amarillo text-dark">Cambiar datos</button></a>
     </div>
   </section>
 
