@@ -11,10 +11,16 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="js/contrasenya.js" defer></script>
+  <!--<script src="js/validar.js" defer></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
 
+  <?php
+  session_start();
+  ?>
   <!-- Header -->
 
   <header class="p-3 text-bg-dark">
@@ -39,26 +45,34 @@
 
     <div class="container">
       <p class="negrita text-center text-white">Hola, introduce tus datos de acceso:</p>
-      <form action="consultas/consulta1.php" method="POST">
+      <form action="consultas/consulta1.php" method="POST" id="miFormulario">
         <div class="mb-3">
-            <label class="form-label text-white" for="dni">Introduce tu DNI:</label>
-            <input class="form-control" id="dni" name="dni" type="text" placeholder="DNI sin letra" required>
+          <label class="form-label text-white" for="dni">Introduce tu DNI:</label>
+          <input class="form-control" id="dni" name="dni" type="text" placeholder="DNI sin letra" required>
         </div>
         <div class="mb-3 text-white">
-            <label class="form-label" for="contrasenya">Contraseña</label>
-            <input class="form-control" id="contrasenya" name="contrasenya" type="password" required>
-            <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
-            <!-- He olvidado mi contraseña:
+          <label class="form-label" for="contrasenya">Contraseña</label>
+          <input class="form-control" id="contrasenya" name="contrasenya" type="password" required>
+          <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
+          <!-- He olvidado mi contraseña:
             Si no recuerdas tu contraseña de acceso, desde esta página puedes solicitarla.<label DNI>
             Este servicio solo será válido si previamente no has bloqueado tus claves de acceso. En ese caso, deberás ponerte en contacto con tu oficina o con los servicios de atención de tu entidad.-->
         </div>
+        <?php
+        if (isset($_SESSION["error"])) {
+          foreach ($_SESSION["error"] as $key => $value) {
+            echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+          }
+          unset($_SESSION["error"]);
+        }
+        ?>
         <div class="mb-3">
-          <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-white btn-block">
+          <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-dark btn-block">
         </div>
       </form> <br>
       <p class="text-center text-white">Estás en un entorno seguro con Boso Financial Services (BFS).</p>
     </div>
-</section>
+  </section>
 
 </body>
 

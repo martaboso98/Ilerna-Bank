@@ -67,17 +67,17 @@ if (mysqli_num_rows($resultado_existe) > 0) {
     $consultaIban = "SELECT iban FROM usuario WHERE iban = '$nombre_binario'";
     $resultadoIban = mysqli_query($conexion, $consultaIban) or die("Algo ha ido mal en la consulta a la base de datos");
 
-    //$contrasenyaCifrada = password_hash($contrasenya, PASSWORD_DEFAULT);
+    $contrasenyaCifrada = password_hash($contrasenya, PASSWORD_DEFAULT);
 
     if ($filaIban = mysqli_fetch_assoc($resultadoIban)) {
         //Si ya existe, añadir un 1 o un 0 al final
         $ibanExistente = $filaIban['iban'];
         $nuevoIban = $ibanExistente . rand(0, 1);
 
-        $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, pais, correo, imagen, iban, moneda) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenya', '$pais', '$correo', '$nombre_imagen', '$nuevoIban', '$moneda')";
+        $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, pais, correo, imagen, iban, moneda) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenyaCifrada', '$pais', '$correo', '$nombre_imagen', '$nuevoIban', '$moneda')";
         $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
     } else {
-        $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, iban, moneda) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenya', '$tfno', '$direccion', '$fecha', '$correo', '$nombre_imagen', '$nombre_binario', '$moneda')";
+        $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, iban, moneda) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenyaCifrada', '$tfno', '$direccion', '$fecha', '$correo', '$nombre_imagen', '$nombre_binario', '$moneda')";
         $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
     }
 

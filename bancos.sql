@@ -11,7 +11,7 @@ CREATE TABLE usuario (
     dni INT PRIMARY KEY,
     nombre VARCHAR(40) DEFAULT '-',
     apellidos VARCHAR(80) DEFAULT '-',
-    contrasenya VARCHAR(25) DEFAULT '-',
+    contrasenya VARCHAR(250) DEFAULT '-',
     tfno INT DEFAULT NULL,
     direccion VARCHAR(80) DEFAULT '-',
     fecha DATE DEFAULT NULL,
@@ -76,4 +76,4 @@ insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha
 insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, moneda) values (30696606, "Miguel", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.png", "Yenes");
 
 insert into roles (nombre_rol) values ("administrador");
-insert into usuario (dni, nombre, contrasenya) values (123, "administrador", "123");
+
