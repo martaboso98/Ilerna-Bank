@@ -30,7 +30,7 @@ if (mysqli_num_rows($resultado_existe) > 0) {
             header("Location: ../banco.php");
         }
     } else {
-        array_push($_SESSION["error"], "Fallo conexión.");
+        array_push($_SESSION["error"], "Datos incorrectos.");
         header("Location: ../index.php");
     }
 

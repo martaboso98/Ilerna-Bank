@@ -21,15 +21,17 @@
     $fila = mysqli_fetch_assoc($resultadoContrasenya);
     $contrasenya = $fila['contrasenya'];
 
-    if ($nuevaContrasenya === $nuevaContrasenyaComprobar) {
-        if ($contrasenyaInsertada === $contrasenya) {
-            $insertar = "UPDATE usuario SET contrasenya = '$nuevaContrasenya' WHERE dni='$dni'";
-            $resultado = mysqli_query($conexion, $insertar) or die ( "Algo ha ido mal en la consulta a la base de datos");
-            header ("location: ../areapersonal.php");
+    if (password_verify($contrasenyaInsertada, $contrasenya)) {
+        if ($nuevaContrasenya === $nuevaContrasenyaComprobar) {
+            // La contraseña actual es correcta
+            $contrasenyaCifrada = password_hash($nuevaContrasenya, PASSWORD_DEFAULT);
+
+            $insertar = "UPDATE usuario SET contrasenya = '$contrasenyaCifrada' WHERE dni='$dni'";
+            $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
+            header("location: ../areapersonal.php");
         } else {
-            echo "La contraseña actual no es correcta.";
+            echo "La nueva contraseña no coincide";
         }
     } else {
-        echo "La contraseña no coincide";
+        echo "La contraseña actual no es correcta.";
     }
-    

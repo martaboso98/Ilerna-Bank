@@ -38,9 +38,15 @@
                         <li class="nav-item mx-2">
                             <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
                         </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" aria-current="page" href="cuentasAdmin.php">USUARIOS</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" aria-current="page" href="prestamosAdmin.php">PRÉSTAMOS</a>
+                        </li>
 
                         <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
-                            <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08"
+                            <a class="nav-link dropdown-toggle active btn-amarillo text-dark" href="#" id="dropdown08"
                                 data-bs-toggle="dropdown" aria-expanded="false">Hola,
                                 <?php include_once("consultas/consultaNombre.php"); ?>
                             </a>
@@ -53,30 +59,6 @@
                 </div>
             </div>
         </nav>
-
-
-        <!-- Segundo encabezado -->
-        <nav class="navbar navbar-expand-lg navbar-dark btn-amarillo" aria-label="Tenth navbar example">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" href="cuentasAdmin.php">Ver usuarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" href="prestamosAdmin.php">Préstamos</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
     </header>
 
     <!-- Fin header -->

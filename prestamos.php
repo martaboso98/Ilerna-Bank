@@ -28,18 +28,20 @@
 
   <!-- Header -->
   <header>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
       <div class="container-fluid">
         <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
         <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
+              <a class="nav-link active" aria-current="page" href="banco.php">MOVIMIENTOS</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link active" aria-current="page" href="misPrestamos.php">MIS PRÉSTAMOS</a>
             </li>
 
             <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08"
+              <a class="nav-link dropdown-toggle active btn-amarillo text-dark" href="#" id="dropdown08"
                 data-bs-toggle="dropdown" aria-expanded="false">Hola,
                 <?php include("consultas/consultaNombre.php"); ?>
               </a>
@@ -54,30 +56,6 @@
         </div>
       </div>
     </nav>
-
-
-    <!-- Segundo encabezado -->
-    <nav class="navbar navbar-expand-lg navbar-dark btn-amarillo" aria-label="Tenth navbar example">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
-          aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver movimientos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active text-dark" href="misPrestamos.php" tabindex="-1" aria-disabled="true">Mis
-                préstamos</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
   </header>
 
   <!-- Fin header -->

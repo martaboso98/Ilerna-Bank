@@ -34,59 +34,35 @@
 
     <!-- Header -->
     <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
+      <div class="container-fluid">
+        <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
+        <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
+          <ul class="navbar-nav">
+            <li class="nav-item mx-2">
+              <a class="nav-link active" aria-current="page" href="banco.php">MOVIMIENTOS</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link active" aria-current="page" href="misPrestamos.php">MIS PRÉSTAMOS</a>
+            </li>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
-            <div class="container-fluid">
-                <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
-                <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
-                    <ul class="navbar-nav">
-                        <li class="nav-item mx-2">
-                            <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
-                        </li>
-
-                        <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
-                            <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08"
-                                data-bs-toggle="dropdown" aria-expanded="false">Hola,
-                                <?php include("consultas/consultaNombre.php"); ?>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown08">
-                                <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
-                                <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
-                                <li><a class="dropdown-item" href="mensajes.php">Contacto</a></li>
-                                <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-
-        <!-- Segundo encabezado -->
-        <nav class="navbar navbar-expand-lg navbar-dark btn-amarillo" aria-label="Tenth navbar example">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active text-dark" aria-current="page" href="banco.php">Ver
-                                movimientos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-dark" href="misPrestamos.php" tabindex="-1"
-                                aria-disabled="true">Mis préstamos</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-    </header>
+            <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
+              <a class="nav-link dropdown-toggle active btn-amarillo text-dark" href="#" id="dropdown08"
+                data-bs-toggle="dropdown" aria-expanded="false">Hola,
+                <?php include("consultas/consultaNombre.php"); ?>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown08">
+                <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
+                <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
+                <li><a class="dropdown-item" href="mensajes.php">Contacto</a></li>
+                <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
     <!-- Fin header -->
 
@@ -113,13 +89,11 @@
                 <div class="row">
                     <div class="col-md-6 text-center p-2">
                         <!-- Para llamar a la acción del botón de ingresar y retirar -->
-                        <input type="hidden" name="accion"
-                            value="<?php echo isset($_GET['accion']) ? $_GET['accion'] : ''; ?>">
+                        <input type="hidden" name="accion" value="<?php echo isset($_GET['accion']) ? $_GET['accion'] : ''; ?>">
                         <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-dark btn-block">
                     </div>
                     <div class="col-md-6 text-center p-2">
-                        <a href="banco.php"><button type="button"
-                                class="btn btn-warning text-dark btn-block">Volver</button></a>
+                        <a href="banco.php"><button type="button" class="btn btn-warning text-dark btn-block">Volver</button></a>
                     </div>
                 </div>
             </form>

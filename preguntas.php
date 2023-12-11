@@ -16,23 +16,28 @@
 
   <!-- Header -->
 
-  <header class="p-3 text-bg-dark sticky-top">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <img src="images/logoBlanco.png" alt="Logo">
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="banner.php" class="nav-link px-2 text-white">INICIO</a></li>
-          <li><a href="preguntas.php" class="nav-link px-2 text-white">PREGUNTAS FRECUENTES</a></li>
-        </ul>
-
-        <div class="text-end">
-          <a href="index.php"><button type="button" class="btn btn-outline-light me-2">Acceder</button></a>
-          <a href="datosPersonales.php"><button type="button" class="btn btn-warning">Crear usuario</button></a>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
+      <div class="container-fluid">
+        <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
+        <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
+          <ul class="navbar-nav">
+          <li class="nav-item mx-2">
+              <a class="nav-link active" aria-current="page" href="banner.php">INICIO</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
+            </li>
+            <div class="text-end">
+              <a href="index.php"><button type="button" class="btn btn-outline-light me-2">Acceder</button></a>
+              <a href="datosPersonales.php"><button type="button" class="btn btn-warning">Crear usuario</button></a>
+            </div>
+          </ul>
         </div>
       </div>
-    </div>
+    </nav>
   </header>
-
+  
   <!-- Fin header -->
 
   <section>
