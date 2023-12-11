@@ -24,10 +24,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $correo = isset($_POST["correo"]) ? trim($_POST["correo"]) : '';
     $imagen = isset($_POST["imagen"]) ? trim($_POST["imagen"]) : '';
 
-    $nombre_imagen = isset($_FILES["imagen"]["name"]) ? $_FILES["imagen"]["name"] : '';
-    if ($nombre_imagen !== '') {
+    if (isset($_FILES["imagen"]) && isset($_FILES["imagen"]["name"])) {
+        $nombre_imagen = $_FILES["imagen"]["name"];
         $carpeta_destino = $_SERVER["DOCUMENT_ROOT"] . "/Ilerna-Bank/images/";
-        move_uploaded_file($_FILES["imagen"]["tmp_name"], $carpeta_destino . $nombre_imagen);
+
+        //Verificar si la imagen ya existe en la carpeta
+        if (!file_exists($carpeta_destino . $nombre_imagen)) {
+            move_uploaded_file($_FILES["imagen"]["tmp_name"], $carpeta_destino . $nombre_imagen);
+        }
+
+    } else {
+        echo "Error al subir el archivo: " . $_FILES["imagen"]["error"];
     }
 
 }
@@ -67,8 +74,8 @@ if (mysqli_num_rows($resultado_usuario) > 0) {
         $actualizaciones[] = "correo='$correo'";
     }
 
-    if ($imagen !== '' && $fila_usuario["imagen"] !== $imagen) {
-        $actualizaciones[] = "imagen='$imagen'";
+    if ($nombre_imagen !== '' && $fila_usuario["imagen"] !== $nombre_imagen) {
+        $actualizaciones[] = "imagen='$nombre_imagen'";
     }
 
     if ($codigo_postal !== '' && $fila_usuario["codigo_postal"] !== $codigo_postal) {

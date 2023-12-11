@@ -64,7 +64,7 @@
     <div class="container px-5 my-5">
       <div class="row">
         <div class="col-md-6">
-          <form action="consultas/insertarOtrosDatos.php" method="POST">
+          <form action="consultas/insertarOtrosDatos.php" method="POST" enctype="multipart/form-data">
             <p class="text-white">¿Deseas cambiar tus datos?</p>
             <div class="mb-3">
               <label class="form-label text-white" for="nombre">Nombre</label>

@@ -15,9 +15,9 @@
 
 <body>
 
-<?php
-session_start();
-?>
+  <?php
+  session_start();
+  ?>
 
   <!-- Header -->
 
@@ -27,7 +27,7 @@ session_start();
         <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
         <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
           <ul class="navbar-nav">
-          <li class="nav-item mx-2">
+            <li class="nav-item mx-2">
               <a class="nav-link active" aria-current="page" href="banner.php">INICIO</a>
             </li>
             <li class="nav-item mx-2">
@@ -42,65 +42,76 @@ session_start();
       </div>
     </nav>
   </header>
-  
+
   <!-- Fin header -->
 
   <section id="datosPersonales">
-    <div class="container px-5 my-5"> 
-      <h1 class="text-center text-white"> Mis datos personales </h1>
-      <div class="row">
-        <form action="consultas/insertarDatos.php" method="POST" enctype="multipart/form-data">
-          <div class="mb-3">
+    <div class="container px-5 my-5">
+      <h1 class="text-white text-center p-3"> REGISTRO </h1>
+      <p class="negrita text-center text-white">Hola, introduzca sus datos para registrarse en BFS</p>
+
+      <form action="consultas/insertarDatos.php" method="POST" enctype="multipart/form-data" class="w-100">
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="mb-3">
               <label class="form-label text-white" for="dni">DNI</label>
-              <input class="form-control" name="dni" id="dni" type="text" required>
-          </div>
-          <div class="mb-3 text-white">
+              <input class="form-control" name="dni" id="dni" type="text" placeholder="DNI sin letra"required>
+            </div>
+            <div class="mb-3 text-white">
               <label class="form-label text-white" for="contrasenya">Contraseña</label>
               <input class="form-control" name="contrasenya" id="contrasenya" type="password" required>
               <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
-          </div>
-          <div class="mb-3">
-              <label class="form-label text-white" for="nombre">Nombre</label>
-              <input class="form-control" name="nombre" id="nombre" type="text" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label text-white" for="apellidos">Apellidos</label>
-              <input class="form-control" name="apellidos" id="apellidos" type="text" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label text-white" for="pais">País</label>
-              <input class="form-control" name="pais" id="pais" type="text" required>
-          </div>
-          <div class="mb-3">
-              <label class="form-label text-white" for="correo">Correo</label>
-              <input class="form-control" name="correo" id="correo" type="email" required>
-          </div>
-          <div class="mb-3">
+            </div>
+            <div class="mb-3">
               <select name="moneda" id="moneda" required>
                 <option value="Euros">Euros</option>
                 <option value="Dólares">Dólares</option>
                 <option value="Yenes">Yenes</option>
                 <option value="Libras">Libras</option>
                 <option value="Rublos">Rublos</option>
-              </select>          
-          </div>
-          <div class="mb-3">
-              <input type="file" id="imagen" name="imagen" class="text-white">   
-              <small class="form-text text-white" >Seleccione una imagen (formatos: jpg, png, jpeg).</small>
-          </div>
-          <?php
-          if (isset($_SESSION["error"])) {
-            foreach ($_SESSION["error"] as $key => $value) {
-              echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+              </select>
+            </div>
+            <div class="mb-3">
+              <input type="file" id="imagen" name="imagen" class="text-white">
+              <small class="form-text text-white">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
+            </div>
+            <?php
+            if (isset($_SESSION["error"])) {
+              foreach ($_SESSION["error"] as $key => $value) {
+                echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+              }
+              unset($_SESSION["error"]);
             }
-            unset($_SESSION["error"]);
-          }
-          ?>
-          <div class="mb-3">
-              <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-dark btn-block">
+            ?>
           </div>
-        </form>
-      </div>
+
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label class="form-label text-white" for="nombre">Nombre</label>
+              <input class="form-control" name="nombre" id="nombre" type="text" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white" for="apellidos">Apellidos</label>
+              <input class="form-control" name="apellidos" id="apellidos" type="text" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white" for="pais">País</label>
+              <input class="form-control" name="pais" id="pais" type="text" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white" for="correo">Correo</label>
+              <input class="form-control" name="correo" id="correo" type="email" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-dark btn-block">
+        </div>
+      </form> <br>
+      <p class="text-center text-white">Estás en un entorno seguro con Boso Financial Services (BFS).</p>
+
     </div>
   </section>
 

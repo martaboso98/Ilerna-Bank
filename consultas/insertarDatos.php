@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (strlen($dni) !== 8 || !is_numeric($dni)) {
         array_push($_SESSION["error"], "El DNI debe tener 8 números.");
         header("location: ../datosPersonales.php");
+        exit();
     } else {
 
         $contrasenya = $_POST["contrasenya"];

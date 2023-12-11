@@ -1,9 +1,9 @@
 @mixin formulario {
-	width:100vw - 70vw;
-	margin:auto; 
-	padding:3%;
-	border:1px solid $color-blanco;
-	border-radius:1em;
+	width: 100vw - 70vw;
+	margin: auto;
+	padding: 3%;
+	border: 1px solid $color-blanco;
+	border-radius: 1em;
 }
 
 form {
@@ -12,24 +12,24 @@ form {
 
 #datos_acceso form {
 	@include formulario;
-	padding:5%;
+	padding: 5%;
 }
 
 #cambiarDatos form {
 	@include formulario;
-	padding:5%;
+	padding: 5%;
 }
 
-@media (max-width: 980px){
+@media (max-width: 980px) {
 	#datos_acceso form {
-		width:100vw - 30vw;
+		width: 100vw - 30vw;
 	}
+
 	#logIn form {
-		width:100vw - 30vw;
+		width: 100vw - 30vw;
 	}
 }
 
 #logIn {
-	padding:5%;
+	padding: 5%;
 }
-
