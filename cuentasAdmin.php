@@ -36,9 +36,6 @@
                 <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
                     <ul class="navbar-nav">
                         <li class="nav-item mx-2">
-                            <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
-                        </li>
-                        <li class="nav-item mx-2">
                             <a class="nav-link active" aria-current="page" href="cuentasAdmin.php">USUARIOS</a>
                         </li>
                         <li class="nav-item mx-2">

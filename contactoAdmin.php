@@ -36,13 +36,10 @@
                 <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
                     <ul class="navbar-nav">
                         <li class="nav-item mx-2">
-                            <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
-                        </li>
-                        <li class="nav-item mx-2">
                             <a class="nav-link active" aria-current="page" href="cuentasAdmin.php">USUARIOS</a>
                         </li>
                         <li class="nav-item mx-2">
-                            <a class="nav-link active" aria-current="page" href="prestamosAdmin.php">PREGUNTAS FRECUENTES</a>
+                            <a class="nav-link active" aria-current="page" href="prestamosAdmin.php">PRÉSTAMOS</a>
                         </li>
 
                         <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
