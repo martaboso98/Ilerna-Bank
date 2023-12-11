@@ -1,31 +1,41 @@
 <?php
 
 include_once("conexion.php");
+session_start();
 
 /* Recoger datos del formulario y mandarlos a la base de datos */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $_SESSION["error"] = [];
+
     $dni = $_POST["dni"];
-    $contrasenya = $_POST["contrasenya"];
-    $nombre = $_POST["nombre"];
-    $apellidos = $_POST["apellidos"];
-    $pais = $_POST["pais"];
-    $moneda = $_POST["moneda"];
-    $correo = $_POST["correo"];
-
-    //Verificar si se seleccionó una imagen
-    if (isset($_FILES["imagen"]) && isset($_FILES["imagen"]["name"])) {
-        $nombre_imagen = $_FILES["imagen"]["name"];
-        $carpeta_destino = $_SERVER["DOCUMENT_ROOT"] . "/Ilerna-Bank/images/";
-        
-        //Verificar si la imagen ya existe en la carpeta
-        if (!file_exists($carpeta_destino . $nombre_imagen)) {
-            move_uploaded_file($_FILES["imagen"]["tmp_name"], $carpeta_destino . $nombre_imagen);
-        }
-
+    if (strlen($dni) !== 8 || !is_numeric($dni)) {
+        array_push($_SESSION["error"], "El DNI debe tener 8 números.");
+        header("location: ../datosPersonales.php");
     } else {
-        //Si no se selecciona ninguna imagen, asignar una imagen por defecto
-        $nombre_imagen = "usuario.png";
+
+        $contrasenya = $_POST["contrasenya"];
+        $nombre = $_POST["nombre"];
+        $apellidos = $_POST["apellidos"];
+        $pais = $_POST["pais"];
+        $moneda = $_POST["moneda"];
+        $correo = $_POST["correo"];
+
+        //Verificar si se seleccionó una imagen
+        if (isset($_FILES["imagen"]) && isset($_FILES["imagen"]["name"])) {
+            $nombre_imagen = $_FILES["imagen"]["name"];
+            $carpeta_destino = $_SERVER["DOCUMENT_ROOT"] . "/Ilerna-Bank/images/";
+
+            //Verificar si la imagen ya existe en la carpeta
+            if (!file_exists($carpeta_destino . $nombre_imagen)) {
+                move_uploaded_file($_FILES["imagen"]["tmp_name"], $carpeta_destino . $nombre_imagen);
+            }
+
+        } else {
+            //Si no se selecciona ninguna imagen, asignar una imagen por defecto
+            $nombre_imagen = "usuario.png";
+        }
     }
 }
 

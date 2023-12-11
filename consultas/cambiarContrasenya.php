@@ -13,6 +13,7 @@
         $contrasenyaInsertada = $_POST["contrasenya"];
         $nuevaContrasenya = $_POST["nuevaContrasenya"];
         $nuevaContrasenyaComprobar = $_POST["nuevaContrasenyaComprobar"];
+        $_SESSION["error"] = [];
     }
 
     $consultarContrasenya = "SELECT contrasenya FROM usuario WHERE dni='$dni'";
@@ -30,8 +31,10 @@
             $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
             header("location: ../areapersonal.php");
         } else {
-            echo "La nueva contraseña no coincide";
+            array_push($_SESSION["error"], "La contraseña no coincide.");
+            header("location: ../cambiar_datos.php");
         }
     } else {
-        echo "La contraseña actual no es correcta.";
+        array_push($_SESSION["error"], "La contraseña actual no es correcta.");
+        header("location: ../cambiar_datos.php");
     }

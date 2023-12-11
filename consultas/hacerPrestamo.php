@@ -71,18 +71,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cantidadPrestamo = $_POST["cantidad_prestada"];
     $motivo = $_POST["motivo"];
 
-    $motivo = strtoupper($motivo);
-    $saldoPendiente = 0;
-
-    //15% del dinero que se quiere pedir
-    $porcentaje15 = $cantidadPrestamo * $porcentajeMinimoSaldo;
-
-    if ($saldo_formateado >= $porcentajeMinimoSaldo && $edad >= 18 && mysqli_num_rows($resultadoPrestamos) == 0) {
-        $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, interes, motivo) VALUES ('$dni', '$fechaFinalizacionString', '$cantidadPrestamo', '$interes', '$motivo')";
-        $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
-        header("location: ../misPrestamos.php");
-    } else {
-        array_push($_SESSION["error"], "Disculpe, no cumple alguno de los requisitos.");
+    if (!is_numeric($cantidadPrestamo)) {
+        array_push($_SESSION["error"], "Ingrese una cantidad válida.");
         header("Location: ../prestamos.php");
+    } else {
+        $motivo = strtoupper($motivo);
+        $saldoPendiente = 0;
+    
+        //15% del dinero que se quiere pedir
+        $porcentaje15 = $cantidadPrestamo * $porcentajeMinimoSaldo;
+    
+        if ($saldo_formateado >= $porcentajeMinimoSaldo && $edad >= 18 && mysqli_num_rows($resultadoPrestamos) == 0) {
+            $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, interes, motivo) VALUES ('$dni', '$fechaFinalizacionString', '$cantidadPrestamo', '$interes', '$motivo')";
+            $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
+            header("location: ../misPrestamos.php");
+        } else {
+            array_push($_SESSION["error"], "Disculpe, no cumple alguno de los requisitos.");
+            header("Location: ../prestamos.php");
+        }
     }
+    
 } 

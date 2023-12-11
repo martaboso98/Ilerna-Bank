@@ -61,12 +61,12 @@
             Este servicio solo será válido si previamente no has bloqueado tus claves de acceso. En ese caso, deberás ponerte en contacto con tu oficina o con los servicios de atención de tu entidad.-->
         </div>
         <?php
-        if (isset($_SESSION["error"])) {
-          foreach ($_SESSION["error"] as $key => $value) {
-            echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+          if (isset($_SESSION["error"])) {
+            foreach ($_SESSION["error"] as $key => $value) {
+              echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+            }
+            unset($_SESSION["error"]);
           }
-          unset($_SESSION["error"]);
-        }
         ?>
         <div class="mb-3">
           <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-dark btn-block">

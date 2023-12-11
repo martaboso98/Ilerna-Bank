@@ -15,6 +15,10 @@
 
 <body>
 
+<?php
+session_start();
+?>
+
   <!-- Header -->
 
   <header>
@@ -31,7 +35,7 @@
             </li>
             <div class="text-end">
               <a href="index.php"><button type="button" class="btn btn-outline-light me-2">Acceder</button></a>
-              <a href="datosPersonales.php"><button type="button" class="btn btn-warning">Crear usuario</button></a>
+              <a href="datosPersonales.php"><button type="button" class="btn btn-amarillo">Crear usuario</button></a>
             </div>
           </ul>
         </div>
@@ -84,6 +88,14 @@
               <input type="file" id="imagen" name="imagen" class="text-white">   
               <small class="form-text text-white" >Seleccione una imagen (formatos: jpg, png, jpeg).</small>
           </div>
+          <?php
+          if (isset($_SESSION["error"])) {
+            foreach ($_SESSION["error"] as $key => $value) {
+              echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+            }
+            unset($_SESSION["error"]);
+          }
+          ?>
           <div class="mb-3">
               <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-dark btn-block">
           </div>

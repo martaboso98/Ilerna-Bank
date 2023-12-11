@@ -79,7 +79,7 @@
               <input class="form-control" name="fecha" id="fecha" type="date">
             </div>
             <div class="mb-3">
-              <label class="form-label text-white" for="codigo_postal">Dirección</label>
+              <label class="form-label text-white" for="codigo_postal">Código postal</label>
               <input class="form-control" name="codigo_postal" id="codigo_postal" type="int">
             </div>
             <div class="mb-3">
@@ -127,6 +127,14 @@
                 type="password" required>
               <input type="checkbox" onclick="mostrarContrasenya('nuevaContrasenya')"> Mostrar Contraseña
             </div>
+            <?php
+            if (isset($_SESSION["error"])) {
+              foreach ($_SESSION["error"] as $key => $value) {
+                echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+              }
+              unset($_SESSION["error"]);
+            }
+            ?>
             <div class="mb-3">
               <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-dark btn-block">
             </div>
