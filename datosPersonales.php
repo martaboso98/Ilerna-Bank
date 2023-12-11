@@ -55,16 +55,17 @@
 
           <div class="col-md-6">
             <div class="mb-3">
-              <label class="form-label text-white" for="dni">DNI</label>
-              <input class="form-control" name="dni" id="dni" type="text" placeholder="DNI sin letra"required>
+              <label class="form-label text-white" for="dni">DNI *</label>
+              <input class="form-control" name="dni" id="dni" type="text" placeholder="DNI sin letra" required>
             </div>
             <div class="mb-3 text-white">
-              <label class="form-label text-white" for="contrasenya">Contraseña</label>
+              <label class="form-label text-white" for="contrasenya">Contraseña *</label>
               <input class="form-control" name="contrasenya" id="contrasenya" type="password" required>
               <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
             </div>
             <div class="mb-3">
-              <select name="moneda" id="moneda" required>
+              <p class="text-white">Moneda *</p>
+              <select name="moneda" id="moneda" class="form-select" required>
                 <option value="Euros">Euros</option>
                 <option value="Dólares">Dólares</option>
                 <option value="Yenes">Yenes</option>
@@ -73,8 +74,8 @@
               </select>
             </div>
             <div class="mb-3">
+              <p class="text-white">Seleccione una foto de perfil (formatos: jpg, png, jpeg).</p>
               <input type="file" id="imagen" name="imagen" class="text-white">
-              <small class="form-text text-white">Seleccione una imagen (formatos: jpg, png, jpeg).</small>
             </div>
             <?php
             if (isset($_SESSION["error"])) {
@@ -88,19 +89,19 @@
 
           <div class="col-md-6">
             <div class="mb-3">
-              <label class="form-label text-white" for="nombre">Nombre</label>
+              <label class="form-label text-white" for="nombre">Nombre *</label>
               <input class="form-control" name="nombre" id="nombre" type="text" required>
             </div>
             <div class="mb-3">
-              <label class="form-label text-white" for="apellidos">Apellidos</label>
+              <label class="form-label text-white" for="apellidos">Apellidos *</label>
               <input class="form-control" name="apellidos" id="apellidos" type="text" required>
             </div>
             <div class="mb-3">
-              <label class="form-label text-white" for="pais">País</label>
+              <label class="form-label text-white" for="pais">País *</label>
               <input class="form-control" name="pais" id="pais" type="text" required>
             </div>
             <div class="mb-3">
-              <label class="form-label text-white" for="correo">Correo</label>
+              <label class="form-label text-white" for="correo">Correo *</label>
               <input class="form-control" name="correo" id="correo" type="email" required>
             </div>
           </div>

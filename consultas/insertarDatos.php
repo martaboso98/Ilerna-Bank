@@ -31,12 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             //Verificar si la imagen ya existe en la carpeta
             if (!file_exists($carpeta_destino . $nombre_imagen)) {
                 move_uploaded_file($_FILES["imagen"]["tmp_name"], $carpeta_destino . $nombre_imagen);
+            } else {
+                $nombre_imagen = "usuario.png";
             }
 
-        } else {
-            //Si no se selecciona ninguna imagen, asignar una imagen por defecto
-            $nombre_imagen = "usuario.png";
-        }
+        } 
     }
 }
 

@@ -56,7 +56,7 @@ CREATE TABLE prestamos (
 CREATE TABLE pagos (
     id_pagos INT AUTO_INCREMENT PRIMARY KEY,
     id_prestamos INT NOT NULL,
-    fecha_pago DATE,
+    fecha_pago DATETIME DEFAULT CURRENT_TIMESTAMP,
     capital_mensual FLOAT,
     saldo_pendiente FLOAT,
     total_pagado FLOAT,
@@ -71,9 +71,6 @@ CREATE TABLE mensajes (
     fecha_envio DATETIME DEFAULT CURRENT_TIMESTAMP,
     mensaje TEXT
 );
-
-insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, moneda) values (30696605, "Marta", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.png", "Yenes");
-insert into usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, moneda) values (30696606, "Miguel", "Borreguero", "marta", 672, "avenida", "1998-11/28", "marta@hotmail.com", "usuario.png", "Yenes");
 
 insert into roles (nombre_rol) values ("administrador");
 

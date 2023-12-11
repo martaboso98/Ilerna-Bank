@@ -82,7 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $porcentaje15 = $cantidadPrestamo * $porcentajeMinimoSaldo;
     
         if ($saldo_formateado >= $porcentajeMinimoSaldo && $edad >= 18 && mysqli_num_rows($resultadoPrestamos) == 0) {
-            $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, interes, motivo) VALUES ('$dni', '$fechaFinalizacionString', '$cantidadPrestamo', '$interes', '$motivo')";
+            $fechaPrestamo = date("Y-m-d"); // Get current date
+
+            $insertarPrestamo = "INSERT INTO prestamos (id_cliente, fecha_prestamo, cantidad_prestada, interes, motivo) VALUES ('$dni', '$fechaPrestamo', '$cantidadPrestamo', '$interes', '$motivo')";
             $resultadoInsertarPrestamo = mysqli_query($conexion, $insertarPrestamo) or die("Algo ha ido mal en la consulta a la base de datos");
             header("location: ../misPrestamos.php");
         } else {

@@ -24,7 +24,7 @@ if (mysqli_num_rows($resultado_existe) > 0) {
     //Para la contraseña cifrada
     if (password_verify($contrasenya, $fila['contrasenya'])) {
         //Para el administrador
-        if ($dni == "123") {
+        if ($dni == "12345678") {
             header("Location: ../cuentasAdmin.php");
         } else {
             header("Location: ../banco.php");
