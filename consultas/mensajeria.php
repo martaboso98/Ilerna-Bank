@@ -49,7 +49,7 @@ if ($resultadoUsuario && $resultadoAdmin) {
     echo "<br>";
     echo "<input type='submit' class='btn btn-amarillo text-dark' value='Enviar'>";
     echo "</div>";
-
+    echo "</div>";
 } else {
     echo "Error en la consulta: " . mysqli_error($conexion);
 }

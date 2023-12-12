@@ -21,16 +21,12 @@ if ($filaUsuario = mysqli_fetch_assoc($resultadoUsuario)) {
 $importe = 0;
 $concepto = "";
 $accion = "";
-$fecha = date('Y-m-d');
+$fecha = date('Y-m-d H:i:s');
 $hora = date('H:i:s');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $importe = $_POST["importe"];
     $concepto = $_POST["concepto"];
-
-    //Para ver si la acción es retirar o ingresar, según cuál pues suma o resta el importe
-    $esRetiro = ($_POST["accion"] === "retiro");
-    $importe = $esRetiro ? -floatval($importe) : floatval($importe);
 }
 
 // Obtener el último saldo registrado
@@ -44,12 +40,13 @@ if ($filaSaldo = mysqli_fetch_assoc($resultadoSaldo)) {
     $saldoAnterior = hexdec($filaSaldo["saldo_total"]);
 }
 
-// Actualizar el saldo
+//Actualizar el saldo
 $nuevoSaldo = $saldoAnterior + $importe;
 
-if ($esRetiro && $nuevoSaldo < 0) {
-    array_push($_SESSION["error"], "No puede retirar esa cantidad. Saldo insuficiente.");
-    header("Location: ../moverDinero.php");
+if (!is_numeric($importe) || $importe <= 0) {
+    array_push($_SESSION["error"], "El importe debe ser un número positivo.");
+    header("Location: ../ingresarMovimiento.php");
+    exit();
 } else {
     //Convertir de decimal a hexadecimal
     $saldoTotal_hexadecimal = dechex($nuevoSaldo);

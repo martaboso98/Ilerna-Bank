@@ -33,8 +33,8 @@ CREATE TABLE movimientos (
     id_cliente INT NOT NULL,
     saldo_total VARCHAR(100),
     importe FLOAT,
-    fecha DATE,
-    hora TIME DEFAULT NULL,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    hora TIME NOT NULL,
     concepto VARCHAR(80),
     FOREIGN KEY (id_cliente)
         REFERENCES usuario (dni)

@@ -87,12 +87,12 @@ if (mysqli_num_rows($resultado_existe) > 0) {
         $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, pais, correo, imagen, iban, moneda) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenyaCifrada', '$pais', '$correo', '$nombre_imagen', '$nuevoIban', '$moneda')";
         $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
     } else {
-        $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, fecha, correo, imagen, iban, moneda) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenyaCifrada', '$tfno', '$direccion', '$fecha', '$correo', '$nombre_imagen', '$nombre_binario', '$moneda')";
+        $insertar = "INSERT INTO usuario (dni, nombre, apellidos, contrasenya, tfno, direccion, correo, imagen, iban, moneda) VALUES ('$dni', '$nombre', '$apellidos', '$contrasenyaCifrada', '$tfno', '$direccion', '$correo', '$nombre_imagen', '$nombre_binario', '$moneda')";
         $resultado = mysqli_query($conexion, $insertar) or die("Algo ha ido mal en la consulta a la base de datos");
     }
 
     // Una vez insertado el usuario, se creará en la tabla de movimientos una fila default para cuando se muestre la tabla movimientos esté a 0 todo y no de error
-    $insertar2 = "INSERT INTO movimientos (id_cliente, saldo_total, importe, fecha, concepto) VALUES ('$dni', 0, 0, NOW(), 'Nuevo Usuario')";
+    $insertar2 = "INSERT INTO movimientos (id_cliente, saldo_total, importe, fecha, hora, concepto) VALUES ('$dni', 0, 0, NOW(), CURTIME(),  'Nuevo Usuario')";
     $resultado2 = mysqli_query($conexion, $insertar2) or die("Algo ha ido mal en la consulta a la base de datos");
 
     header("location: ../index.php");

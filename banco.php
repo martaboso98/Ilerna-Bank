@@ -80,8 +80,8 @@
 
         <div class="col-md-2">
           <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
-          <a href="moverDinero.php?accion=ingreso"><button type="button" class="btn btn-amarillo text-dark px-4">Ingresar</button></a>
-          <a href="moverDinero.php?accion=retiro" class="p-3"><button type="button" class="btn btn-amarillo text-dark px-4">Retirar</button></a>
+          <a href="ingresarMovimiento.php"><button type="button" class="btn btn-amarillo text-dark px-4">Ingresar</button></a>
+          <a href="retirarMovimiento.php" class="p-3"><button type="button" class="btn btn-amarillo text-dark px-4">Retirar</button></a>
         </div>
       </div>
 

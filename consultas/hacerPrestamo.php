@@ -64,8 +64,6 @@ function obtenerEdad($FechaNacimiento)
     return $diferencia->format("%y");
 }
 
-$edad = obtenerEdad($FechaNacimiento);
-
 //Si se cumplen los dos requisitos te deja hacer el préstamo sino no
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cantidadPrestamo = $_POST["cantidad_prestada"];
@@ -80,6 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
         //15% del dinero que se quiere pedir
         $porcentaje15 = $cantidadPrestamo * $porcentajeMinimoSaldo;
+
+        //Calcular edad
+        $edad = obtenerEdad($FechaNacimiento);
     
         if ($saldo_formateado >= $porcentajeMinimoSaldo && $edad >= 18 && mysqli_num_rows($resultadoPrestamos) == 0) {
             $fechaPrestamo = date("Y-m-d"); // Get current date

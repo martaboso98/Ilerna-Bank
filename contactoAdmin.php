@@ -61,13 +61,16 @@
     <!-- Fin header -->
 
     <section id="contactoAdmin">
-        <div div class="container px-5 my-5">
-            <form method="post" action="consultas/enviarMensaje.php">
-                <h3 class="text-white text-center">Nuevo mensaje:</h3>
-                <?php include("consultas/mensajeria.php"); ?>
-            </form>
-            <?php include("consultas/mostrarMensaje.php"); ?>
-        </div>
+        <div class="container-fluid px-5 my-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <form method="post" action="consultas/enviarMensaje.php">
+                        <h3 class="text-white text-center">Nuevo mensaje:</h3>
+                        <?php include("consultas/mensajeria.php"); ?>
+                    </form>
+                    <?php include("consultas/mostrarMensaje.php"); ?>
+                </div>
+            </div>
     </section>
 
 

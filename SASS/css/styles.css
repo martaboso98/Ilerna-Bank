@@ -127,7 +127,7 @@ td {
 }
 
 .banner {
-  width: 30vw;
+  width: 25vw;
 }
 
 .imagenBanner img {
@@ -225,4 +225,13 @@ body::-webkit-scrollbar {
   font-size: 16px;
   color: white;
   text-align: center;
+}
+
+.videos {
+  width: 50vw;
+}
+
+.black-shadow {
+  -webkit-box-shadow: 1px 1px 30px black;
+  box-shadow: 1px 1px 30px black;
 }

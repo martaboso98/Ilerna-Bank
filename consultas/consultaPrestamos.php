@@ -8,9 +8,9 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $dni = isset($_SESSION['dni']) ? $_SESSION['dni'] : null;
 
-// Obtener préstamos pendientes
-$consultaPrestamos = "SELECT * FROM prestamos WHERE estado = 'pendiente'";
-$resultadoPrestamos = mysqli_query($conexion, $consultaPrestamos) or die("Error en la consulta de préstamos");
+//Préstamos pendientes
+$consultaPrestamosPendientes = "SELECT * FROM prestamos WHERE estado = 'pendiente'";
+$resultadoPrestamosPendientes = mysqli_query($conexion, $consultaPrestamosPendientes) or die("Error en la consulta de préstamos");
 
 echo "<table border='1' class='tablas mt-5'>";
 echo "<tr>";
@@ -24,7 +24,7 @@ echo "<th>Motivo</th>";
 echo "<th>Acciones</th>";
 echo "</tr>";
 
-while ($fila = mysqli_fetch_assoc($resultadoPrestamos)) {
+while ($fila = mysqli_fetch_assoc($resultadoPrestamosPendientes)) {
     echo "<tr>";
     echo "<td>{$fila['id_prestamos']}</td>";
     echo "<td>{$fila['id_cliente']}</td>";
@@ -42,3 +42,33 @@ while ($fila = mysqli_fetch_assoc($resultadoPrestamos)) {
 
 echo "</table>";
 
+// Obtener préstamos pendientes
+$consultaPrestamos = "SELECT * FROM prestamos WHERE estado != 'pendiente'";
+$resultadoPrestamos = mysqli_query($conexion, $consultaPrestamos) or die("Error en la consulta de préstamos");
+
+echo "<table border='1' class='tablas mt-5'>";
+echo "<tr>";
+echo "<th>Nº Préstamo</th>";
+echo "<th>Cliente</th>";
+echo "<th>Fecha Préstamo</th>";
+echo "<th>Cantidad Prestada</th>";
+echo "<th>Plazo (meses)</th>";
+echo "<th>Interés</th>";
+echo "<th>Motivo</th>";
+echo "<th>Estado</th>";
+echo "</tr>";
+
+while ($fila = mysqli_fetch_assoc($resultadoPrestamos)) {
+    echo "<tr>";
+    echo "<td>{$fila['id_prestamos']}</td>";
+    echo "<td>{$fila['id_cliente']}</td>";
+    echo "<td>{$fila['fecha_prestamo']}</td>";
+    echo "<td>{$fila['cantidad_prestada']}</td>";
+    echo "<td>{$fila['plazo']}</td>";
+    echo "<td>{$fila['interes']}%</td>";
+    echo "<td>{$fila['motivo']}</td>";
+    echo "<td>{$fila['estado']}</td>";
+    echo "</tr>";
+}
+
+echo "</table>";
