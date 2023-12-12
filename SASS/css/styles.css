@@ -231,7 +231,14 @@ body::-webkit-scrollbar {
   width: 50vw;
 }
 
-.black-shadow {
+.contenedor-video {
+  display: inline-block;
+  padding: 2%;
+}
+
+.contenedor-video iframe {
+  width: 30vw;
+  height: 40vh;
   -webkit-box-shadow: 1px 1px 30px black;
-  box-shadow: 1px 1px 30px black;
+          box-shadow: 1px 1px 30px black;
 }

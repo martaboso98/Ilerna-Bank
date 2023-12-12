@@ -10,6 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -22,7 +25,7 @@
         <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
         <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
           <ul class="navbar-nav">
-          <li class="nav-item mx-2">
+            <li class="nav-item mx-2">
               <a class="nav-link active" aria-current="page" href="banner.php">INICIO</a>
             </li>
             <li class="nav-item mx-2">
@@ -37,7 +40,7 @@
       </div>
     </nav>
   </header>
-  
+
   <!-- Fin header -->
 
   <section>
@@ -149,6 +152,43 @@
 
     <script src="js/app.js" type="text/javascript"></script>
   </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-dark text-white">
+    <section class="">
+      <div class="container text-center text-md-start p-2">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <img src="images/logoBlanco.png" alt="Logo" class="mb-4">
+            <p>Con Boso Financial Services puedes sacar dinero en muchos lugares. Encuentra tu cajero más cercano.</p>
+          </div>
+
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">NUESTRA WEB</h6>
+            <p><a href="banner.php" class="text-reset">Inicio</a></p>
+            <p><a href="preguntas.php" class="text-reset">Preguntas frecuentes</a></p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">USUARIOS</h6>
+            <p><a href="index.php" class="text-reset">Iniciar sesión</a></p>
+            <p><a href="datosPersonales.php" class="text-reset">Registro nuevos usuarios</a></p>
+          </div>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">CONTACTO</h6>
+            <p><i class="fas fa-home me-3"></i>Avenida de Alemania, Sevilla</p>
+            <p><i class="fas fa-envelope me-3"></i>info@bfs.com</p>
+            <p><i class="fas fa-phone me-3"></i> + 34 672 12 04 12</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center p-4">© 2021 Copyright: Marta Borreguero Soria</div>
+    </section>
+  </footer>
+  <!-- Fin footer -->
+  
 </body>
 
 </html>
