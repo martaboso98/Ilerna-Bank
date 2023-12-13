@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cantidadPrestamo = $_POST["cantidad_prestada"];
     $motivo = $_POST["motivo"];
 
-    if (!is_numeric($cantidadPrestamo)) {
+    if (!is_numeric($cantidadPrestamo) || $cantidadPrestamo <= 0) {
         array_push($_SESSION["error"], "Ingrese una cantidad válida.");
         header("Location: ../prestamos.php");
     } else {
