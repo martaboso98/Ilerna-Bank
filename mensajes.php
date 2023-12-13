@@ -58,8 +58,6 @@
 
   <!-- Fin header -->
 
-  <main>
-
     <section id="datos_acceso">
       <div class="container-fluid px-5 my-5">
         <div class="row">

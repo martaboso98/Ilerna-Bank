@@ -79,7 +79,7 @@ if (mysqli_num_rows($resultado_usuario) > 0) {
     }
 
     if ($codigo_postal !== '' && $fila_usuario["codigo_postal"] !== $codigo_postal) {
-        $actualizaciones[] = "apellidos='$codigo_postal'";
+        $actualizaciones[] = "codigo_postal='$codigo_postal'";
     }
 
     if ($ciudad !== '' && $fila_usuario["ciudad"] !== $ciudad) {
