@@ -7,17 +7,10 @@
   <title>Banco</title>
   <link rel="stylesheet" type="text/css" href="SASS/css/styles.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-    </script>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="js/contrasenya.js" defer></script>
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
@@ -25,7 +18,11 @@
 
 <body>
 
+  <?php
+  session_start();
+  ?>
   <!-- Header -->
+
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
       <div class="container-fluid">
@@ -33,24 +30,15 @@
         <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="banco.php">MOVIMIENTOS</a>
+              <a class="nav-link active" aria-current="page" href="index.php">INICIO</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="misPrestamos.php">MIS PRÉSTAMOS</a>
+              <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
             </li>
-
-            <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active btn-amarillo text-dark" href="#" id="dropdown08"
-                data-bs-toggle="dropdown" aria-expanded="false">Hola,
-                <?php include("consultas/consultaNombre.php"); ?>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdown08">
-                <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
-                <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
-                <li><a class="dropdown-item" href="mensajes.php">Contacto</a></li>
-                <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
-              </ul>
-            </li>
+            <div class="text-end">
+              <a href="acceder.php"><button type="button" class="btn btn-outline-light me-2">Acceder</button></a>
+              <a href="datosPersonales.php" class="btn btn-amarillo">Crear usuario</a>
+            </div>
           </ul>
         </div>
       </div>
@@ -58,42 +46,36 @@
   </header>
 
   <!-- Fin header -->
+  <section id="logIn">
 
-  <section id="movimientos">
-    <div class="contenedorMovimientos text-white">
-
-      <h3>Hola
-        <?php include("consultas/consultaNombre.php"); ?>, hoy es
-        <?php include("consultas/consultaDiaSemana.php"); ?>
-      </h3>
-
-      <div class="row">
-        <div class="col-md-6">
-          <p class="iban">IBAN:
-            <?php include_once("consultas/consultaIban.php"); ?>
-          </p>
+    <div class="container">
+      <p class="negrita text-center text-white">Hola, introduce tus datos de acceso:</p>
+      <form action="consultas/consulta1.php" method="POST" id="miFormulario">
+        <div class="mb-3">
+          <label class="form-label text-white" for="dni">Introduce tu DNI:</label>
+          <input class="form-control" id="dni" name="dni" type="text" placeholder="DNI sin letra" required>
         </div>
-
-        <div class="col-md-4">
-          <h1 class="blanco">SALDO TOTAL: <br>
-            <?php include("consultas/saldo_total.php"); ?>
-          </h1>
+        <div class="mb-3 text-white">
+          <label class="form-label" for="contrasenya">Contraseña</label>
+          <input class="form-control" id="contrasenya" name="contrasenya" type="password" required>
+          <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
+          <!-- He olvidado mi contraseña:
+            Si no recuerdas tu contraseña de acceso, desde esta página puedes solicitarla.<label DNI>
+            Este servicio solo será válido si previamente no has bloqueado tus claves de acceso. En ese caso, deberás ponerte en contacto con tu oficina o con los servicios de atención de tu entidad.-->
         </div>
-
-        <div class="col-md-2">
-          <!-- Cuando pulsas ingresar te suma la cantidad y cuando pulsas retirar te la resta-->
-          <a href="ingresarMovimiento.php"><button type="button"
-              class="btn btn-amarillo text-dark px-4">Ingresar</button></a>
-          <a href="retirarMovimiento.php" class="p-3"><button type="button"
-              class="btn btn-amarillo text-dark px-4">Retirar</button></a>
+        <?php
+        if (isset($_SESSION["error"])) {
+          foreach ($_SESSION["error"] as $key => $value) {
+            echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+          }
+          unset($_SESSION["error"]);
+        }
+        ?>
+        <div class="mb-3">
+          <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-dark btn-block">
         </div>
-      </div>
-
-      <h3>Movimientos en cuenta</h3>
-      <div class="movimientos">
-        <?php include_once("consultas/mostrarMovimientos.php"); ?>
-      </div>
-
+      </form> <br>
+      <p class="text-center text-white">Estás en un entorno seguro con Boso Financial Services (BFS).</p>
     </div>
   </section>
 
@@ -132,7 +114,6 @@
     </section>
   </footer>
   <!-- Fin footer -->
-
 
 </body>
 

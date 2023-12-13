@@ -31,13 +31,13 @@ if (mysqli_num_rows($resultado_existe) > 0) {
         }
     } else {
         array_push($_SESSION["error"], "Datos incorrectos.");
-        header("Location: ../index.php");
+        header("Location: ../acceder.php");
     }
 
 
 
 } else {
     array_push($_SESSION["error"], "Datos incorrectos.");
-    header("Location: ../index.php");
+    header("Location: ../acceder.php");
 }
 

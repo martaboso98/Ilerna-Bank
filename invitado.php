@@ -24,13 +24,13 @@
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <img src="images/logoBlanco.png" alt="Logo">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="banner.php" class="nav-link px-2 text-white">INICIO</a></li>
+          <li><a href="index.php" class="nav-link px-2 text-white">INICIO</a></li>
           <li><a href="preguntas.php" class="nav-link px-2 text-white">PREGUNTAS FRECUENTES</a></li>
         </ul>
 
         <div class="text-end">
-          <a href="index.php"><button type="button" class="btn btn-outline-light me-2">Acceder</button></a>
-          <a href="datosPersonales.php"><button type="button" class="btn btn-warning">Crear usuario</button></a>
+          <a href="acceder.php"><button type="button" class="btn btn-outline-light me-2">Acceder</button></a>
+          <a href="datosPersonales.php" class="btn btn-amarillo">Crear usuario</a>
         </div>
       </div>
     </div>
@@ -54,13 +54,13 @@
 
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <h6 class="text-uppercase fw-bold mb-4">NUESTRA WEB</h6>
-            <p><a href="banner.php" class="text-reset">Inicio</a></p>
+            <p><a href="index.php" class="text-reset">Inicio</a></p>
             <p><a href="preguntas.php" class="text-reset">Preguntas frecuentes</a></p>
           </div>
 
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <h6 class="text-uppercase fw-bold mb-4">USUARIOS</h6>
-            <p><a href="index.php" class="text-reset">Iniciar sesión</a></p>
+            <p><a href="acceder.php" class="text-reset">Iniciar sesión</a></p>
             <p><a href="datosPersonales.php" class="text-reset">Registro nuevos usuarios</a></p>
           </div>
 

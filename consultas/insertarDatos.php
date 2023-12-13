@@ -95,6 +95,6 @@ if (mysqli_num_rows($resultado_existe) > 0) {
     $insertar2 = "INSERT INTO movimientos (id_cliente, saldo_total, importe, fecha, hora, concepto) VALUES ('$dni', 0, 0, NOW(), CURTIME(),  'Nuevo Usuario')";
     $resultado2 = mysqli_query($conexion, $insertar2) or die("Algo ha ido mal en la consulta a la base de datos");
 
-    header("location: ../index.php");
+    header("location: ../acceder.php");
 }
 

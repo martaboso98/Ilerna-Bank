@@ -14,30 +14,28 @@
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
 </head>
 
 <body>
 
-  <?php
-  session_start();
-  ?>
   <!-- Header -->
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
       <div class="container-fluid">
-        <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
+        <a href="index.php"><img src="images/logoBlanco.png" alt="Logo"></a>
         <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="banner.php">INICIO</a>
+              <a class="nav-link active" aria-current="page" href="index.php">INICIO</a>
             </li>
             <li class="nav-item mx-2">
               <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
             </li>
             <div class="text-end">
-              <a href="index.php"><button type="button" class="btn btn-outline-light me-2">Acceder</button></a>
-              <a href="datosPersonales.php"><button type="button" class="btn btn-warning">Crear usuario</button></a>
+              <a href="acceder.php"><button type="button" class="btn btn-outline-light me-2">Acceder</button></a>
+              <a href="datosPersonales.php" class="btn btn-amarillo">Crear usuario</a>
             </div>
           </ul>
         </div>
@@ -46,38 +44,83 @@
   </header>
 
   <!-- Fin header -->
-  <section id="logIn">
 
-    <div class="container">
-      <p class="negrita text-center text-white">Hola, introduce tus datos de acceso:</p>
-      <form action="consultas/consulta1.php" method="POST" id="miFormulario">
-        <div class="mb-3">
-          <label class="form-label text-white" for="dni">Introduce tu DNI:</label>
-          <input class="form-control" id="dni" name="dni" type="text" placeholder="DNI sin letra" required>
-        </div>
-        <div class="mb-3 text-white">
-          <label class="form-label" for="contrasenya">Contraseña</label>
-          <input class="form-control" id="contrasenya" name="contrasenya" type="password" required>
-          <input type="checkbox" onclick="mostrarContrasenya('contrasenya')"> Mostrar Contraseña
-          <!-- He olvidado mi contraseña:
-            Si no recuerdas tu contraseña de acceso, desde esta página puedes solicitarla.<label DNI>
-            Este servicio solo será válido si previamente no has bloqueado tus claves de acceso. En ese caso, deberás ponerte en contacto con tu oficina o con los servicios de atención de tu entidad.-->
-        </div>
-        <?php
-        if (isset($_SESSION["error"])) {
-          foreach ($_SESSION["error"] as $key => $value) {
-            echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
-          }
-          unset($_SESSION["error"]);
-        }
-        ?>
-        <div class="mb-3">
-          <input type="submit" name="enviar" value="Enviar" class="btn btn-warning text-dark btn-block">
-        </div>
-      </form> <br>
-      <p class="text-center text-white">Estás en un entorno seguro con Boso Financial Services (BFS).</p>
+  <!-- Banner -->
+  <section id="banner">
+    <div class="container-fluid negro">
+      <div class="text-center imagenBanner">
+        <a href="index.php"><img src="images/tarjeta.png" alt="banner" class="banner img-fluid white-shadow"></a>
+      </div>
     </div>
   </section>
+
+  <!-- Info -->
+  <section id="informacion" class="p-5 bg-dark">
+    <div class="container">
+      <h1 class="text-white text-center p-5">INFORMACIÓN DE INTERÉS</h1>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100 black-shadow">
+            <img src="images/seguro.png" class="card-img-top" alt="Seguros BFS">
+            <div class="card-body">
+              <h5 class="card-title">Seguros BFS</h5>
+              <p class="card-text">Infórmate sobre BFS seguros para acceder a otro de nuestros servicios de calidad.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#videos" class="btn btn-amarillo">Más información</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 black-shadow">
+            <img src="images/banco.png" class="card-img-top" alt="Banco de España">
+            <div class="card-body">
+              <h5 class="card-title">Actualidad del Banco de España</h5>
+              <p class="card-text">Visita nuestros vídeos sobre el Banco de España para saber más sobre nuestra
+                economía.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#videos" class="btn btn-amarillo">Más información</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 black-shadow">
+            <img src="images/carnejoven.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Programa Joven</h5>
+              <p class="card-text">Si eres menor de 25 años, abre tu cuenta joven y ahorra.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#videos" class="btn btn-amarillo">Más información</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vídeos -->
+  <section id="videos" class="p-5">
+    <div class="container">
+        <h1 class="text-white text-center py-5">ACTUALIDAD</h1>
+        <div class="contenedor-video">           
+            <iframe src="https://www.youtube.com/embed/IhKpFUCdE8Y"
+              title="Visita virtual al Banco de España" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="contenedor-video">
+            <iframe src="https://www.youtube.com/embed/nfmnOe6isYU"
+              title="Funciones del Banco de España. Informe Institucional 2022" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-dark text-white">
@@ -91,13 +134,13 @@
 
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
             <h6 class="text-uppercase fw-bold mb-4">NUESTRA WEB</h6>
-            <p><a href="banner.php" class="text-reset">Inicio</a></p>
+            <p><a href="index.php" class="text-reset">Inicio</a></p>
             <p><a href="preguntas.php" class="text-reset">Preguntas frecuentes</a></p>
           </div>
 
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <h6 class="text-uppercase fw-bold mb-4">USUARIOS</h6>
-            <p><a href="index.php" class="text-reset">Iniciar sesión</a></p>
+            <p><a href="acceder.php" class="text-reset">Iniciar sesión</a></p>
             <p><a href="datosPersonales.php" class="text-reset">Registro nuevos usuarios</a></p>
           </div>
 
@@ -114,6 +157,7 @@
     </section>
   </footer>
   <!-- Fin footer -->
+
 
 </body>
 

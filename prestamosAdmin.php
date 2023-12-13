@@ -29,7 +29,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
             <div class="container-fluid">
-                <a href="banner.php"><img src="images/logoBlanco.png" alt="Logo"></a>
+                <a href="index.php"><img src="images/logoBlanco.png" alt="Logo"></a>
                 <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
                     <ul class="navbar-nav">
                         <li class="nav-item mx-2">
@@ -77,13 +77,13 @@
 
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">NUESTRA WEB</h6>
-                        <p><a href="banner.php" class="text-reset">Inicio</a></p>
+                        <p><a href="index.php" class="text-reset">Inicio</a></p>
                         <p><a href="preguntas.php" class="text-reset">Preguntas frecuentes</a></p>
                     </div>
 
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">USUARIOS</h6>
-                        <p><a href="index.php" class="text-reset">Iniciar sesión</a></p>
+                        <p><a href="acceder.php" class="text-reset">Iniciar sesión</a></p>
                         <p><a href="datosPersonales.php" class="text-reset">Registro nuevos usuarios</a></p>
                     </div>
 
