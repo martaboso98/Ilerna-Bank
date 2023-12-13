@@ -76,8 +76,9 @@ while ($filaPrestamo = mysqli_fetch_assoc($resultadoPrestamo)) {
         </tr>";
 
         while ($filaPago = mysqli_fetch_assoc($resultadoPagos)) {
+            $fechaPagoFormateada = date("Y-m-d", strtotime($filaPago['fecha_pago']));
             echo "<tr>
-            <td>{$filaPago['fecha_pago']}</td>
+            <td>{$fechaPagoFormateada}</td>
             <td>{$filaPago['capital_mensual']}</td>
             <td>{$filaPago['saldo_pendiente']}</td>
             <td>{$filaPago['total_pagado']}</td>

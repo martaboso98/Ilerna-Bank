@@ -46,7 +46,7 @@
               <ul class="dropdown-menu" aria-labelledby="dropdown08">
                 <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
                 <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
-                <li><a class="dropdown-item" href="mensajes.php">Contacto</a></li>
+                <li><a class="dropdown-item" href="mensajes.php">Bandeja de entrada</a></li>
                 <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
               </ul>
             </li>

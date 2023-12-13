@@ -26,7 +26,7 @@ if ($resultadoNombreUsuario) {
 
     echo "</select>";
     echo "<br>";
-    echo "<input type='submit' class='btn btn-amarillo text-white' value='Mostrar Usuario'>";
+    echo "<input type='submit' class='btn btn-amarillo text-dark' value='Mostrar Usuario'>";
     echo "</form>";
 
 } else {

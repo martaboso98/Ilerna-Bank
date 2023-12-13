@@ -47,7 +47,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown08">
                                 <li><a class="dropdown-item" href="contactoAdmin.php">Bandeja de entrada</a></li>
-                                <a href="datosPersonales.php" class="btn btn-amarillo">Crear usuario</a>
+                                <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
                             </ul>
                         </li>
                     </ul>

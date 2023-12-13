@@ -41,7 +41,7 @@
                         </li>
 
                         <li class="nav-item dropdown bg-warning rounded px-1 mx-2">
-                            <a class="nav-link dropdown-toggle active btn-amarillo text-white" href="#" id="dropdown08"
+                            <a class="nav-link dropdown-toggle active btn-amarillo text-dark" href="#" id="dropdown08"
                                 data-bs-toggle="dropdown" aria-expanded="false">Hola,
                                 <?php include_once("consultas/consultaNombre.php"); ?>
                             </a>
