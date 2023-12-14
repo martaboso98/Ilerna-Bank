@@ -150,6 +150,7 @@ $colores: yellow, white, red;
 
 @for $i from 1 through 3 {
     $color: nth($colores, $i);
+
     .el-#{$color} {
         color: $color;
     }
