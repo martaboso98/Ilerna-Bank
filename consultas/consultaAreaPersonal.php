@@ -17,29 +17,29 @@ echo "<table class='tablas'>";
 echo "<tr>";
 echo "<th>Nombre</th>";
 echo "<th>Apellidos</th>";
+echo "<th>DNI</th>";
 echo "</tr>";
 
 while ($fila = mysqli_fetch_assoc($resultadoDatos)) {
 
-    echo "<div class='centered-container'><img src='images/" . $fila['imagen'] . "' class='imagenUsuario'></div>";
-
     echo "<tr>";
     echo "<td>" . ($fila['nombre']) . "</td>";
     echo "<td>" . ($fila['apellidos']) . "</td>";
+    echo "<td>" . ($fila['dni']) . "</td>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<th>Teléfono</th>";
-    echo "<th>DNI</th>";
     echo "<th>Fecha de nacimiento</th>";
     echo "<th>Email</th>";
+    echo "<th>País</th>";
     echo "</tr>";
 
     echo "<tr>";
     echo "<td>" . ($fila['tfno']) . "</td>";
-    echo "<td>" . ($fila['dni']) . "</td>";
     echo "<td>" . ($fila['fecha']) . "</td>";
     echo "<td>" . ($fila['correo']) . "</td>";
+    echo "<td>" . ($fila['pais']) . "</td>";
     echo "</tr>";
 
     echo "<tr>";
@@ -47,7 +47,6 @@ while ($fila = mysqli_fetch_assoc($resultadoDatos)) {
     echo "<th>Código Postal</th>";
     echo "<th>Provincia</th>";
     echo "<th>Ciudad</th>";
-    echo "<th>País</th>";
     echo "</tr>";
 
     echo "<tr>";
@@ -55,7 +54,6 @@ while ($fila = mysqli_fetch_assoc($resultadoDatos)) {
     echo "<td>" . ($fila['codigo_postal']) . "</td>";
     echo "<td>" . ($fila['provincia']) . "</td>";
     echo "<td>" . ($fila['ciudad']) . "</td>";
-    echo "<td>" . ($fila['pais']) . "</td>";
     echo "</tr>";
 
 }

@@ -28,8 +28,12 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
       <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
+          aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <a href="index.php"><img src="images/logoBlanco.png" alt="Logo"></a>
-        <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
+        <div class="collapse navbar-collapse py-2 justify-content-end text-center text-lg-start" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item mx-2">
               <a class="nav-link active" aria-current="page" href="banco.php">MOVIMIENTOS</a>
@@ -58,54 +62,54 @@
 
   <!-- Fin header -->
 
-    <section id="datos_acceso">
-      <div class="container-fluid px-5 my-5">
-        <div class="row">
-          <div class="col-md-4">
-            <form method="post" action="consultas/enviarMensaje.php">
-              <h3 class="text-white text-center">Nuevo mensaje:</h3>
-              <?php include("consultas/mensajeria.php"); ?>
-            </form>
-            <?php include("consultas/mostrarMensaje.php"); ?>
+  <section id="datos_acceso">
+    <div class="container-fluid px-5 my-5">
+      <div class="row">
+        <div class="col-md-4">
+          <form method="post" action="consultas/enviarMensaje.php">
+            <h3 class="text-white text-center">Nuevo mensaje:</h3>
+            <?php include("consultas/mensajeria.php"); ?>
+          </form>
+          <?php include("consultas/mostrarMensaje.php"); ?>
+        </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-dark text-white">
+    <section class="">
+      <div class="container text-center text-md-start p-2">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <img src="images/logoBlanco.png" alt="Logo" class="mb-4">
+            <p>Con Boso Financial Services puedes sacar dinero en muchos lugares. Encuentra tu cajero más cercano.</p>
+          </div>
+
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">NUESTRA WEB</h6>
+            <p><a href="index.php" class="text-reset">Inicio</a></p>
+            <p><a href="preguntas.php" class="text-reset">Preguntas frecuentes</a></p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">USUARIOS</h6>
+            <p><a href="acceder.php" class="text-reset">Iniciar sesión</a></p>
+            <p><a href="datosPersonales.php" class="text-reset">Registro nuevos usuarios</a></p>
+          </div>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">CONTACTO</h6>
+            <p><i class="fas fa-home me-3"></i>Avenida de Alemania, Sevilla</p>
+            <p><i class="fas fa-envelope me-3"></i>info@bfs.com</p>
+            <p><i class="fas fa-phone me-3"></i> + 34 672 12 04 12</p>
           </div>
         </div>
+      </div>
+
+      <div class="text-center p-4">© 2021 Copyright: Marta Borreguero Soria</div>
     </section>
-
-    <!-- Footer -->
-    <footer class="text-center text-lg-start bg-dark text-white">
-      <section class="">
-        <div class="container text-center text-md-start p-2">
-          <div class="row mt-3">
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <img src="images/logoBlanco.png" alt="Logo" class="mb-4">
-              <p>Con Boso Financial Services puedes sacar dinero en muchos lugares. Encuentra tu cajero más cercano.</p>
-            </div>
-
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 class="text-uppercase fw-bold mb-4">NUESTRA WEB</h6>
-              <p><a href="index.php" class="text-reset">Inicio</a></p>
-              <p><a href="preguntas.php" class="text-reset">Preguntas frecuentes</a></p>
-            </div>
-
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 class="text-uppercase fw-bold mb-4">USUARIOS</h6>
-              <p><a href="acceder.php" class="text-reset">Iniciar sesión</a></p>
-              <p><a href="datosPersonales.php" class="text-reset">Registro nuevos usuarios</a></p>
-            </div>
-
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <h6 class="text-uppercase fw-bold mb-4">CONTACTO</h6>
-              <p><i class="fas fa-home me-3"></i>Avenida de Alemania, Sevilla</p>
-              <p><i class="fas fa-envelope me-3"></i>info@bfs.com</p>
-              <p><i class="fas fa-phone me-3"></i> + 34 672 12 04 12</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center p-4">© 2021 Copyright: Marta Borreguero Soria</div>
-      </section>
-    </footer>
-    <!-- Fin footer -->
+  </footer>
+  <!-- Fin footer -->
 
 </body>
 

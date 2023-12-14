@@ -22,7 +22,7 @@ if ($filaNombre = mysqli_fetch_assoc($resultadoNombre)) {
     $resultadoUsuarios = mysqli_query($conexion, $consultaUsuarios) or die("Algo ha ido mal en la consulta a la base de datos");
 
     // Mostrar lista de usuarios en un formulario
-    echo "<div class='col-md-4'>";
+    echo "<div class='col-md-4 py-3'>";
         echo "<form method='post' action=''>";
             echo "<h2 class='text-white text-center'>¿Qué chat quieres mostrar?</h2>";
             echo "<label for='destinatario' class='form-label text-white'>Destinatario:</label>";

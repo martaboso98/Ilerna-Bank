@@ -9,7 +9,14 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
@@ -22,8 +29,12 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
       <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
+          aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <a href="index.php"><img src="images/logoBlanco.png" alt="Logo"></a>
-        <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
+        <div class="collapse navbar-collapse py-2 justify-content-end text-center text-lg-start" id="navbarsExample08">
           <ul class="navbar-nav">
             <li class="nav-item mx-2">
               <a class="nav-link active" aria-current="page" href="index.php">INICIO</a>
@@ -31,7 +42,7 @@
             <li class="nav-item mx-2">
               <a class="nav-link active" aria-current="page" href="preguntas.php">PREGUNTAS FRECUENTES</a>
             </li>
-            <div class="text-end">
+            <div class="text-center text-lg-end">
               <a href="acceder.php"><button type="button" class="btn btn-outline-light me-2">Acceder</button></a>
               <a href="datosPersonales.php" class="btn btn-amarillo">Crear usuario</a>
             </div>
@@ -188,7 +199,7 @@
     </section>
   </footer>
   <!-- Fin footer -->
-  
+
 </body>
 
 </html>

@@ -1,7 +1,15 @@
 $white-shadow-color: rgb(244, 244, 244);
 
 .banner {
-    width:100vw - 75vw;
+    width: 100vw - 75vw;
+    
+    @include tablet() {
+        width: 100vw - 50vw;
+    }
+    
+    @include movil() {
+        width: 100vw - 20vw;
+    }
 }
 
 .imagenBanner {
@@ -11,6 +19,24 @@ $white-shadow-color: rgb(244, 244, 244);
         &:hover {
             transform: scale(1.1);
         }
+    }
+
+    @include tablet() {
+        img {
+            transition: none;
+            &:hover {
+                transform:none;
+            }
+        }    
+    }
+    
+    @include movil() {
+        img {
+            transition: none;
+            &:hover {
+                transform:none;
+            }
+        }    
     }
 }
   
@@ -23,12 +49,13 @@ $white-shadow-color: rgb(244, 244, 244);
 }
 
 @mixin white-shadow($color: $white-shadow-color) {
-    -webkit-box-shadow: 1px 1px 40px $color;
-    -moz-box-shadow: 1px 1px 40px $color;
-    box-shadow: 1px 1px 40px $color;
+    -webkit-box-shadow: 1px 1px 30px $color;
+    -moz-box-shadow: 1px 1px 30px $color;
+    box-shadow: 1px 1px 30px $color;
     border-radius: 2em !important;
 }
 
 .white-shadow {
     @include white-shadow;
 }
+
