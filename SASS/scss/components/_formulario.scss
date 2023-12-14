@@ -13,23 +13,59 @@ form {
 #datos_acceso form {
 	@include formulario;
 	padding: 5%;
+
+	@include tablet() {
+		width: 100vw - 30vw;
+	}
 }
 
 #cambiarDatos form {
 	@include formulario;
 	padding: 5%;
+
+	@include tablet() {
+		width: 100vw - 50vw;
+	}
+
+	@include movil() {
+		width: 100vw - 30vw;
+	}
 }
 
-@media (max-width: 980px) {
-	#datos_acceso form {
+#movimientos form {
+	@include formulario;
+	padding: 5%;
+}
+
+#logIn form,
+#datosPersonales form,
+#movimientos form,
+#cuentasAdmin form,
+#contactoAdmin form {
+	@include tablet() {
 		width: 100vw - 30vw;
 	}
 
-	#logIn form {
+	@include movil() {
 		width: 100vw - 30vw;
 	}
 }
 
-#logIn {
+#pedirPrestamo form {
+	@include tablet() {
+		width: 100vw - 50vw;
+		margin-top: 5%;
+	}
+
+	@include movil() {
+		width: 100vw - 30vw;
+	}
+}
+
+#logIn,
+#datosPersonales,
+#movimientos,
+#cuentasAdmin,
+#cambiarDatos {
 	padding: 5%;
 }

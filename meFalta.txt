@@ -1,4 +1,0 @@
-3 funciones
-3 mixin
-4 bucles
-2 includes + otras funciones 

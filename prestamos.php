@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banco</title>
+  <!-- Css y bootstrap -->
   <link rel="stylesheet" type="text/css" href="SASS/css/styles.css">
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Agrega los scripts necesarios para Bootstrap al final del body -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -16,139 +18,146 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
     </script>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <!-- Iconos footer -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha384-..." crossorigin="anonymous">
 </head>
 
 <body>
-  <?php
-  session_start();
-  ?>
 
-  <!-- Header -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
-      <div class="container-fluid">
-        <a href="index.php"><img src="images/logoBlanco.png" alt="Logo"></a>
-        <div class="collapse navbar-collapse py-2 justify-content-end" id="navbarsExample08">
-          <ul class="navbar-nav">
-            <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="banco.php">MOVIMIENTOS</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link active" aria-current="page" href="misPrestamos.php">MIS PRÉSTAMOS</a>
-            </li>
+  <div id="main-container">
 
-            <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
-              <a class="nav-link dropdown-toggle active btn-amarillo text-dark" href="#" id="dropdown08"
-                data-bs-toggle="dropdown" aria-expanded="false">Hola,
-                <?php include("consultas/consultaNombre.php"); ?>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdown08">
-                <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
-                <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
-                <li><a class="dropdown-item" href="mensajes.php">Bandeja de entrada</a></li>
-                <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
-              </ul>
-            </li>
-          </ul>
+    <?php
+    session_start();
+    ?>
+
+    <!-- Header -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5" aria-label="Tenth navbar example">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
+            aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="index.php"><img src="images/logoBlanco.png" alt="Logo"></a>
+          <div class="collapse navbar-collapse py-2 justify-content-end text-center text-lg-start"
+            id="navbarsExample08">
+            <ul class="navbar-nav">
+              <li class="nav-item mx-2">
+                <a class="nav-link active" aria-current="page" href="banco.php">MOVIMIENTOS</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link active" aria-current="page" href="misPrestamos.php">MIS PRÉSTAMOS</a>
+              </li>
+
+              <li class="nav-item dropdown btn-amarillo text-white rounded px-1 mx-2">
+                <a class="nav-link dropdown-toggle active btn-amarillo text-dark" href="#" id="dropdown08"
+                  data-bs-toggle="dropdown" aria-expanded="false">Hola,
+                  <?php include("consultas/consultaNombre.php"); ?>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown08">
+                  <li><a class="dropdown-item" href="areapersonal.php">Área personal</a></li>
+                  <li><a class="dropdown-item" href="prestamos.php">Solicitar préstamo</a></li>
+                  <li><a class="dropdown-item" href="mensajes.php">Bandeja de entrada</a></li>
+                  <li><a class="dropdown-item" href="consultas/cerrarSesion.php">Cerrar sesión</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <!-- Fin header -->
+    <!-- Fin header -->
 
-  <section id="pedirPrestamo">
-    <div class="container px-5 my-5">
-      <h1 class="text-white text-center p-5">NUEVO PRÉSTAMO</h1>
+    <section id="pedirPrestamo">
+      <div class="container px-5 my-5">
+        <h1 class="text-white text-center p-5">NUEVO PRÉSTAMO</h1>
 
-      <div class="row">
-        <div class="col-md-6">
-          <p class="negrita text-white">Para pedir un préstamo debes cumplir los siguientes requisitos:</p>
-          <ul class="text-white">
-            <li>Ser mayor de edad (+ 18).</li>
-            <li>Tener al menos el 15% de la cantidad que se quiere pedir en el saldo de la cuenta.</li>
-            <li>No tener un préstamo pendiente de aprobar/rechazar.</li>
-          </ul>
-          <?php
-          if (isset($_SESSION["error"])) {
-            foreach ($_SESSION["error"] as $key => $value) {
-              echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <p class="negrita text-white">Para pedir un préstamo debes cumplir los siguientes requisitos:</p>
+            <ul class="text-white">
+              <li>Ser mayor de edad (+ 18).</li>
+              <li>Tener al menos el 15% de la cantidad que se quiere pedir en el saldo de la cuenta.</li>
+              <li>No tener un préstamo pendiente de aprobar/rechazar.</li>
+            </ul>
+            <?php
+            if (isset($_SESSION["error"])) {
+              foreach ($_SESSION["error"] as $key => $value) {
+                echo "<p class='bg-danger p-2 text-white'>" . $value . "</p>";
+              }
+              unset($_SESSION["error"]);
             }
-            unset($_SESSION["error"]);
-          }
-          ?>
-        </div>
+            ?>
+          </div>
 
-
-        <div class="col-md-6">
-          <form action="consultas/hacerPrestamo.php" method="POST">
-            <div class="mb-3">
-              <label class="form-label text-white" for="cantidad_prestada">Cantidad</label>
-              <input class="form-control" name="cantidad_prestada" id="cantidad_prestada" type="float" id="importe"
-                data-sb-validations="required" />
-            </div>
-            <div class="mb-3">
-              <label class="form-label text-white" for="motivo">Motivo</label>
-              <input class="form-control" id="motivo" name="motivo" type="text" required>
-            </div>
-            <div class="row">
-              <div class="col-md-6 text-center p-2">
-                <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-dark btn-block">
+          <div class="col-lg-6 col-md-12">
+            <form action="consultas/hacerPrestamo.php" method="POST">
+              <div class="mb-3">
+                <label class="form-label text-white" for="cantidad_prestada">Cantidad</label>
+                <input class="form-control" name="cantidad_prestada" id="cantidad_prestada" type="float" id="importe"
+                  data-sb-validations="required" />
               </div>
-              <div class="col-md-6 text-center p-2">
-                <a href="banco.php"><button type="button"
-                    class="btn btn-amarillo text-dark btn-block">Volver</button></a>
+              <div class="mb-3">
+                <label class="form-label text-white" for="motivo">Motivo</label>
+                <input class="form-control" id="motivo" name="motivo" type="text" required>
               </div>
-            </div>
-          </form>
+              <div class="row">
+                <div class="col-md-6 text-center p-2">
+                  <input type="submit" name="enviar" value="Enviar" class="btn btn-amarillo text-dark btn-block">
+                </div>
+                <div class="col-md-6 text-center p-2">
+                  <a href="banco.php"><button type="button"
+                      class="btn btn-amarillo text-dark btn-block">Volver</button></a>
+                </div>
+              </div>
+            </form>
 
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center text-lg-start bg-dark text-white">
-    <section class="">
-      <div class="container text-center text-md-start p-2">
-        <div class="row mt-3">
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <img src="images/logoBlanco.png" alt="Logo" class="mb-4">
-            <p>Con Boso Financial Services puedes sacar dinero en muchos lugares. Encuentra tu cajero más cercano.</p>
-          </div>
-
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 class="text-uppercase fw-bold mb-4">NUESTRA WEB</h6>
-            <p><a href="index.php" class="text-reset">Inicio</a></p>
-            <p><a href="preguntas.php" class="text-reset">Preguntas frecuentes</a></p>
-          </div>
-
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 class="text-uppercase fw-bold mb-4">USUARIOS</h6>
-            <p><a href="acceder.php" class="text-reset">Iniciar sesión</a></p>
-            <p><a href="datosPersonales.php" class="text-reset">Registro nuevos usuarios</a></p>
-          </div>
-
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <h6 class="text-uppercase fw-bold mb-4">CONTACTO</h6>
-            <p><i class="fas fa-home me-3"></i>Avenida de Alemania, Sevilla</p>
-            <p><i class="fas fa-envelope me-3"></i>info@bfs.com</p>
-            <p><i class="fas fa-phone me-3"></i> + 34 672 12 04 12</p>
           </div>
         </div>
       </div>
-
-      <div class="text-center p-4">© 2021 Copyright: Marta Borreguero Soria</div>
     </section>
-  </footer>
-  <!-- Fin footer -->
 
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-dark text-white">
+      <section class="">
+        <div class="container text-center text-md-start p-2">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto">
+              <img src="images/logoBlanco.png" alt="Logo" class="mb-4">
+              <p>Con Boso Financial Services puedes sacar dinero en muchos lugares. Encuentra tu cajero más cercano.</p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+              <h6 class="text-uppercase fw-bold">NUESTRA WEB</h6>
+              <p><a href="index.php" class="text-reset">Inicio</a></p>
+              <p><a href="preguntas.php" class="text-reset">Preguntas frecuentes</a></p>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+              <h6 class="text-uppercase fw-bold">USUARIOS</h6>
+              <p><a href="acceder.php" class="text-reset">Iniciar sesión</a></p>
+              <p><a href="datosPersonales.php" class="text-reset">Registro nuevos usuarios</a></p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0">
+              <h6 class="text-uppercase fw-bold">CONTACTO</h6>
+              <p><i class="fas fa-home me-3"></i>Avenida de Alemania, Sevilla</p>
+              <p><i class="fas fa-envelope me-3"></i>info@bfs.com</p>
+              <p><i class="fas fa-phone me-3"></i> + 34 672 12 04 12</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center p-2">© 2021 Copyright: Marta Borreguero Soria</div>
+      </section>
+    </footer>
+    <!-- Fin footer -->
+  </div>
 </body>
 
 </html>
