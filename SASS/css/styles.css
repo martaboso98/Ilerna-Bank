@@ -340,7 +340,6 @@ body::-webkit-scrollbar-track {
 }
 
 .btn-amarillo {
-  color: #fbcd00;
   background-color: #fbcd00 !important;
   border-color: #fbcd00 !important;
 }
@@ -425,4 +424,16 @@ footer {
     display: inline;
     width: auto;
   }
+}
+
+.el-yellow {
+  color: yellow;
+}
+
+.el-white {
+  color: white;
+}
+
+.el-red {
+  color: red;
 }

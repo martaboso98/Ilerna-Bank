@@ -160,9 +160,9 @@
 
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0">
             <h6 class="text-uppercase fw-bold">CONTACTO</h6>
-            <p><i class="fas fa-home me-3"></i>Avenida de Alemania, Sevilla</p>
-            <p><i class="fas fa-envelope me-3"></i>info@bfs.com</p>
-            <p><i class="fas fa-phone me-3"></i> + 34 672 12 04 12</p>
+            <p><i class="fas fa-home me-3 el-yellow"></i>Avenida de Alemania, Sevilla</p>
+            <p><i class="fas fa-envelope me-3 el-red"></i>info@bfs.com</p>
+            <p><i class="fas fa-phone me-3 el-white"></i> + 34 672 12 04 12</p>
           </div>
         </div>
       </div>

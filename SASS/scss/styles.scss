@@ -73,7 +73,7 @@ body::-webkit-scrollbar-track {
 }
 
 .btn-amarillo {
-    color: $color-amarillo;
+    //color: $color-amarillo;
     background-color: $color-amarillo !important;
     border-color: $color-amarillo !important;
 }
@@ -93,7 +93,7 @@ body::-webkit-scrollbar-track {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center; // Para centrar horizontalmente dentro del contenedor
+    text-align: center;
 }
 
 .vertical-center-container {
@@ -145,3 +145,13 @@ footer {
         width: auto;
     }
 }
+
+$colores: yellow, white, red;
+
+@for $i from 1 through 3 {
+    $color: nth($colores, $i);
+    .el-#{$color} {
+        color: $color;
+    }
+}
+
