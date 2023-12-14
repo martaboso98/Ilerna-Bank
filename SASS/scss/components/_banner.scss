@@ -1,19 +1,58 @@
 $white-shadow-color: rgb(244, 244, 244);
 
 .banner {
-    width:100vw - 75vw;
+    width: 100vw - 75vw;
+
+    @include tablet() {
+        width: 100vw - 50vw;
+    }
+
+    @include movil() {
+        width: 100vw - 20vw;
+    }
+}
+
+//Función de Sass para la transición
+@function transition($duration, $ease: ease) {
+    @return all $duration $ease;
+}
+
+//Función para el efecto de escala en hover
+@function hover-scale($factor) {
+    @return scale($factor);
 }
 
 .imagenBanner {
     img {
-      transition: all 0.9s ease;
-  
+        transition: transition(0.9s);
+
         &:hover {
-            transform: scale(1.1);
+            transform: hover-scale(1.1);
+        }
+    }
+
+    @include tablet() {
+        img {
+            transition: none;
+
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+
+    @include movil() {
+        img {
+            transition: none;
+
+            &:hover {
+                transform: none;
+            }
         }
     }
 }
-  
+
+
 .negro {
     padding: 8%;
     background-color: rgba(9, 9, 9);
@@ -23,9 +62,9 @@ $white-shadow-color: rgb(244, 244, 244);
 }
 
 @mixin white-shadow($color: $white-shadow-color) {
-    -webkit-box-shadow: 1px 1px 40px $color;
-    -moz-box-shadow: 1px 1px 40px $color;
-    box-shadow: 1px 1px 40px $color;
+    -webkit-box-shadow: 1px 1px 30px $color;
+    -moz-box-shadow: 1px 1px 30px $color;
+    box-shadow: 1px 1px 30px $color;
     border-radius: 2em !important;
 }
 

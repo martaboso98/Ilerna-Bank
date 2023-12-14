@@ -1,7 +1,27 @@
-.movimientos {
+@mixin movArea {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.movimientos {
+    @include movArea;
+}
+
+.areaPersonal {
+    @include movArea;
+
+    @include movil () {
+        font-size: 14px;
+    }
+}
+
+.prestamos {
+    @include movArea;
+
+    @include movil () {
+        font-size: 13px;
+    }
 }
 
 .tablas {
@@ -10,10 +30,10 @@
     tr {
         border-bottom: 1px solid #727272;
     }
-
 }
 
-th, td {
+th,
+td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -26,4 +46,3 @@ th {
 td {
     color: $color-blanco;
 }
-
