@@ -29,6 +29,16 @@ form {
   border-radius: 1em;
   padding: 5%;
 }
+@media (max-width: 980px) {
+  #cambiarDatos form {
+    width: 50vw;
+  }
+}
+@media (max-width: 520px) {
+  #cambiarDatos form {
+    width: 70vw;
+  }
+}
 
 #movimientos form {
   width: 30vw;
@@ -40,17 +50,41 @@ form {
 }
 
 @media (max-width: 980px) {
-  #logIn form, #datosPersonales form, #movimientos form, #pedirPrestamo form, #cuentasAdmin form, #contactoAdmin form {
+  #logIn form,
+  #datosPersonales form,
+  #movimientos form,
+  #cuentasAdmin form,
+  #contactoAdmin form {
     width: 70vw;
   }
 }
 @media (max-width: 520px) {
-  #logIn form, #datosPersonales form, #movimientos form, #pedirPrestamo form, #cuentasAdmin form, #contactoAdmin form {
+  #logIn form,
+  #datosPersonales form,
+  #movimientos form,
+  #cuentasAdmin form,
+  #contactoAdmin form {
     width: 70vw;
   }
 }
 
-#logIn, #datosPersonales, #movimientos, #cuentasAdmin {
+@media (max-width: 980px) {
+  #pedirPrestamo form {
+    width: 50vw;
+    margin-top: 5%;
+  }
+}
+@media (max-width: 520px) {
+  #pedirPrestamo form {
+    width: 70vw;
+  }
+}
+
+#logIn,
+#datosPersonales,
+#movimientos,
+#cuentasAdmin,
+#cambiarDatos {
   padding: 5%;
 }
 
@@ -62,7 +96,7 @@ form {
 }
 @media (max-width: 980px) {
   .acordeon {
-    width: 70%;
+    width: 60%;
   }
 }
 @media (max-width: 520px) {
@@ -101,7 +135,7 @@ form {
 }
 @media (max-width: 980px) {
   .acordeon .contenido {
-    width: 70%;
+    width: 95%;
     font-size: 18px;
   }
 }
@@ -356,4 +390,39 @@ body::-webkit-scrollbar-track {
   color: white;
   text-align: center;
   padding: 0;
+}
+
+#main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
+@media (max-width: 980px) {
+  footer {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 980px) {
+  .btn-ingresar,
+  .btn-retirar {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 980px) {
+  .btn-ingresar,
+  .btn-retirar {
+    display: inline;
+    width: auto;
+  }
 }

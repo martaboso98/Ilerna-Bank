@@ -9,7 +9,7 @@
     color:$color-blanco;
 
     @include tablet () {
-        width: 100% - 30%;
+        width: 100% - 40%;
     }
     
     @include movil () {
@@ -48,7 +48,7 @@
         transition: 0.5s;
 
         @include tablet () {
-            width: 100% - 30%;
+            width: 100% - 5%;
             font-size: 18px;
         }
         

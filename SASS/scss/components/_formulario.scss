@@ -22,6 +22,14 @@ form {
 #cambiarDatos form {
 	@include formulario;
 	padding: 5%;
+
+	@include tablet() {
+		width: 100vw - 50vw;
+	}
+
+	@include movil() {
+		width: 100vw - 30vw;
+	}
 }
 
 #movimientos form {
@@ -29,7 +37,11 @@ form {
 	padding: 5%;
 }
 
-#logIn form, #datosPersonales form, #movimientos form, #pedirPrestamo form, #cuentasAdmin form, #contactoAdmin form{
+#logIn form,
+#datosPersonales form,
+#movimientos form,
+#cuentasAdmin form,
+#contactoAdmin form {
 	@include tablet() {
 		width: 100vw - 30vw;
 	}
@@ -39,6 +51,21 @@ form {
 	}
 }
 
-#logIn, #datosPersonales, #movimientos, #cuentasAdmin {
+#pedirPrestamo form {
+	@include tablet() {
+		width: 100vw - 50vw;
+		margin-top: 5%;
+	}
+
+	@include movil() {
+		width: 100vw - 30vw;
+	}
+}
+
+#logIn,
+#datosPersonales,
+#movimientos,
+#cuentasAdmin,
+#cambiarDatos {
 	padding: 5%;
 }

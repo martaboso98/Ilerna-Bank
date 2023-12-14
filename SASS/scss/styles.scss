@@ -36,11 +36,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #505458; 
+    background-color: #505458;
 }
 
 body::-webkit-scrollbar-track {
-    background-color: #0e1215; 
+    background-color: #0e1215;
 }
 
 /*Fin barra scroll*/
@@ -81,12 +81,12 @@ body::-webkit-scrollbar-track {
 .imagenUsuario {
     width: 100% - 88%;
     height: auto;
+
     @include movil () {
         width: 100% - 65%;
     }
-    @include tablet () {
 
-    }
+    @include tablet () {}
 }
 
 .centrarImagen {
@@ -119,3 +119,29 @@ body::-webkit-scrollbar-track {
     padding: 0;
 }
 
+#main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+
+    @include tablet () {
+        font-size: 12px;
+    }
+}
+
+.btn-ingresar,
+.btn-retirar {
+    @include tablet () {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    @include tablet () {
+        display: inline;
+        width: auto;
+    }
+}
